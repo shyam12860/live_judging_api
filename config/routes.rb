@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
-  apipie
+  resources :users, except: [:new, :edit]
+  constraints subdomain: 'api' do
+    apipie
+    root to: 'apipie/apipies#index'
 
-  root to: 'apipie/apipies#index'
-
-  resources :users
+    resources :users, only: [ :index, :show ]
+  end
 end
