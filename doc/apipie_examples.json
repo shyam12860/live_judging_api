@@ -1,0 +1,186 @@
+{
+  "apipies#index": [
+    {
+      "verb": "GET",
+      "path": "/apipie/1.0/users/create.html",
+      "versions": [
+
+      ],
+      "query": null,
+      "request_data": null,
+      "response_data": null,
+      "code": 200,
+      "show_in_doc": 0,
+      "recorded": true
+    },
+    {
+      "verb": "GET",
+      "path": "/apipie/1.0/users/index.html",
+      "versions": [
+
+      ],
+      "query": null,
+      "request_data": null,
+      "response_data": null,
+      "code": 200,
+      "show_in_doc": 0,
+      "recorded": true
+    },
+    {
+      "verb": "GET",
+      "path": "/apipie/1.0/sessions/create.html",
+      "versions": [
+
+      ],
+      "query": null,
+      "request_data": null,
+      "response_data": null,
+      "code": 200,
+      "show_in_doc": 0,
+      "recorded": true
+    },
+    {
+      "verb": "GET",
+      "path": "/apipie/1.0/sessions/destroy.html",
+      "versions": [
+
+      ],
+      "query": null,
+      "request_data": null,
+      "response_data": null,
+      "code": 200,
+      "show_in_doc": 0,
+      "recorded": true
+    }
+  ],
+  "sessions#create": [
+    {
+      "verb": "GET",
+      "path": "/login",
+      "versions": [
+        "1.0"
+      ],
+      "query": null,
+      "request_data": null,
+      "response_data": {
+        "user": {
+          "id": 1,
+          "email": "test@test.com",
+          "first_name": "test",
+          "last_name": "test",
+          "token": {
+            "access_token": "fdd073708674a6534182ea4adf90de8e"
+          }
+        }
+      },
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    },
+    {
+      "verb": "GET",
+      "path": "/login",
+      "versions": [
+        "1.0"
+      ],
+      "query": null,
+      "request_data": null,
+      "response_data": {
+        "user": {
+          "id": 1,
+          "email": "test@test.com",
+          "first_name": "test",
+          "last_name": "test",
+          "token": {
+            "access_token": "fdd073708674a6534182ea4adf90de8e"
+          }
+        }
+      },
+      "code": 200,
+      "show_in_doc": 0,
+      "recorded": true
+    }
+  ],
+  "sessions#destroy": [
+    {
+      "verb": "GET",
+      "path": "/logout",
+      "versions": [
+        "1.0"
+      ],
+      "query": null,
+      "request_data": null,
+      "response_data": null,
+      "code": 204,
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "users#create": [
+    {
+      "verb": "POST",
+      "path": "/users",
+      "versions": [
+        "1.0"
+      ],
+      "query": null,
+      "request_data": {
+        "user": {
+          "first_name": "Stephen",
+          "last_name": "Dolan",
+          "email": "test_email3@gmail.com",
+          "password": "testpass",
+          "password_confirmation": "testpass"
+        }
+      },
+      "response_data": {
+        "user": {
+          "id": 9,
+          "email": "test_email3@gmail.com",
+          "first_name": "Stephen",
+          "last_name": "Dolan",
+          "token": {
+            "access_token": "95fc6a375d6cb246392d7dabddc34b84"
+          }
+        }
+      },
+      "code": 201,
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ],
+  "users#index": [
+    {
+      "verb": "GET",
+      "path": "/users",
+      "versions": [
+        "1.0"
+      ],
+      "query": null,
+      "request_data": null,
+      "response_data": {
+        "users": [
+          {
+            "id": 1,
+            "email": "test@test.com",
+            "first_name": "test",
+            "last_name": "test",
+            "token": {
+              "access_token": "fdd073708674a6534182ea4adf90de8e"
+            }
+          },
+          {
+            "id": 2,
+            "email": "this.stephen1@gmail.com",
+            "first_name": "Stephen",
+            "last_name": "Dolan",
+            "token": null
+          }
+        ]
+      },
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    }
+  ]
+}

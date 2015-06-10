@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   has_secure_password
 
-  before_create :set_auth_token
+  after_create :set_auth_token
 
   has_one :token
 
@@ -26,6 +26,7 @@ class User < ActiveRecord::Base
 
   def set_auth_token
     return if self.token.present?
-    Token.create!( user: self )
+
+    Token.create( user: self )
   end
 end

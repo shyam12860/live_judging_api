@@ -9,10 +9,9 @@ class Token < ActiveRecord::Base
   validates :expires_at,
     presence: true
 
-  def to_s
-    access_token
-  end
-  
+  validates :user,
+    presence: true
+
   private
     def generate_access_token
       begin

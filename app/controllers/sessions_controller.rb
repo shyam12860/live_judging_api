@@ -3,16 +3,21 @@ class SessionsController < ApplicationController
   before_action :authenticate_basic, only: :create
 
   api :GET, "/login", "Returns a user and its token"
+    description "Returns User JSON object on success, error on failure"
     error code: :unauthorized, desc: " - Bad Base64 email:password"
+    header "Authorization", "Basic [Base64 email:password]", required: true
   def create
     @user.set_auth_token
     render json: @user, status: :ok
   end
 
-  api! "Uses HTTP Token Authentication"
+  api :GET, "/logout", "Uses HTTP Token Authentication"
+    description "Returns no content and an 'OK' status on success, error on failure"
+    error code: :unauthorized, desc: " - Bad Token"
+    header "Authorization", "Token token=[access_token]", required: true
   def destroy
     @user.token.destroy
-    head :no_content
+    head :no_content, status: :ok
   end
 
   private
