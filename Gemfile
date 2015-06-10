@@ -7,7 +7,7 @@ gem 'sqlite3'
 gem 'bcrypt'
 
 # Utility
-gem 'apipie-rails',             '~> 0.3.4' # API Generator
+gem 'apipie-rails', github: 'Apipie/apipie-rails', branch: 'master'
 gem 'active_model_serializers', '~> 0.9.3' # JSON Serializer
 gem 'email_validator',          '~> 1.6.0' # Helper for validating email fields
 
@@ -19,4 +19,7 @@ gem 'capistrano-rvm',           '~> 0.1.2'    # Deployment Helper
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.2.3'
+  gem 'guard'
+  gem 'guard-livereload'
+  gem 'guard-rails'
 end

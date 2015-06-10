@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::API
   include ActionController::Serialization
   include ActionController::HttpAuthentication::Token::ControllerMethods
+  include ActionController::HttpAuthentication::Basic::ControllerMethods
 
   before_action :authenticate
 
@@ -11,12 +12,11 @@ class ApplicationController < ActionController::API
 
     def authenticate_token
       authenticate_with_http_token do |token|
-        Token.where( access_token: token ).first.user
+        @user = Token.where( access_token: token ).first.user
       end
     end
 
     def render_unauthorized
-      self.headers['WWW-Authenticate'] = 'Token realm="Application"'
-      render json: 'Bad credentials', status: :unauthorized
+      render json: 'Bad credentials. Token required.', status: :unauthorized
     end
 end

@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 3) do
 
   create_table "tokens", force: :cascade do |t|
     t.string   "access_token",                                 null: false
-    t.datetime "expires_at",   default: '2015-06-22 23:46:18', null: false
+    t.datetime "expires_at",   default: '2015-06-24 02:58:54', null: false
     t.integer  "user_id"
     t.datetime "created_at",                                   null: false
     t.datetime "updated_at",                                   null: false
@@ -24,12 +24,12 @@ ActiveRecord::Schema.define(version: 3) do
   add_index "tokens", ["access_token"], name: "index_tokens_on_access_token", unique: true
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",      null: false
-    t.string   "password",   null: false
-    t.string   "first_name", null: false
-    t.string   "last_name",  null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "email",           null: false
+    t.string   "password_digest", null: false
+    t.string   "first_name",      null: false
+    t.string   "last_name",       null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

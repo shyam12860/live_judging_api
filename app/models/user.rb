@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  has_secure_password
+
   before_create :set_auth_token
 
   has_one :token
@@ -8,9 +10,8 @@ class User < ActiveRecord::Base
     email: true,
     uniqueness: true
 
-  validates :password,
-    presence: true,
-    length: { minimum: 4 }
+  validates :password_digest,
+    presence: true
 
   validates :first_name,
     presence: true
@@ -18,14 +19,13 @@ class User < ActiveRecord::Base
   validates :last_name,
     presence: true
 
-  def password=(secret)
-    write_attribute( :password, BCrypt::Password.create( secret ) )
+  def self.authenticate( email, password )
+    user = find_by( email: email)
+    user && user.authenticate( password )
   end
 
-  private
-    
-    def set_auth_token
-      return if self.token.present?
-      Token.create!.user = self
-    end
+  def set_auth_token
+    return if self.token.present?
+    Token.create!( user: self )
+  end
 end

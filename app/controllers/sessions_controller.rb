@@ -1,39 +1,33 @@
 class SessionsController < ApplicationController
-  skip_before_action :authenticate
+  skip_before_action :authenticate, only: :create
+  before_action :authenticate_basic, only: :create
 
-  api!
+  api :GET, "/login", "Returns a user and its token"
+    error code: :unauthorized, desc: " - Bad Base64 email:password"
   def create
-    if params[:email]
-      @user = User.where( email: params[:email] ).first
-
-      if provided_valid_password || provided_valid_api_key
-        render json: @user, status: :ok
-      else
-        render json: "Unauthorized", status: :unauthorized
-      end
-    end
+    @user.set_auth_token
+    render json: @user, status: :ok
   end
 
-  api!
+  api! "Uses HTTP Token Authentication"
   def destroy
-    if params[:email]
-      @user = User.where( email: params[:email] ).first
-
-      if provided_valid_password || provided_valid_api_key
-        @user.token.destroy
-        head :no_content
-      else
-        render json: "Unauthorized", status: :unauthorized
-      end
-    end
+    @user.token.destroy
+    head :no_content
   end
 
   private
-    def provided_valid_password
-      params[:password] && @user && BCrypt::Password.new( @user.password ) == params[:password]
+    def authenticate_basic
+      authenticate_basic_auth || render_unauthorized_basic
     end
 
-    def provided_valid_api_key
-      params[:api_key] && @user && @user.token.api_key == params[:api_key]
+    def authenticate_basic_auth
+      authenticate_with_http_basic do |email, password|
+        @user = User.where( email: email ).first
+        User.authenticate( email, password )
+      end
+    end
+
+    def render_unauthorized_basic
+      render json: 'Bad credentials. Username/Password required.', status: :unauthorized
     end
 end
