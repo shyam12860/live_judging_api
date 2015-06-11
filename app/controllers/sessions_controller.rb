@@ -17,7 +17,7 @@ class SessionsController < ApplicationController
     header "Authorization", "Token token=[access_token]", required: true
   def destroy
     @user.token.destroy
-    head :no_content, status: :ok
+    head :no_content
   end
 
   private
@@ -33,6 +33,6 @@ class SessionsController < ApplicationController
     end
 
     def render_unauthorized_basic
-      render json: 'Bad credentials. Username/Password required.', status: :unauthorized
+      render json: 'Bad credentials. Email/Password required.', status: :unauthorized
     end
 end

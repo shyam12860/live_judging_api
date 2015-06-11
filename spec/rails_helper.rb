@@ -28,6 +28,7 @@ RSpec.configure do |config|
   config.fail_fast                  = true
   config.formatter                  = 'documentation'
   config.include FactoryGirl::Syntax::Methods
+  config.include JSONMacros
 
   # APIPIE
   config.filter_run :show_in_doc => true if ENV['APIPIE_RECORD']
