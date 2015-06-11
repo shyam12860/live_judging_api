@@ -69,6 +69,13 @@ RSpec.describe User, :show_in_doc do
     expect( user.errors[:last_name] ).to include( "can't be blank" )
   end
 
+  it "retains its old token when updating" do
+    old_token = user.token
+    user.last_name = 'Test'
+    user.save
+    expect( user.token ).to eq( old_token )
+  end
+
   it "generates a token after being created" do
     expect( user.token ).not_to be_blank
   end

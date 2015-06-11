@@ -1,5 +1,5 @@
 class Token < ActiveRecord::Base
-  before_validation :generate_access_token
+  before_validation :generate_access_token, on: :create
 
   belongs_to :user
 
