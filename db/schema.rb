@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 3) do
+ActiveRecord::Schema.define(version: 10) do
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string   "slug",                      null: false
@@ -26,9 +26,15 @@ ActiveRecord::Schema.define(version: 3) do
   add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
   add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
 
+  create_table "roles", force: :cascade do |t|
+    t.string "label", null: false
+  end
+
+  add_index "roles", ["label"], name: "index_roles_on_label", unique: true
+
   create_table "tokens", force: :cascade do |t|
     t.string   "access_token",                                 null: false
-    t.datetime "expires_at",   default: '2015-06-26 01:58:34', null: false
+    t.datetime "expires_at",   default: '2015-06-26 03:46:03', null: false
     t.integer  "user_id"
     t.datetime "created_at",                                   null: false
     t.datetime "updated_at",                                   null: false
@@ -42,6 +48,7 @@ ActiveRecord::Schema.define(version: 3) do
     t.string   "first_name",      null: false
     t.string   "last_name",       null: false
     t.string   "slug"
+    t.integer  "role_id",         null: false
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end

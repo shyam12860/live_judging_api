@@ -5,8 +5,10 @@ class User < ActiveRecord::Base
   has_secure_password
 
   after_create :set_auth_token
+  before_validation :set_default_role, on: :create
 
   has_one :token
+  belongs_to :role
 
   validates :email,
     presence: true,
@@ -30,8 +32,23 @@ class User < ActiveRecord::Base
   validates :last_name,
     presence: true
 
+  validates :role,
+    presence: true
+
   def name
     [first_name, last_name].join " "
+  end
+
+  def admin?
+    role == Role.find_by_label( 'admin' )
+  end
+
+  def organizer?
+    role == Role.find_by_label( 'organizer' )
+  end
+
+  def judge?
+    role == Role.find_by_label( 'judge' )
   end
 
   def self.authenticate( email, password )
@@ -39,16 +56,19 @@ class User < ActiveRecord::Base
     user && user.authenticate( password )
   end
 
-  # Make sure that we get a token after the user is created
+  # FriendlyID Strings made more pretty
+  def normalize_friendly_id( string )
+    super.gsub( "-", "_" )
+  end
+
   def set_auth_token
     return if self.token.present?
 
     Token.create( user: self )
   end
 
-  # FriendlyID Strings made more pretty
-  def normalize_friendly_id( string )
-    super.gsub( "-", "_" )
-  end
-
+  private
+    def set_default_role
+      self.role ||= Role.find_by_label( 'organizer' )
+    end
 end

@@ -11,10 +11,11 @@
       "response_data": {
         "user": {
           "id": 1,
-          "email": "cyril_beier@veumschowalter.info",
-          "name": "Cyril Beier",
+          "email": "lacy_predovic@donnellybuckridge.org",
+          "name": "Lacy Predovic",
+          "role": "organizer",
           "token": {
-            "access_token": "8107af804a678e8f76946eb3174ac6ee"
+            "access_token": "b7a2505d29c6463f1bf02ea6e7381de3"
           }
         }
       },
@@ -33,10 +34,11 @@
       "response_data": {
         "user": {
           "id": 1,
-          "email": "shanie_pagac@murphy.com",
-          "name": "Shanie Pagac",
+          "email": "loyce_lynch@orn.com",
+          "name": "Loyce Lynch",
+          "role": "organizer",
           "token": {
-            "access_token": "1a50ece51c5fd6f6eeff5286989114f5"
+            "access_token": "5ca8e4a6f95598ae0199608f80039ed4"
           }
         }
       },
@@ -81,14 +83,15 @@
         "1.0"
       ],
       "query": null,
-      "request_data": "first_name=Eriberto&last_name=Swift&email=eriberto_swift%40adamshoppe.name&password=yjypu5f7k&password_confirmation=yjypu5f7k",
+      "request_data": "first_name=Keeley&last_name=Mosciski&email=keeley_mosciski%40carroll.info&password=038kxjf3&password_confirmation=038kxjf3&role=%23%3CRole%3A0x000000076b2a90%3E",
       "response_data": {
         "user": {
           "id": 1,
-          "email": "eriberto_swift@adamshoppe.name",
-          "name": "Eriberto Swift",
+          "email": "keeley_mosciski@carroll.info",
+          "name": "Keeley Mosciski",
+          "role": "organizer",
           "token": {
-            "access_token": "0ad880e7a889db8c17cdc1e68dd00d0e"
+            "access_token": "ab6e2c16e37d4b6b56557f32094d63eb"
           }
         }
       },
@@ -103,14 +106,15 @@
         "1.0"
       ],
       "query": null,
-      "request_data": "first_name=Tevin&last_name=Reynolds&email=tevin_reynolds%40howetrantow.info&password=mwxe8resz&password_confirmation=mwxe8resz",
+      "request_data": "first_name=Cornelius&last_name=Labadie&email=cornelius_labadie%40stehr.biz&password=ga933qfc7&password_confirmation=ga933qfc7&role=%23%3CRole%3A0x00000007fa4928%3E",
       "response_data": {
         "user": {
           "id": 1,
-          "email": "tevin_reynolds@howetrantow.info",
-          "name": "Tevin Reynolds",
+          "email": "cornelius_labadie@stehr.biz",
+          "name": "Cornelius Labadie",
+          "role": "organizer",
           "token": {
-            "access_token": "b0a22810896de2cce71368fa2f828a5e"
+            "access_token": "2be71179295d598e175bd3c0b368d8cf"
           }
         }
       },
@@ -132,18 +136,20 @@
         "users": [
           {
             "id": 1,
-            "email": "wade_gottlieb@nienow.info",
-            "name": "Wade Gottlieb",
+            "email": "yadira_cassin@gusikowski.org",
+            "name": "Yadira Cassin",
+            "role": "organizer",
             "token": {
-              "access_token": "3e4a5b560b8f5ed90c850204f526aec4"
+              "access_token": "c8c53ed17251fd2487c4277512e75cb1"
             }
           },
           {
             "id": 2,
-            "email": "alfonzo_dietrich@jenkins.name",
-            "name": "Alfonzo Dietrich",
+            "email": "henderson_nolan@barrowsbahringer.com",
+            "name": "Henderson Nolan",
+            "role": "organizer",
             "token": {
-              "access_token": "6b52ba4c90225e40fe75bc5a31c41e30"
+              "access_token": "7665f305f705939931b71516692da80d"
             }
           }
         ]
@@ -164,18 +170,20 @@
         "users": [
           {
             "id": 1,
-            "email": "tate_o_keefe@spencerschaefer.org",
-            "name": "Tate O'Keefe",
+            "email": "elmore_batz@jaskolskitorp.biz",
+            "name": "Elmore Batz",
+            "role": "organizer",
             "token": {
-              "access_token": "a5f0794948626be3fca75b74d854d5fe"
+              "access_token": "dc09529298866d093df50878f8db2d61"
             }
           },
           {
             "id": 2,
-            "email": "pierce_larkin@konopelskikaulke.net",
-            "name": "Pierce Larkin",
+            "email": "cloyd_lueilwitz@turner.com",
+            "name": "Cloyd Lueilwitz",
+            "role": "organizer",
             "token": {
-              "access_token": "ecd7ec8c763671107d40603f9147e959"
+              "access_token": "88d8535cf160cef9df98efa933bdb41f"
             }
           }
         ]
@@ -197,10 +205,11 @@
       "response_data": {
         "user": {
           "id": 1,
-          "email": "cassidy_mann@goldner.info",
-          "name": "Cassidy Mann",
+          "email": "brandon_moen@little.com",
+          "name": "Brandon Moen",
+          "role": "organizer",
           "token": {
-            "access_token": "4e44369a4776a8d225094af405c3e744"
+            "access_token": "48c53e629cbdd6711b40bcf4ddfb5bbd"
           }
         }
       },
@@ -219,10 +228,11 @@
       "response_data": {
         "user": {
           "id": 1,
-          "email": "rey_larson@stantonmcdermott.info",
-          "name": "Rey Larson",
+          "email": "mason_powlowski@abshiregusikowski.net",
+          "name": "Mason Powlowski",
+          "role": "organizer",
           "token": {
-            "access_token": "26e28dbe590da51212c38e759735fb5a"
+            "access_token": "cc8a56b9ee42bd800ffe9f865a090a8a"
           }
         }
       },
@@ -239,14 +249,15 @@
         "1.0"
       ],
       "query": null,
-      "request_data": "first_name=Updated&last_name=Name&email=updated_name%40mohr.com&password=ir4xc1ksn&password_confirmation=ir4xc1ksn",
+      "request_data": "first_name=Updated&last_name=Name&email=updated_name%40blickyost.org&password=1rnf3qrtg&password_confirmation=1rnf3qrtg&role=%23%3CRole%3A0x000000070e30d8%3E",
       "response_data": {
         "user": {
           "id": 1,
-          "email": "updated_name@mohr.com",
+          "email": "updated_name@blickyost.org",
           "name": "Updated Name",
+          "role": "organizer",
           "token": {
-            "access_token": "5aeb39e8d2b62ece77c6b997f20dcfde"
+            "access_token": "8ef26f4ceb3d3f827a8644681475da83"
           }
         }
       },
@@ -261,14 +272,15 @@
         "1.0"
       ],
       "query": null,
-      "request_data": "first_name=Updated&last_name=Name&email=updated_name%40reillypfeffer.biz&password=jc36z1bb&password_confirmation=jc36z1bb",
+      "request_data": "first_name=Updated&last_name=Name&email=updated_name%40blockmarquardt.net&password=65jbw61sd&password_confirmation=65jbw61sd&role=%23%3CRole%3A0x00000006a2f8e0%3E",
       "response_data": {
         "user": {
           "id": 1,
-          "email": "updated_name@reillypfeffer.biz",
+          "email": "updated_name@blockmarquardt.net",
           "name": "Updated Name",
+          "role": "organizer",
           "token": {
-            "access_token": "517635488da2bcb98b0dd30fe671d0db"
+            "access_token": "474975408bac40acca28944708535245"
           }
         }
       },
@@ -283,14 +295,15 @@
         "1.0"
       ],
       "query": null,
-      "request_data": "first_name=Updated&last_name=Name&email=updated_name%40medhurstlubowitz.name&password=jtchfiij&password_confirmation=jtchfiij",
+      "request_data": "first_name=Updated&last_name=Name&email=updated_name%40cormierschimmel.name&password=6e8j9i2vv&password_confirmation=6e8j9i2vv&role=%23%3CRole%3A0x000000068900c0%3E",
       "response_data": {
         "user": {
           "id": 1,
-          "email": "updated_name@medhurstlubowitz.name",
+          "email": "updated_name@cormierschimmel.name",
           "name": "Updated Name",
+          "role": "organizer",
           "token": {
-            "access_token": "1589039d08f84a6d874af2674fd73cbf"
+            "access_token": "78c6777796e065c249b9df8663c124bf"
           }
         }
       },

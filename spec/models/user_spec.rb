@@ -69,6 +69,12 @@ RSpec.describe User, :show_in_doc do
     expect( user.errors[:last_name] ).to include( "can't be blank" )
   end
 
+  it "is invalid without a role" do
+    user.role = nil
+    user.valid?
+    expect( user.errors[:role] ).to include( "can't be blank" )
+  end
+
   it "retains its old token when updating" do
     old_token = user.token
     user.last_name = 'Test'
@@ -78,5 +84,71 @@ RSpec.describe User, :show_in_doc do
 
   it "generates a token after being created" do
     expect( user.token ).not_to be_blank
+  end
+
+  describe "admin users" do
+    let( :admin_user ) { create( :admin_user ) }
+
+    describe "#admin?" do
+      it "returns true" do
+        expect( admin_user.admin? ).to be true
+      end
+    end
+
+    describe "#organizer?" do
+      it "returns false" do
+        expect( admin_user.organizer? ).to be false
+      end
+    end
+
+    describe "#judge?" do
+      it "returns false" do
+        expect( admin_user.judge? ).to be false
+      end
+    end
+  end
+
+  describe "organizer users" do
+    let( :organizer_user ) { create( :organizer_user ) }
+
+    describe "#admin?" do
+      it "returns false" do
+        expect( organizer_user.admin? ).to be false
+      end
+    end
+
+    describe "#organizer?" do
+      it "returns true" do
+        expect( organizer_user.organizer? ).to be true
+      end
+    end
+
+    describe "#judge?" do
+      it "returns false" do
+        expect( organizer_user.judge? ).to be false
+      end
+    end
+  end
+
+  describe "judge users" do
+    let( :judge_user ) { create( :judge_user ) }
+
+    describe "#admin?" do
+      it "returns false" do
+        expect( judge_user.admin? ).to be false
+      end
+    end
+
+    describe "#organizer?" do
+      it "returns false" do
+        expect( judge_user.organizer? ).to be false
+      end
+    end
+
+    describe "#judge?" do
+      it "returns true" do
+        expect( judge_user.judge? ).to be true
+      end
+    end
   end
 end
