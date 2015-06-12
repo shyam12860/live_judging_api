@@ -5,10 +5,12 @@ class CreateUsers < ActiveRecord::Migration
       t.string :password_digest, null: false
       t.string :first_name,      null: false
       t.string :last_name,       null: false
+      t.string :slug
 
       t.timestamps               null: false
     end
 
     add_index :users, :email, unique: true
+    add_index :users, :slug, unique: true
   end
 end

@@ -1,58 +1,4 @@
 {
-  "apipies#index": [
-    {
-      "verb": "GET",
-      "path": "/apipie/1.0/users/create.html",
-      "versions": [
-
-      ],
-      "query": null,
-      "request_data": null,
-      "response_data": null,
-      "code": 200,
-      "show_in_doc": 0,
-      "recorded": true
-    },
-    {
-      "verb": "GET",
-      "path": "/apipie/1.0/users/index.html",
-      "versions": [
-
-      ],
-      "query": null,
-      "request_data": null,
-      "response_data": null,
-      "code": 200,
-      "show_in_doc": 0,
-      "recorded": true
-    },
-    {
-      "verb": "GET",
-      "path": "/apipie/1.0/sessions/create.html",
-      "versions": [
-
-      ],
-      "query": null,
-      "request_data": null,
-      "response_data": null,
-      "code": 200,
-      "show_in_doc": 0,
-      "recorded": true
-    },
-    {
-      "verb": "GET",
-      "path": "/apipie/1.0/sessions/destroy.html",
-      "versions": [
-
-      ],
-      "query": null,
-      "request_data": null,
-      "response_data": null,
-      "code": 200,
-      "show_in_doc": 0,
-      "recorded": true
-    }
-  ],
   "sessions#create": [
     {
       "verb": "GET",
@@ -65,11 +11,10 @@
       "response_data": {
         "user": {
           "id": 1,
-          "email": "test@test.com",
-          "first_name": "test",
-          "last_name": "test",
+          "email": "cyril_beier@veumschowalter.info",
+          "name": "Cyril Beier",
           "token": {
-            "access_token": "fdd073708674a6534182ea4adf90de8e"
+            "access_token": "8107af804a678e8f76946eb3174ac6ee"
           }
         }
       },
@@ -88,11 +33,10 @@
       "response_data": {
         "user": {
           "id": 1,
-          "email": "test@test.com",
-          "first_name": "test",
-          "last_name": "test",
+          "email": "shanie_pagac@murphy.com",
+          "name": "Shanie Pagac",
           "token": {
-            "access_token": "fdd073708674a6534182ea4adf90de8e"
+            "access_token": "1a50ece51c5fd6f6eeff5286989114f5"
           }
         }
       },
@@ -114,6 +58,19 @@
       "code": 204,
       "show_in_doc": 1,
       "recorded": true
+    },
+    {
+      "verb": "GET",
+      "path": "/logout",
+      "versions": [
+        "1.0"
+      ],
+      "query": null,
+      "request_data": null,
+      "response_data": null,
+      "code": 204,
+      "show_in_doc": 0,
+      "recorded": true
     }
   ],
   "users#create": [
@@ -124,28 +81,41 @@
         "1.0"
       ],
       "query": null,
-      "request_data": {
-        "user": {
-          "first_name": "Stephen",
-          "last_name": "Dolan",
-          "email": "test_email3@gmail.com",
-          "password": "testpass",
-          "password_confirmation": "testpass"
-        }
-      },
+      "request_data": "first_name=Eriberto&last_name=Swift&email=eriberto_swift%40adamshoppe.name&password=yjypu5f7k&password_confirmation=yjypu5f7k",
       "response_data": {
         "user": {
-          "id": 9,
-          "email": "test_email3@gmail.com",
-          "first_name": "Stephen",
-          "last_name": "Dolan",
+          "id": 1,
+          "email": "eriberto_swift@adamshoppe.name",
+          "name": "Eriberto Swift",
           "token": {
-            "access_token": "95fc6a375d6cb246392d7dabddc34b84"
+            "access_token": "0ad880e7a889db8c17cdc1e68dd00d0e"
           }
         }
       },
       "code": 201,
       "show_in_doc": 1,
+      "recorded": true
+    },
+    {
+      "verb": "POST",
+      "path": "/users",
+      "versions": [
+        "1.0"
+      ],
+      "query": null,
+      "request_data": "first_name=Tevin&last_name=Reynolds&email=tevin_reynolds%40howetrantow.info&password=mwxe8resz&password_confirmation=mwxe8resz",
+      "response_data": {
+        "user": {
+          "id": 1,
+          "email": "tevin_reynolds@howetrantow.info",
+          "name": "Tevin Reynolds",
+          "token": {
+            "access_token": "b0a22810896de2cce71368fa2f828a5e"
+          }
+        }
+      },
+      "code": 201,
+      "show_in_doc": 0,
       "recorded": true
     }
   ],
@@ -162,24 +132,170 @@
         "users": [
           {
             "id": 1,
-            "email": "test@test.com",
-            "first_name": "test",
-            "last_name": "test",
+            "email": "wade_gottlieb@nienow.info",
+            "name": "Wade Gottlieb",
             "token": {
-              "access_token": "fdd073708674a6534182ea4adf90de8e"
+              "access_token": "3e4a5b560b8f5ed90c850204f526aec4"
             }
           },
           {
             "id": 2,
-            "email": "this.stephen1@gmail.com",
-            "first_name": "Stephen",
-            "last_name": "Dolan",
-            "token": null
+            "email": "alfonzo_dietrich@jenkins.name",
+            "name": "Alfonzo Dietrich",
+            "token": {
+              "access_token": "6b52ba4c90225e40fe75bc5a31c41e30"
+            }
           }
         ]
       },
       "code": 200,
       "show_in_doc": 1,
+      "recorded": true
+    },
+    {
+      "verb": "GET",
+      "path": "/users",
+      "versions": [
+        "1.0"
+      ],
+      "query": null,
+      "request_data": null,
+      "response_data": {
+        "users": [
+          {
+            "id": 1,
+            "email": "tate_o_keefe@spencerschaefer.org",
+            "name": "Tate O'Keefe",
+            "token": {
+              "access_token": "a5f0794948626be3fca75b74d854d5fe"
+            }
+          },
+          {
+            "id": 2,
+            "email": "pierce_larkin@konopelskikaulke.net",
+            "name": "Pierce Larkin",
+            "token": {
+              "access_token": "ecd7ec8c763671107d40603f9147e959"
+            }
+          }
+        ]
+      },
+      "code": 200,
+      "show_in_doc": 0,
+      "recorded": true
+    }
+  ],
+  "users#show": [
+    {
+      "verb": "GET",
+      "path": "/users/1",
+      "versions": [
+        "1.0"
+      ],
+      "query": null,
+      "request_data": null,
+      "response_data": {
+        "user": {
+          "id": 1,
+          "email": "cassidy_mann@goldner.info",
+          "name": "Cassidy Mann",
+          "token": {
+            "access_token": "4e44369a4776a8d225094af405c3e744"
+          }
+        }
+      },
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    },
+    {
+      "verb": "GET",
+      "path": "/users/1",
+      "versions": [
+        "1.0"
+      ],
+      "query": null,
+      "request_data": null,
+      "response_data": {
+        "user": {
+          "id": 1,
+          "email": "rey_larson@stantonmcdermott.info",
+          "name": "Rey Larson",
+          "token": {
+            "access_token": "26e28dbe590da51212c38e759735fb5a"
+          }
+        }
+      },
+      "code": 200,
+      "show_in_doc": 0,
+      "recorded": true
+    }
+  ],
+  "users#update": [
+    {
+      "verb": "PUT",
+      "path": "/users/1",
+      "versions": [
+        "1.0"
+      ],
+      "query": null,
+      "request_data": "first_name=Updated&last_name=Name&email=updated_name%40mohr.com&password=ir4xc1ksn&password_confirmation=ir4xc1ksn",
+      "response_data": {
+        "user": {
+          "id": 1,
+          "email": "updated_name@mohr.com",
+          "name": "Updated Name",
+          "token": {
+            "access_token": "5aeb39e8d2b62ece77c6b997f20dcfde"
+          }
+        }
+      },
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    },
+    {
+      "verb": "PUT",
+      "path": "/users/1",
+      "versions": [
+        "1.0"
+      ],
+      "query": null,
+      "request_data": "first_name=Updated&last_name=Name&email=updated_name%40reillypfeffer.biz&password=jc36z1bb&password_confirmation=jc36z1bb",
+      "response_data": {
+        "user": {
+          "id": 1,
+          "email": "updated_name@reillypfeffer.biz",
+          "name": "Updated Name",
+          "token": {
+            "access_token": "517635488da2bcb98b0dd30fe671d0db"
+          }
+        }
+      },
+      "code": 200,
+      "show_in_doc": 0,
+      "recorded": true
+    },
+    {
+      "verb": "PUT",
+      "path": "/users/1",
+      "versions": [
+        "1.0"
+      ],
+      "query": null,
+      "request_data": "first_name=Updated&last_name=Name&email=updated_name%40medhurstlubowitz.name&password=jtchfiij&password_confirmation=jtchfiij",
+      "response_data": {
+        "user": {
+          "id": 1,
+          "email": "updated_name@medhurstlubowitz.name",
+          "name": "Updated Name",
+          "token": {
+            "access_token": "1589039d08f84a6d874af2674fd73cbf"
+          }
+        }
+      },
+      "code": 200,
+      "show_in_doc": 0,
       "recorded": true
     }
   ]

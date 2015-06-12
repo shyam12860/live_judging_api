@@ -5,6 +5,8 @@ class ApplicationController < ActionController::API
 
   before_action :authenticate
 
+  rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
+
   protected
     def authenticate
       authenticate_token || render_unauthorized
@@ -19,5 +21,9 @@ class ApplicationController < ActionController::API
 
     def render_unauthorized
       render json: 'Bad credentials. Token required.', status: :unauthorized
+    end
+
+    def record_not_found
+      head :not_found
     end
 end

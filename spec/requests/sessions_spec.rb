@@ -5,8 +5,8 @@ describe "Sessions API" do
   before { host! "api.example.com" }
   let( :user ) { create( :user ) }
 
-  describe "GET /login", :show_in_doc do
-    describe "with valid credentials" do
+  describe "GET /login" do
+    describe "with valid credentials", :show_in_doc do
       before :each do
         base_64 = Base64.encode64( user.email + ":" + user.password )
         get "/login", nil, { "Authorization" => "Basic " + base_64 }
@@ -17,7 +17,7 @@ describe "Sessions API" do
       end
 
       it "returns the correct JSON" do
-        expect( response.body ).to eq( UserSerializer.new( user ).to_json )
+        expect( response.body ).to eq( serialize( UserSerializer, user ) )
       end
     end
 
@@ -37,8 +37,8 @@ describe "Sessions API" do
     end
   end
 
-  describe "GET /logout", :show_in_doc do
-    describe "with valid token" do
+  describe "GET /logout" do
+    describe "with valid token", :show_in_doc do
       before :each do
         get "/logout", nil, { "Authorization" => "Token token=" + user.token.access_token }
       end
