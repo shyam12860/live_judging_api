@@ -86,28 +86,6 @@ RSpec.describe User, :show_in_doc do
     expect( user.token ).not_to be_blank
   end
 
-  describe "admin users" do
-    let( :admin_user ) { create( :admin_user ) }
-
-    describe "#admin?" do
-      it "returns true" do
-        expect( admin_user.admin? ).to be true
-      end
-    end
-
-    describe "#organizer?" do
-      it "returns false" do
-        expect( admin_user.organizer? ).to be false
-      end
-    end
-
-    describe "#judge?" do
-      it "returns false" do
-        expect( admin_user.judge? ).to be false
-      end
-    end
-  end
-
   describe "organizer users" do
     let( :organizer_user ) { create( :organizer_user ) }
 

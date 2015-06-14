@@ -7,7 +7,9 @@ describe "Users API" do
   describe "POST /users" do
     describe "with valid attributes", :show_in_doc do
       before :each do
-        post "/users", attributes_for( :user ) 
+        hash = attributes_for( :user )
+        hash[:role] = "judge"
+        post "/users", hash 
       end
 
       it "returns a created status code" do
@@ -119,6 +121,7 @@ describe "Users API" do
     describe "with valid identifier", :show_in_doc do
       before :each do
         hash = attributes_for( :user, first_name: 'Updated', last_name: 'Name' )
+        hash[:role] = "judge"
         put "/users/#{user.id}", hash, { "Authorization" => "Token token=" + user.token.access_token }
       end
 
@@ -130,8 +133,9 @@ describe "Users API" do
         expect( response.body ).to eq( UserSerializer.new( user.reload ).to_json )
       end
 
-      it "returns the updated name" do
+      it "returns updated attributes" do
         expect( json_to_hash( response.body )[:user][:name] ).to eq( "Updated Name" )
+        expect( json_to_hash( response.body )[:user][:role] ).to eq( "judge" )
       end
     end
 

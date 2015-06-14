@@ -1,11 +1,8 @@
 class User < ActiveRecord::Base
-  extend FriendlyId
-  friendly_id :name, use: :slugged
-
   has_secure_password
 
   after_create :set_auth_token
-  before_validation :set_default_role, on: :create
+  after_initialize :init
 
   has_one :token
   belongs_to :role
@@ -56,11 +53,6 @@ class User < ActiveRecord::Base
     user && user.authenticate( password )
   end
 
-  # FriendlyID Strings made more pretty
-  def normalize_friendly_id( string )
-    super.gsub( "-", "_" )
-  end
-
   def set_auth_token
     return if self.token.present?
 
@@ -68,7 +60,7 @@ class User < ActiveRecord::Base
   end
 
   private
-    def set_default_role
+    def init
       self.role ||= Role.find_by_label( 'organizer' )
     end
 end

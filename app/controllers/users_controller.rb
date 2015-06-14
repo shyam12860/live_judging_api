@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   skip_before_action :authenticate, only: [ :create ]
 
   api :POST, "/users", "Create a new user"
-    description "Create a new user for the application"
+    description "Create a new user for the application. Default to an organizer unless otherwise specified."
     error code: :unprocessable_entity, desc: " - Bad parameters for User"
     error code: :unauthorized, desc: " - Bad Token"
     param :email,                 String, desc: "User Email Address",         required: true
@@ -10,12 +10,42 @@ class UsersController < ApplicationController
     param :password_confirmation, String, desc: "User Password Confirmation", required: true
     param :first_name,            String, desc: "User First Name",            required: true
     param :last_name,             String, desc: "User Last Name",             required: true
+    param :role,                  String, desc: "judge or organizer",         required: false
     header "Authorization", "Token token=[access_token]", required: true
   def create
     @user = User.new( create_params )
 
+    if( params[:role] )
+      @user.role = Role.find_by( label: params[:role] )
+    end
+
     if @user.save
       render json: @user, status: :created
+    else
+      render json: @user.errors, status: :unprocessable_entity
+    end
+  end
+
+  api :PUT, "/users/:id", "Update a specific user"
+    description "Update a specific user by their id or [first_last]"
+    error code: :unprocessable_entity, desc: " - Bad parameters for User"
+    error code: :unauthorized, desc: " - Bad Token"
+    param :email,                 String, desc: "User Email Address",         required: false
+    param :password,              String, desc: "User password",              required: false
+    param :password_confirmation, String, desc: "User Password Confirmation", required: false
+    param :first_name,            String, desc: "User First Name",            required: false
+    param :last_name,             String, desc: "User Last Name",             required: false
+    param :role,                  String, desc: "judge or organizer",         required: false
+    header "Authorization", "Token token=[access_token]", required: true
+  def update
+    @user = User.find( params[:id] )
+
+    if( params[:role] )
+      @user.role = Role.find_by( label: params[:role] )
+    end
+
+    if @user.update_attributes( create_params )
+      render json: @user, status: :ok
     else
       render json: @user.errors, status: :unprocessable_entity
     end
@@ -36,29 +66,9 @@ class UsersController < ApplicationController
     error code: :unauthorized, desc: " - Bad Token"
     header "Authorization", "Token token=[access_token]", required: true
   def show
-    @user = User.friendly.find( params[:id] )
+    @user = User.find( params[:id] )
 
     render json: @user, status: :ok
-  end
-
-  api :PUT, "/users/:id", "Update a specific user"
-    description "Update a specific user by their id or [first_last]"
-    error code: :unprocessable_entity, desc: " - Bad parameters for User"
-    error code: :unauthorized, desc: " - Bad Token"
-    param :email,                 String, desc: "User Email Address",         required: false
-    param :password,              String, desc: "User password",              required: false
-    param :password_confirmation, String, desc: "User Password Confirmation", required: false
-    param :first_name,            String, desc: "User First Name",            required: false
-    param :last_name,             String, desc: "User Last Name",             required: false
-    header "Authorization", "Token token=[access_token]", required: true
-  def update
-    @user = User.friendly.find( params[:id] )
-
-    if @user.update_attributes( create_params )
-      render json: @user, status: :ok
-    else
-      render json: @user.errors, status: :unprocessable_entity
-    end
   end
 
   private

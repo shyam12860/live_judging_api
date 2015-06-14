@@ -1,9 +1,6 @@
 module Roles
   roles = [
     {
-      label: "admin"
-    },
-    {
       label: "organizer"
     },
     {
