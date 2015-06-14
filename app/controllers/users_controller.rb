@@ -27,7 +27,7 @@ class UsersController < ApplicationController
   end
 
   api :PUT, "/users/:id", "Update a specific user"
-    description "Update a specific user by their id or [first_last]"
+    description "Update a specific user by their id"
     error code: :unprocessable_entity, desc: " - Bad parameters for User"
     error code: :unauthorized, desc: " - Bad Token"
     param :email,                 String, desc: "User Email Address",         required: false
@@ -61,7 +61,7 @@ class UsersController < ApplicationController
   end
 
   api :GET, "/users/:id", "Get a specific user"
-    description "Get a specific user by their id or [first_last]"
+    description "Get a specific user by their id"
     error code: :not_found, desc: " - User not found in system"
     error code: :unauthorized, desc: " - Bad Token"
     header "Authorization", "Token token=[access_token]", required: true

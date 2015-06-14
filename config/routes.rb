@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     get 'login', to: 'sessions#create'
     get 'logout', to: 'sessions#destroy'
 
-    resources :users, only: [ :index, :create, :show, :update ]
+    resources :users, only: [:index, :create, :show, :update]
+    resources :events, only: [:index, :create, :show, :update]
   end
 end
