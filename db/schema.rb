@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20) do
+ActiveRecord::Schema.define(version: 30) do
+
+  create_table "event_judges", force: :cascade do |t|
+    t.integer "event_id", null: false
+    t.integer "judge_id", null: false
+  end
+
+  add_index "event_judges", ["event_id", "judge_id"], name: "index_event_judges_on_event_id_and_judge_id", unique: true
 
   create_table "events", force: :cascade do |t|
     t.string   "name",         null: false
@@ -31,7 +38,7 @@ ActiveRecord::Schema.define(version: 20) do
 
   create_table "tokens", force: :cascade do |t|
     t.string   "access_token",                                 null: false
-    t.datetime "expires_at",   default: '2015-06-29 14:25:48', null: false
+    t.datetime "expires_at",   default: '2015-06-29 17:45:41', null: false
     t.integer  "user_id"
     t.datetime "created_at",                                   null: false
     t.datetime "updated_at",                                   null: false
@@ -45,13 +52,11 @@ ActiveRecord::Schema.define(version: 20) do
     t.string   "first_name",                      null: false
     t.string   "last_name",                       null: false
     t.boolean  "admin",           default: false, null: false
-    t.string   "slug"
     t.integer  "role_id",                         null: false
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["slug"], name: "index_users_on_slug", unique: true
 
 end

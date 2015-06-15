@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe User, :show_in_doc do
+RSpec.describe User do
   let( :user ) { create( :user ) }
 
   it "has valid factories" do
