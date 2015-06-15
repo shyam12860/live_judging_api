@@ -50,7 +50,7 @@ class EventsController < ApplicationController
   end
 
   api :GET, "/events/:id", "Get a specific event"
-    description "Get a specific event by their id"
+    description "Get a specific event by its id"
     error code: :not_found, desc: " - Event not found in system"
     error code: :unauthorized, desc: " - Bad Token"
     header "Authorization", "Token token=[access_token]", required: true
