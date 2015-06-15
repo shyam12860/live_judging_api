@@ -39,7 +39,7 @@ describe "Roles API" do
 
   describe "GET /roles/:id" do
     let( :user ) { create( :user ) }
-    let( :role ) { create( :role ) }
+    let( :role ) { Role.find_by( label: "organizer" ) }
   
     describe "with valid identifier", :show_in_doc do
       before :each do
