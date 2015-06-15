@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
   api :POST, "/events", "Create a new event"
-    description "Create a new event for the application. Sets the owner of the event to whoever is creating it."
+    description "Create a new event for the application. Sets the organizer of the event to whoever is creating it."
     error code: :unprocessable_entity, desc: " - Bad parameters for Event"
     error code: :unauthorized, desc: " - Bad Token"
     param :name,       String, desc: "Event name",       required: true
