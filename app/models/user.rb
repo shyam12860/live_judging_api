@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   after_initialize :init
 
   has_one :token
+  has_many :organized_events, class_name: "Event", foreign_key: "organizer_id"
   belongs_to :role
 
   validates :email,

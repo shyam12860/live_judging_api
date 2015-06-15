@@ -14,12 +14,13 @@
 ActiveRecord::Schema.define(version: 20) do
 
   create_table "events", force: :cascade do |t|
-    t.string   "name",       null: false
-    t.string   "location",   null: false
-    t.datetime "start_time", null: false
-    t.datetime "end_time",   null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "name",         null: false
+    t.string   "location",     null: false
+    t.datetime "start_time",   null: false
+    t.datetime "end_time",     null: false
+    t.integer  "organizer_id", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   create_table "roles", force: :cascade do |t|
@@ -30,7 +31,7 @@ ActiveRecord::Schema.define(version: 20) do
 
   create_table "tokens", force: :cascade do |t|
     t.string   "access_token",                                 null: false
-    t.datetime "expires_at",   default: '2015-06-28 00:52:32', null: false
+    t.datetime "expires_at",   default: '2015-06-29 14:25:48', null: false
     t.integer  "user_id"
     t.datetime "created_at",                                   null: false
     t.datetime "updated_at",                                   null: false

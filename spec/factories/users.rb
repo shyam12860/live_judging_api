@@ -5,7 +5,6 @@ FactoryGirl.define do
     email                 { Faker::Internet.email( [ first_name, last_name ].join "_" ) }
     password              { Faker::Internet.password }
     password_confirmation { password }
-    role                  { Role.find_or_create_by attributes_for( :role, label: "organizer" ) }
 
     factory :organizer_user do
       role { Role.find_or_create_by attributes_for( :role, label: "organizer" ) }

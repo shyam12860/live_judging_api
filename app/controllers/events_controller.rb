@@ -9,7 +9,7 @@ class EventsController < ApplicationController
     param :end_time,   String, desc: "Event end time",   required: true
     header "Authorization", "Token token=[access_token]", required: true
   def create
-    @event = Event.new( my_params )
+    @event = current_user.organized_events.new( my_params )
     authorize @event
 
     if @event.save

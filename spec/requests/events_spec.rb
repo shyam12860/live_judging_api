@@ -18,6 +18,10 @@ describe "Events API" do
       it "returns the correct JSON" do
         expect( response.body ).to eq( serialize( EventSerializer, Event.first ) )
       end
+
+      it "returns the organizer user as the user who created the event" do
+        expect( json_to_hash( response.body )[:event][:organizer] ).to eq( { id: user.id, email: user.email } )
+      end
     end
 
     describe "with invalid attributes" do
