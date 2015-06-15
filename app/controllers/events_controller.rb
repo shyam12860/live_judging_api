@@ -9,7 +9,8 @@ class EventsController < ApplicationController
     param :end_time,   String, desc: "Event end time",   required: true
     header "Authorization", "Token token=[access_token]", required: true
   def create
-    @event = Event.new( create_params )
+    @event = Event.new( my_params )
+    authorize @event
 
     if @event.save
       render json: @event, status: :created
@@ -29,8 +30,9 @@ class EventsController < ApplicationController
     header "Authorization", "Token token=[access_token]", required: true
   def update
     @event = Event.find( params[:id] )
+    authorize @event
 
-    if @event.update_attributes( create_params )
+    if @event.update_attributes( my_params )
       render json: @event, status: :ok
     else
       render json: @event.errors, status: :unprocessable_entity
@@ -42,7 +44,8 @@ class EventsController < ApplicationController
     error code: :unauthorized, desc: " - Bad Token"
     header "Authorization", "Token token=[access_token]", required: true
   def index
-    @events = Event.all
+    @events = policy_scope( Event )
+    authorize @events
     render json: @events, status: :ok
   end
 
@@ -53,12 +56,13 @@ class EventsController < ApplicationController
     header "Authorization", "Token token=[access_token]", required: true
   def show
     @event = Event.find( params[:id] )
+    authorize @event
 
     render json: @event, status: :ok
   end
 
   private
-    def create_params
-      params.permit( :name, :location, :start_time, :end_time )
-    end
+  def my_params
+    params.permit( :name, :location, :start_time, :end_time )
+  end
 end

@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController
   skip_before_action :authenticate, only: :create
   before_action :authenticate_basic, only: :create
+  before_action :skip_authorization
 
   api :GET, "/login", "Returns a user and its token"
     description "Returns User JSON object on success, error on failure"
