@@ -1,8 +1,5 @@
 Rails.application.routes.draw do
   constraints subdomain: 'api' do
-    # Need to match all routes that are using the options
-    match ":asterisk", via: [ :options ]
-
     apipie
     root to: 'apipie/apipies#index'
 
