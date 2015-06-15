@@ -5,6 +5,7 @@ gem 'rails-api'
 gem 'spring', :group => :development
 gem 'sqlite3'
 gem 'bcrypt'
+gem 'pg'
 
 # Utility
 gem 'apipie-rails', github: 'Apipie/apipie-rails', branch: 'master'

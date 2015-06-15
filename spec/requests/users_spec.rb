@@ -24,6 +24,7 @@ describe "Users API" do
     describe "with minimum valid attributes" do
       before :each do
         hash = attributes_for( :user )
+        hash.delete( "role" )
         post "/users", hash 
       end
 
