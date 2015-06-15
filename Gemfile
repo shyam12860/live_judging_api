@@ -13,6 +13,9 @@ gem 'active_model_serializers', '~> 0.9.3' # JSON Serializer
 gem 'email_validator',          '~> 1.6.0' # Helper for validating email fields
 gem 'pundit',                   '~> 1.0.1' # Permissions
 
+# CORS Headers
+gem 'rack-cors', require: 'rack/cors'
+
 # Deployment
 gem 'capistrano',               '~> 3.4.0'    # Deployment
 gem 'capistrano-rails',         '~> 1.1.2'    # Deployment Helper
