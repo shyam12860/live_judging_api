@@ -14,11 +14,11 @@ class EventPolicy < ApplicationPolicy
   end
 
   def create?
-    user.present? && user.organizer?
+    user.present?
   end
 
   def update?
-    user.present? && user.organizer?
+    user.present?
   end
 
   def show?

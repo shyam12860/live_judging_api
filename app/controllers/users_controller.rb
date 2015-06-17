@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   skip_before_action :authenticate, only: [ :create ]
 
   api :POST, "/users", "Create a new user"
-    description "Create a new user for the application. Default to an organizer unless otherwise specified."
+    description "Create a new user for the application."
     error code: :unprocessable_entity, desc: " - Bad parameters for User"
     error code: :unauthorized, desc: " - Bad Token"
     param :email,                 String, desc: "User Email Address",         required: true
@@ -10,14 +10,9 @@ class UsersController < ApplicationController
     param :password_confirmation, String, desc: "User Password Confirmation", required: true
     param :first_name,            String, desc: "User First Name",            required: true
     param :last_name,             String, desc: "User Last Name",             required: true
-    param :role,                  String, desc: "defaults to 'organizer', can be 'judge'",         required: false
   def create
     @user = User.new( my_params )
     authorize @user
-
-    if( params[:role] )
-      @user.role = Role.find_by( label: params[:role] )
-    end
 
     if @user.save
       render json: @user, status: :created
@@ -35,15 +30,10 @@ class UsersController < ApplicationController
     param :password_confirmation, String, desc: "User Password Confirmation",              required: false
     param :first_name,            String, desc: "User First Name",                         required: false
     param :last_name,             String, desc: "User Last Name",                          required: false
-    param :role,                  String, desc: "defaults to 'organizer', can be 'judge'", required: false
     header "Authorization", "Token token=[access_token]", required: true
   def update
     @user = User.find( params[:id] )
     authorize @user
-
-    if( params[:role] )
-      @user.role = Role.find_by( label: params[:role] )
-    end
 
     if @user.update_attributes( my_params )
       render json: @user, status: :ok

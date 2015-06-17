@@ -1,13 +1,9 @@
 class UserSerializer < ActiveModel::Serializer
-  attributes :id, :email, :name, :admin, :role
+  attributes :id, :email, :name, :admin
 
   has_one :token
 
   def name
     object.name
-  end
-
-  def role
-    object.role.label
   end
 end
