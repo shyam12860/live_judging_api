@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
   after_create :set_auth_token
 
   has_one :token
+  has_many :event_organizers, foreign_key: "organizer_id"
+  has_many :organized_events, through: :event_organizers, source: "event"
 
   validates :email,
     presence: true,

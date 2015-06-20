@@ -13,6 +13,7 @@ class EventsController < ApplicationController
     authorize @event
 
     if @event.save
+      @event.organizers << current_user
       render json: @event, status: :created
     else
       render json: @event.errors, status: :unprocessable_entity
@@ -44,7 +45,8 @@ class EventsController < ApplicationController
     error code: :unauthorized, desc: " - Bad Token"
     header "Authorization", "Token token=[access_token]", required: true
   def index
-    @events = policy_scope( Event )
+    @organized_events = current_user.organized_events
+    @events = @organized_events
     authorize @events
     render json: @events, status: :ok
   end

@@ -17,7 +17,7 @@ describe "Sessions API" do
       end
 
       it "returns the correct JSON" do
-        expect( response.body ).to eq( serialize( UserSerializer, user ) )
+        expect( response.body ).to eq( serialize( UserSerializer, user, user ) )
       end
     end
 

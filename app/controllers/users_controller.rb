@@ -47,7 +47,7 @@ class UsersController < ApplicationController
     error code: :unauthorized, desc: " - Bad Token"
     header "Authorization", "Token token=[access_token]", required: true
   def index
-    @users = policy_scope( User )
+    @users = User.all
     authorize @users
     render json: @users, status: :ok
   end

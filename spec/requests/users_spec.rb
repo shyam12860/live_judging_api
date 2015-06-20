@@ -62,7 +62,7 @@ describe "Users API" do
       end
 
       it "returns the correct JSON" do
-        expect( response.body ).to eq( UserSerializer.new( user.reload ).to_json )
+        expect( response.body ).to eq( serialize( UserSerializer, user.reload ) )
       end
 
       it "returns updated attributes" do
@@ -114,7 +114,7 @@ describe "Users API" do
       end
 
       it "returns the correct JSON" do
-        expect( json_at_key( response.body, "users" ) ).to eq( serialize_array( UserSerializer, @users ) )
+        expect( json_at_key( response.body, "users" ) ).to eq( serialize_array( UserSerializer, @users, user ) )
       end
     end
 

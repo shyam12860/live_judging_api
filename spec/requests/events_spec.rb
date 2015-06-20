@@ -5,41 +5,13 @@ describe "Events API" do
 
   before { host! "api.example.com" }
 
-  describe "POST /events" do
-    describe "with valid attributes", :show_in_doc do
-      before :each do
-        post "/events", attributes_for( :event ), { "Authorization" => "Token token=" + user.token.access_token } 
-      end
-
-      it "returns a created status code" do
-        expect( response ).to have_http_status( :created )
-      end
-
-      it "returns the correct JSON" do
-        expect( response.body ).to eq( serialize( EventSerializer, Event.first ) )
-      end
-    end
-
-    describe "with invalid attributes" do
-      before :each do
-        post "/events", attributes_for( :event, name: nil ), { "Authorization" => "Token token=" + user.token.access_token }
-      end
-
-      it "returns an unprocessable entity status code" do
-        expect( response ).to have_http_status( :unprocessable_entity )
-      end
-
-      it "returns the correct JSON" do
-        expect( json_to_hash( response.body )[:name].first ).to eq( "can't be blank" )
-      end
-    end
-  end
-
   describe "GET /events" do
-    let( :event ) { create( :event ) }
+    let( :event ) { create( :event, organizers: [user] ) }
     describe "with valid token", :show_in_doc do
       before :each do
-        @events = [create( :event ), event]
+        @events = [create( :event, organizers: [user] ), event]
+        user_2 = create( :user )
+        post "/events", attributes_for( :event ), { "Authorization" => "Token token=" + user_2.token.access_token } 
         get "/events", nil, { "Authorization" => "Token token=" + user.token.access_token }
       end
 
@@ -163,6 +135,40 @@ describe "Events API" do
 
       it "returns the correct JSON" do
         expect( response.body ).to eq( "Bad credentials. Token required." )
+      end
+    end
+  end
+
+  describe "POST /events" do
+    describe "with valid attributes", :show_in_doc do
+      before :each do
+        post "/events", attributes_for( :event ), { "Authorization" => "Token token=" + user.token.access_token } 
+      end
+
+      it "returns a created status code" do
+        expect( response ).to have_http_status( :created )
+      end
+
+      it "returns the correct JSON" do
+        expect( response.body ).to eq( serialize( EventSerializer, Event.first, user ) )
+      end
+
+      it "has the current user added as the event organizer" do
+        expect( Event.first.organizers ).to match_array( [user] )
+      end
+    end
+
+    describe "with invalid attributes" do
+      before :each do
+        post "/events", attributes_for( :event, name: nil ), { "Authorization" => "Token token=" + user.token.access_token }
+      end
+
+      it "returns an unprocessable entity status code" do
+        expect( response ).to have_http_status( :unprocessable_entity )
+      end
+
+      it "returns the correct JSON" do
+        expect( json_to_hash( response.body )[:name].first ).to eq( "can't be blank" )
       end
     end
   end
