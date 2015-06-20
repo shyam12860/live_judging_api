@@ -31,6 +31,9 @@ class EventJudgesController < ApplicationController
     description "Remove a judge from an event. Must be an organizer for the event."
   def destroy
     @event_judge = EventJudge.find_by( judge_id: params[:id], event_id: params[:event_id] )
+    authorize @event_judge
     @event_judge.destroy
+
+    head :ok
   end
 end

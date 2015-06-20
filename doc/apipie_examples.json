@@ -37,6 +37,34 @@
       "recorded": true
     }
   ],
+  "event_judges#destroy": [
+    {
+      "verb": "DELETE",
+      "path": "/events/1/judges/2",
+      "versions": [
+        "1.0"
+      ],
+      "query": null,
+      "request_data": null,
+      "response_data": null,
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    },
+    {
+      "verb": "DELETE",
+      "path": "/events/1/judges/2",
+      "versions": [
+        "1.0"
+      ],
+      "query": null,
+      "request_data": null,
+      "response_data": null,
+      "code": 200,
+      "show_in_doc": 0,
+      "recorded": true
+    }
+  ],
   "event_judges#index": [
     {
       "verb": "GET",
@@ -95,6 +123,138 @@
       "recorded": true
     }
   ],
+  "event_organizers#create": [
+    {
+      "verb": "POST",
+      "path": "/events/1/organizers",
+      "versions": [
+        "1.0"
+      ],
+      "query": null,
+      "request_data": "user_id=2",
+      "response_data": {
+        "event_organizer": {
+          "event_id": 1,
+          "organizer_id": 2
+        }
+      },
+      "code": 201,
+      "show_in_doc": 1,
+      "recorded": true
+    },
+    {
+      "verb": "POST",
+      "path": "/events/1/organizers",
+      "versions": [
+        "1.0"
+      ],
+      "query": null,
+      "request_data": "user_id=2",
+      "response_data": {
+        "event_organizer": {
+          "event_id": 1,
+          "organizer_id": 2
+        }
+      },
+      "code": 201,
+      "show_in_doc": 0,
+      "recorded": true
+    }
+  ],
+  "event_organizers#destroy": [
+    {
+      "verb": "DELETE",
+      "path": "/events/1/organizers/2",
+      "versions": [
+        "1.0"
+      ],
+      "query": null,
+      "request_data": null,
+      "response_data": null,
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    },
+    {
+      "verb": "DELETE",
+      "path": "/events/1/organizers/2",
+      "versions": [
+        "1.0"
+      ],
+      "query": null,
+      "request_data": null,
+      "response_data": null,
+      "code": 200,
+      "show_in_doc": 0,
+      "recorded": true
+    }
+  ],
+  "event_organizers#index": [
+    {
+      "verb": "GET",
+      "path": "/events/1/organizers",
+      "versions": [
+        "1.0"
+      ],
+      "query": null,
+      "request_data": null,
+      "response_data": {
+        "event_organizers": [
+          {
+            "event_id": 1,
+            "organizer_id": 1
+          },
+          {
+            "event_id": 1,
+            "organizer_id": 2
+          },
+          {
+            "event_id": 1,
+            "organizer_id": 3
+          },
+          {
+            "event_id": 1,
+            "organizer_id": 4
+          }
+        ]
+      },
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    },
+    {
+      "verb": "GET",
+      "path": "/events/1/organizers",
+      "versions": [
+        "1.0"
+      ],
+      "query": null,
+      "request_data": null,
+      "response_data": {
+        "event_organizers": [
+          {
+            "event_id": 1,
+            "organizer_id": 1
+          },
+          {
+            "event_id": 1,
+            "organizer_id": 2
+          },
+          {
+            "event_id": 1,
+            "organizer_id": 3
+          },
+          {
+            "event_id": 1,
+            "organizer_id": 4
+          }
+        ]
+      },
+      "code": 200,
+      "show_in_doc": 0,
+      "recorded": true
+    }
+  ],
   "events#create": [
     {
       "verb": "POST",
@@ -103,14 +263,14 @@
         "1.0"
       ],
       "query": null,
-      "request_data": "name=Mat+Lam+Tam&location=8709+Donnelly+Stream%2C+Hillsland+Connecticut&start_time=2015-08-14+10%3A38%3A13+-0400&end_time=2015-08-14+11%3A55%3A00+-0400",
+      "request_data": "name=Stronghold&location=4027+Onie+Key%2C+Port+Emelietown+Louisiana&start_time=2015-08-11+07%3A20%3A12+-0400&end_time=2015-08-11+03%3A24%3A02+-0400",
       "response_data": {
         "event": {
           "id": 3,
-          "name": "Mat Lam Tam",
-          "location": "8709 Donnelly Stream, Hillsland Connecticut",
-          "start_time": "2015-08-14 02:38:13 PM",
-          "end_time": "2015-08-14 03:55:00 PM",
+          "name": "Stronghold",
+          "location": "4027 Onie Key, Port Emelietown Louisiana",
+          "start_time": "2015-08-11 11:20:12 AM",
+          "end_time": "2015-08-11 07:24:02 AM",
           "organizer_ids": [
             2
           ]
@@ -127,14 +287,14 @@
         "1.0"
       ],
       "query": null,
-      "request_data": "name=Job&location=572+Gabriel+Skyway%2C+New+Winnifredton+Utah&start_time=2015-07-12+06%3A13%3A51+-0400&end_time=2015-07-12+01%3A19%3A06+-0400",
+      "request_data": "name=Job&location=85685+Nicolas+Tunnel%2C+Lake+Maurinehaven+New+Mexico&start_time=2015-06-25+10%3A00%3A49+-0400&end_time=2015-06-25+05%3A47%3A12+-0400",
       "response_data": {
         "event": {
           "id": 3,
           "name": "Job",
-          "location": "572 Gabriel Skyway, New Winnifredton Utah",
-          "start_time": "2015-07-12 10:13:51 AM",
-          "end_time": "2015-07-12 05:19:06 AM",
+          "location": "85685 Nicolas Tunnel, Lake Maurinehaven New Mexico",
+          "start_time": "2015-06-25 02:00:49 PM",
+          "end_time": "2015-06-25 09:47:12 AM",
           "organizer_ids": [
             2
           ]
@@ -151,14 +311,14 @@
         "1.0"
       ],
       "query": null,
-      "request_data": "name=Viva&location=9850+Carter+Gateway%2C+South+Leonardo+New+Mexico&start_time=2015-07-24+09%3A24%3A39+-0400&end_time=2015-07-24+03%3A48%3A46+-0400",
+      "request_data": "name=Stronghold&location=3241+Schulist+Pass%2C+South+Cyrus+Kentucky&start_time=2015-08-02+10%3A41%3A03+-0400&end_time=2015-08-02+22%3A19%3A17+-0400",
       "response_data": {
         "event": {
           "id": 1,
-          "name": "Viva",
-          "location": "9850 Carter Gateway, South Leonardo New Mexico",
-          "start_time": "2015-07-24 01:24:39 PM",
-          "end_time": "2015-07-24 07:48:46 AM",
+          "name": "Stronghold",
+          "location": "3241 Schulist Pass, South Cyrus Kentucky",
+          "start_time": "2015-08-02 02:41:03 PM",
+          "end_time": "2015-08-03 02:19:17 AM",
           "organizer_ids": [
             1
           ]
@@ -175,14 +335,14 @@
         "1.0"
       ],
       "query": null,
-      "request_data": "name=Zoolab&location=22947+Stroman+Mountain%2C+Lowellstad+Rhode+Island&start_time=2015-07-29+07%3A54%3A55+-0400&end_time=2015-07-29+01%3A01%3A50+-0400",
+      "request_data": "name=Toughjoyfax&location=48148+Champlin+Fords%2C+Kirlinshire+Illinois&start_time=2015-08-16+07%3A24%3A28+-0400&end_time=2015-08-16+13%3A17%3A22+-0400",
       "response_data": {
         "event": {
           "id": 1,
-          "name": "Zoolab",
-          "location": "22947 Stroman Mountain, Lowellstad Rhode Island",
-          "start_time": "2015-07-29 11:54:55 AM",
-          "end_time": "2015-07-29 05:01:50 AM",
+          "name": "Toughjoyfax",
+          "location": "48148 Champlin Fords, Kirlinshire Illinois",
+          "start_time": "2015-08-16 11:24:28 AM",
+          "end_time": "2015-08-16 05:17:22 PM",
           "organizer_ids": [
             1
           ]
@@ -199,14 +359,14 @@
         "1.0"
       ],
       "query": null,
-      "request_data": "name=Zamit&location=291+Bartell+Islands%2C+Lake+Ashaton+New+Jersey&start_time=2015-08-19+08%3A20%3A44+-0400&end_time=2015-08-19+01%3A20%3A26+-0400",
+      "request_data": "name=Y-find&location=3628+Casper+Plains%2C+Langoshtown+Mississippi&start_time=2015-07-19+06%3A41%3A11+-0400&end_time=2015-07-19+15%3A43%3A44+-0400",
       "response_data": {
         "event": {
           "id": 1,
-          "name": "Zamit",
-          "location": "291 Bartell Islands, Lake Ashaton New Jersey",
-          "start_time": "2015-08-19 12:20:44 PM",
-          "end_time": "2015-08-19 05:20:26 AM",
+          "name": "Y-find",
+          "location": "3628 Casper Plains, Langoshtown Mississippi",
+          "start_time": "2015-07-19 10:41:11 AM",
+          "end_time": "2015-07-19 07:43:44 PM",
           "organizer_ids": [
             1
           ]
@@ -231,19 +391,19 @@
           {
             "id": 1,
             "name": "Otcom",
-            "location": "17789 Keira Hollow, South Rexport Oregon",
-            "start_time": "2015-06-29 10:54:58 AM",
-            "end_time": "2015-06-29 05:32:08 PM",
+            "location": "986 Neva Gardens, South Alexander Texas",
+            "start_time": "2015-07-20 01:07:57 PM",
+            "end_time": "2015-07-20 05:59:47 PM",
             "organizer_ids": [
               1
             ]
           },
           {
             "id": 2,
-            "name": "Subin",
-            "location": "433 Ziemann Pike, North Charlie California",
-            "start_time": "2015-06-27 11:54:46 AM",
-            "end_time": "2015-06-27 11:57:32 AM",
+            "name": "Tempsoft",
+            "location": "1332 Mueller Walks, Okunevaburgh Indiana",
+            "start_time": "2015-08-14 12:35:56 PM",
+            "end_time": "2015-08-14 10:23:40 AM",
             "organizer_ids": [
               1
             ]
@@ -266,20 +426,20 @@
         "events": [
           {
             "id": 1,
-            "name": "Fixflex",
-            "location": "74791 Labadie Courts, Marcellaside Alaska",
-            "start_time": "2015-08-16 03:43:07 PM",
-            "end_time": "2015-08-17 01:19:26 AM",
+            "name": "Lotlux",
+            "location": "4090 Erdman Keys, Port Shea Nevada",
+            "start_time": "2015-06-23 02:28:06 PM",
+            "end_time": "2015-06-23 11:58:19 PM",
             "organizer_ids": [
               1
             ]
           },
           {
             "id": 2,
-            "name": "Greenlam",
-            "location": "420 Schowalter Shores, West Mekhibury Kansas",
-            "start_time": "2015-07-26 10:26:30 AM",
-            "end_time": "2015-07-26 03:29:42 PM",
+            "name": "Lotstring",
+            "location": "7253 Cecelia Trafficway, Joycetown Kansas",
+            "start_time": "2015-07-24 11:40:22 AM",
+            "end_time": "2015-07-24 01:28:36 PM",
             "organizer_ids": [
               1
             ]
@@ -303,10 +463,10 @@
       "response_data": {
         "event": {
           "id": 1,
-          "name": "Viva",
-          "location": "3569 Savion Spur, East Kyraton Georgia",
-          "start_time": "2015-08-04 11:42:18 AM",
-          "end_time": "2015-08-05 12:45:17 AM",
+          "name": "Job",
+          "location": "639 Helga Oval, Torphyland Georgia",
+          "start_time": "2015-07-27 12:22:29 PM",
+          "end_time": "2015-07-27 12:08:33 PM",
           "organizer_ids": [
 
           ]
@@ -327,10 +487,10 @@
       "response_data": {
         "event": {
           "id": 1,
-          "name": "Temp",
-          "location": "45078 Melisa Turnpike, New Loisborough Indiana",
-          "start_time": "2015-08-18 01:26:22 PM",
-          "end_time": "2015-08-18 04:18:36 PM",
+          "name": "Hatity",
+          "location": "65591 Littel Light, New Jaunitaberg Rhode Island",
+          "start_time": "2015-07-24 11:14:11 AM",
+          "end_time": "2015-07-24 12:49:48 PM",
           "organizer_ids": [
 
           ]
@@ -349,14 +509,14 @@
         "1.0"
       ],
       "query": null,
-      "request_data": "name=Updated+Name&location=66251+Edison+Mill%2C+Farrellhaven+Kentucky&start_time=2015-06-22+11%3A01%3A18+-0400&end_time=2015-06-22+12%3A48%3A05+-0400",
+      "request_data": "name=Updated+Name&location=639+Thora+Stream%2C+Daveville+Kentucky&start_time=2015-08-10+10%3A13%3A50+-0400&end_time=2015-08-10+17%3A54%3A37+-0400",
       "response_data": {
         "event": {
           "id": 1,
           "name": "Updated Name",
-          "location": "66251 Edison Mill, Farrellhaven Kentucky",
-          "start_time": "2015-06-22 03:01:18 PM",
-          "end_time": "2015-06-22 04:48:05 PM",
+          "location": "639 Thora Stream, Daveville Kentucky",
+          "start_time": "2015-08-10 02:13:50 PM",
+          "end_time": "2015-08-10 09:54:37 PM",
           "organizer_ids": [
 
           ]
@@ -373,14 +533,14 @@
         "1.0"
       ],
       "query": null,
-      "request_data": "name=Updated+Name&location=903+Pagac+Village%2C+McGlynnstad+Michigan&start_time=2015-07-24+07%3A06%3A30+-0400&end_time=2015-07-24+01%3A56%3A08+-0400",
+      "request_data": "name=Updated+Name&location=30404+Purdy+Glen%2C+Valerieberg+Tennessee&start_time=2015-07-30+10%3A50%3A40+-0400&end_time=2015-07-30+08%3A29%3A27+-0400",
       "response_data": {
         "event": {
           "id": 1,
           "name": "Updated Name",
-          "location": "903 Pagac Village, McGlynnstad Michigan",
-          "start_time": "2015-07-24 11:06:30 AM",
-          "end_time": "2015-07-24 05:56:08 AM",
+          "location": "30404 Purdy Glen, Valerieberg Tennessee",
+          "start_time": "2015-07-30 02:50:40 PM",
+          "end_time": "2015-07-30 12:29:27 PM",
           "organizer_ids": [
 
           ]
@@ -397,14 +557,14 @@
         "1.0"
       ],
       "query": null,
-      "request_data": "name=Updated+Name&location=682+Erick+Valley%2C+Braunville+South+Carolina&start_time=2015-07-13+10%3A36%3A00+-0400&end_time=2015-07-13+14%3A44%3A25+-0400",
+      "request_data": "name=Updated+Name&location=97313+Maggio+Ways%2C+Allenton+South+Carolina&start_time=2015-08-15+06%3A57%3A13+-0400&end_time=2015-08-15+19%3A19%3A05+-0400",
       "response_data": {
         "event": {
           "id": 1,
           "name": "Updated Name",
-          "location": "682 Erick Valley, Braunville South Carolina",
-          "start_time": "2015-07-13 02:36:00 PM",
-          "end_time": "2015-07-13 06:44:25 PM",
+          "location": "97313 Maggio Ways, Allenton South Carolina",
+          "start_time": "2015-08-15 10:57:13 AM",
+          "end_time": "2015-08-15 11:19:05 PM",
           "organizer_ids": [
 
           ]
@@ -427,11 +587,11 @@
       "response_data": {
         "user": {
           "id": 1,
-          "email": "oral_padberg@grimes.com",
-          "name": "Oral Padberg",
+          "email": "albertha_gutkowski@waelchi.net",
+          "name": "Albertha Gutkowski",
           "admin": false,
           "token": {
-            "access_token": "5e43ea01e76a6ac5415d3dfdc397c2d4"
+            "access_token": "4e148d7fc843d2c4330b84abf13a5634"
           }
         }
       },
@@ -450,11 +610,11 @@
       "response_data": {
         "user": {
           "id": 1,
-          "email": "janessa_eichmann@price.org",
-          "name": "Janessa Eichmann",
+          "email": "melvin_grady@turcotteko.net",
+          "name": "Melvin Grady",
           "admin": false,
           "token": {
-            "access_token": "7c2d72ce1b8866e61e644f58e1b945cc"
+            "access_token": "4c3530de7ebad8ecbb206942b8bc2a9f"
           }
         }
       },
@@ -499,15 +659,15 @@
         "1.0"
       ],
       "query": null,
-      "request_data": "first_name=Sammy&last_name=Pfannerstill&email=sammy_pfannerstill%40conroy.name&password=gslzsg5c2&password_confirmation=gslzsg5c2",
+      "request_data": "first_name=Grayce&last_name=McLaughlin&email=grayce_mclaughlin%40wisozkschmitt.com&password=ao4gmcvyx&password_confirmation=ao4gmcvyx",
       "response_data": {
         "user": {
           "id": 1,
-          "email": "sammy_pfannerstill@conroy.name",
-          "name": "Sammy Pfannerstill",
+          "email": "grayce_mclaughlin@wisozkschmitt.com",
+          "name": "Grayce McLaughlin",
           "admin": false,
           "token": {
-            "access_token": "25d7661b3dd12845239419c9dc49007e"
+            "access_token": "5b1be3b4455b20119dc5e1b4550b5dbc"
           }
         }
       },
@@ -522,15 +682,15 @@
         "1.0"
       ],
       "query": null,
-      "request_data": "first_name=Greg&last_name=Wiza&email=greg_wiza%40waelchimonahan.org&password=48d10ykdd&password_confirmation=48d10ykdd",
+      "request_data": "first_name=Evangeline&last_name=Ortiz&email=evangeline_ortiz%40olson.org&password=mz4hco8yy&password_confirmation=mz4hco8yy",
       "response_data": {
         "user": {
           "id": 1,
-          "email": "greg_wiza@waelchimonahan.org",
-          "name": "Greg Wiza",
+          "email": "evangeline_ortiz@olson.org",
+          "name": "Evangeline Ortiz",
           "admin": false,
           "token": {
-            "access_token": "f6af389714958b4328e7d7b8b4a80643"
+            "access_token": "e663f826136a8b7d28772dbd14433f7f"
           }
         }
       },
@@ -552,17 +712,17 @@
         "users": [
           {
             "id": 1,
-            "email": "weldon_murray@murphyparker.name",
-            "name": "Weldon Murray",
+            "email": "mervin_kub@gleasondicki.name",
+            "name": "Mervin Kub",
             "admin": false
           },
           {
             "id": 2,
-            "email": "kennedy_ratke@windler.net",
-            "name": "Kennedy Ratke",
+            "email": "wyatt_hintz@wisozk.net",
+            "name": "Wyatt Hintz",
             "admin": false,
             "token": {
-              "access_token": "dfffa196ea2c25587f2df471e71391d0"
+              "access_token": "bed5473229deb6a94f6d288e85672232"
             }
           }
         ]
@@ -583,17 +743,17 @@
         "users": [
           {
             "id": 1,
-            "email": "sam_hills@gerhold.info",
-            "name": "Sam Hills",
+            "email": "raquel_willms@bodefadel.com",
+            "name": "Raquel Willms",
             "admin": false
           },
           {
             "id": 2,
-            "email": "alexander_becker@pagac.info",
-            "name": "Alexander Becker",
+            "email": "jeanie_beer@jacobson.name",
+            "name": "Jeanie Beer",
             "admin": false,
             "token": {
-              "access_token": "b843f5ed33679e380dc8a29106a22398"
+              "access_token": "72e14a02b42bd5209113ea0244aeb1ec"
             }
           }
         ]
@@ -615,11 +775,11 @@
       "response_data": {
         "user": {
           "id": 1,
-          "email": "laurie_eichmann@kirlin.com",
-          "name": "Laurie Eichmann",
+          "email": "aracely_weissnat@marvin.info",
+          "name": "Aracely Weissnat",
           "admin": false,
           "token": {
-            "access_token": "4ef38f1881e89367fe8d95a2b45241d2"
+            "access_token": "38914f238327c44cf38e78f5c14891f0"
           }
         }
       },
@@ -638,11 +798,11 @@
       "response_data": {
         "user": {
           "id": 1,
-          "email": "keagan_tillman@volkman.name",
-          "name": "Keagan Tillman",
+          "email": "magnus_mccullough@effertz.info",
+          "name": "Magnus McCullough",
           "admin": false,
           "token": {
-            "access_token": "773ddcea11569b88da7d7d466de55f18"
+            "access_token": "ec1c01ddbb791355ec1f36adee34d0d6"
           }
         }
       },
@@ -659,15 +819,15 @@
         "1.0"
       ],
       "query": null,
-      "request_data": "first_name=Updated&last_name=Name&email=updated_name%40davis.info&password=nmbhorkhu&password_confirmation=nmbhorkhu",
+      "request_data": "first_name=Updated&last_name=Name&email=updated_name%40oconnerjohnson.org&password=w53k7g3m3&password_confirmation=w53k7g3m3",
       "response_data": {
         "user": {
           "id": 1,
-          "email": "updated_name@davis.info",
+          "email": "updated_name@oconnerjohnson.org",
           "name": "Updated Name",
           "admin": false,
           "token": {
-            "access_token": "79196663ac4e3c2fb054d82c14d959c7"
+            "access_token": "ad80d7a6dab4752182238e606eea78e9"
           }
         }
       },
@@ -682,15 +842,15 @@
         "1.0"
       ],
       "query": null,
-      "request_data": "first_name=Updated&last_name=Name&email=updated_name%40hamill.net&password=aclghdeuq&password_confirmation=aclghdeuq",
+      "request_data": "first_name=Updated&last_name=Name&email=updated_name%40wilderman.org&password=mvbkxitq&password_confirmation=mvbkxitq",
       "response_data": {
         "user": {
           "id": 1,
-          "email": "updated_name@hamill.net",
+          "email": "updated_name@wilderman.org",
           "name": "Updated Name",
           "admin": false,
           "token": {
-            "access_token": "cd66471d6c1b272940d2fa00b0269e98"
+            "access_token": "7dad720ca5f92cd59097432ba5e4d1d8"
           }
         }
       },
@@ -705,15 +865,15 @@
         "1.0"
       ],
       "query": null,
-      "request_data": "first_name=Updated&last_name=Name&email=updated_name%40wymangleason.biz&password=g5mlkbzlq&password_confirmation=g5mlkbzlq",
+      "request_data": "first_name=Updated&last_name=Name&email=updated_name%40mclaughlin.org&password=uub1unsv4&password_confirmation=uub1unsv4",
       "response_data": {
         "user": {
           "id": 1,
-          "email": "updated_name@wymangleason.biz",
+          "email": "updated_name@mclaughlin.org",
           "name": "Updated Name",
           "admin": false,
           "token": {
-            "access_token": "b89fea01a90677c3ca6fa148c549d810"
+            "access_token": "c76880740445deecf9893055e05af926"
           }
         }
       },
