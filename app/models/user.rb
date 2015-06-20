@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
   has_one :token
   has_many :event_organizers, foreign_key: "organizer_id"
   has_many :organized_events, through: :event_organizers, source: "event"
+  has_many :event_judges, foreign_key: "judge_id"
+  has_many :judged_events, through: :event_judges, source: "event"
 
   validates :email,
     presence: true,

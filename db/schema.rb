@@ -11,7 +11,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 30) do
+ActiveRecord::Schema.define(version: 31) do
+
   create_table "event_judges", force: :cascade do |t|
     t.integer "event_id", null: false
     t.integer "judge_id", null: false
@@ -39,7 +40,7 @@ ActiveRecord::Schema.define(version: 30) do
 
   create_table "tokens", force: :cascade do |t|
     t.string   "access_token",                                 null: false
-    t.datetime "expires_at",   default: '2015-07-02 02:36:05', null: false
+    t.datetime "expires_at",   default: '2015-07-04 04:00:14', null: false
     t.integer  "user_id"
     t.datetime "created_at",                                   null: false
     t.datetime "updated_at",                                   null: false

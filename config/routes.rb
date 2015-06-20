@@ -7,7 +7,11 @@ Rails.application.routes.draw do
     get 'logout', to: 'sessions#destroy'
 
     resources :users, only: [:index, :show, :create, :update  ]
-    resources :events, only: [:index, :show, :create, :update ]
+
+    resources :events, only: [:index, :show, :create, :update ] do
+      resources :event_judges, only: [:create, :destroy, :index], as: "judges", path: "judges"
+    end
+
     resources :roles, only: [:index, :show]
   end
 end

@@ -1,3 +1,3 @@
-class UserSerializer < ActiveModel::Serializer
-  attributes :id, :event_id, :judge_id
+class EventJudgeSerializer < ActiveModel::Serializer
+  attributes :event_id, :judge_id
 end
