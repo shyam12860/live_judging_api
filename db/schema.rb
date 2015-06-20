@@ -12,7 +12,6 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema.define(version: 30) do
-
   create_table "event_judges", force: :cascade do |t|
     t.integer "event_id", null: false
     t.integer "judge_id", null: false
@@ -20,25 +19,27 @@ ActiveRecord::Schema.define(version: 30) do
 
   add_index "event_judges", ["event_id", "judge_id"], name: "index_event_judges_on_event_id_and_judge_id", unique: true
 
-  create_table "events", force: :cascade do |t|
-    t.string   "name",         null: false
-    t.string   "location",     null: false
-    t.datetime "start_time",   null: false
-    t.datetime "end_time",     null: false
+  create_table "event_organizers", force: :cascade do |t|
+    t.integer  "event_id",     null: false
     t.integer  "organizer_id", null: false
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
   end
 
-  create_table "roles", force: :cascade do |t|
-    t.string "label", null: false
-  end
+  add_index "event_organizers", ["event_id", "organizer_id"], name: "index_event_organizers_on_event_id_and_organizer_id", unique: true
 
-  add_index "roles", ["label"], name: "index_roles_on_label", unique: true
+  create_table "events", force: :cascade do |t|
+    t.string   "name",       null: false
+    t.string   "location",   null: false
+    t.datetime "start_time", null: false
+    t.datetime "end_time",   null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "tokens", force: :cascade do |t|
     t.string   "access_token",                                 null: false
-    t.datetime "expires_at",   default: '2015-06-29 17:45:41', null: false
+    t.datetime "expires_at",   default: '2015-07-02 02:36:05', null: false
     t.integer  "user_id"
     t.datetime "created_at",                                   null: false
     t.datetime "updated_at",                                   null: false
@@ -52,7 +53,6 @@ ActiveRecord::Schema.define(version: 30) do
     t.string   "first_name",                      null: false
     t.string   "last_name",                       null: false
     t.boolean  "admin",           default: false, null: false
-    t.integer  "role_id",                         null: false
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
   end

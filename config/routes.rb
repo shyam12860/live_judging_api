@@ -8,7 +8,6 @@ Rails.application.routes.draw do
 
     resources :users, only: [:index, :show, :create, :update  ]
     resources :events, only: [:index, :show, :create, :update ]
-    resources :event_judges, only: [:index, :create, :destroy], path: 'judges'
     resources :roles, only: [:index, :show]
   end
 end

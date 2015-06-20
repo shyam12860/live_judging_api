@@ -2,11 +2,10 @@ class User < ActiveRecord::Base
   has_secure_password
 
   after_create :set_auth_token
-  after_initialize :init
 
   has_one :token
-  has_many :organized_events, class_name: "Event", foreign_key: "organizer_id"
-  belongs_to :role
+  has_many :event_organizers, foreign_key: "organizer_id"
+  has_many :organized_events, through: :event_organizers, source: "event"
 
   validates :email,
     presence: true,
@@ -30,23 +29,8 @@ class User < ActiveRecord::Base
   validates :last_name,
     presence: true
 
-  validates :role,
-    presence: true
-
   def name
     [first_name, last_name].join " "
-  end
-
-  def admin?
-    role == Role.find_by_label( 'admin' )
-  end
-
-  def organizer?
-    role == Role.find_by_label( 'organizer' )
-  end
-
-  def judge?
-    role == Role.find_by_label( 'judge' )
   end
 
   def self.authenticate( email, password )
@@ -59,9 +43,4 @@ class User < ActiveRecord::Base
 
     Token.create( user: self )
   end
-
-  private
-    def init
-      self.role ||= Role.find_by_label( 'organizer' )
-    end
 end

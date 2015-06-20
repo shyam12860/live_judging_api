@@ -1,5 +1,5 @@
 class UserSerializer < ActiveModel::Serializer
-  attributes :id, :email, :name, :admin, :role
+  attributes :id, :email, :name, :admin
 
   has_one :token
 
@@ -7,7 +7,11 @@ class UserSerializer < ActiveModel::Serializer
     object.name
   end
 
-  def role
-    object.role.label
+  def filter( keys )
+    if scope.nil? || scope.id == object.id
+      keys
+    else
+      keys - [:token]
+    end
   end
 end

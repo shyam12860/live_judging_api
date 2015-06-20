@@ -1,9 +1,7 @@
 class EventSerializer < ActiveModel::Serializer
-  attributes :id, :name, :location, :start_time, :end_time, :organizer
+  attributes :id, :name, :location, :start_time, :end_time
 
-  def organizer
-    { id: object.organizer.id, email: object.organizer.email }
-  end
+  has_many :organizers, embed: :ids
 
   def start_time
     object.start_time.strftime( "%F %r" )

@@ -1,0 +1,14 @@
+class CreateEventOrganizers < ActiveRecord::Migration
+  def change
+    create_table :event_organizers do |t|
+      t.references :event,     null: false
+      t.integer :organizer_id, null: false
+
+      t.timestamps null: false
+    end
+
+    add_index :event_organizers, [:event_id, :organizer_id], unique: true
+    add_foreign_key :event_organizers, :event, name: "event_organizer_event"
+    add_foreign_key :event_organizers, :user, name: "event_organizer_organizer", column_name: "organizer_id"
+  end
+end

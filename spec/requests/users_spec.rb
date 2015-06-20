@@ -7,9 +7,7 @@ describe "Users API" do
   describe "POST /users" do
     describe "with valid attributes", :show_in_doc do
       before :each do
-        hash = attributes_for( :user )
-        hash[:role] = "judge"
-        post "/users", hash 
+        post "/users", attributes_for( :user ) 
       end
 
       it "returns a created status code" do
@@ -23,9 +21,7 @@ describe "Users API" do
 
     describe "with minimum valid attributes" do
       before :each do
-        hash = attributes_for( :user )
-        hash.delete( "role" )
-        post "/users", hash 
+        post "/users", attributes_for( :user ) 
       end
 
       it "returns a created status code" do
@@ -34,10 +30,6 @@ describe "Users API" do
 
       it "returns the correct JSON" do
         expect( response.body ).to eq( serialize( UserSerializer, User.first ) )
-      end
-
-      it "returns the default organizer role" do
-        expect( json_to_hash( response.body )[:user][:role] ).to eq( "organizer" )
       end
     end
 
@@ -62,7 +54,6 @@ describe "Users API" do
     describe "with valid identifier", :show_in_doc do
       before :each do
         hash = attributes_for( :user, first_name: 'Updated', last_name: 'Name' )
-        hash[:role] = "judge"
         put "/users/#{user.id}", hash, { "Authorization" => "Token token=" + user.token.access_token }
       end
 
@@ -71,12 +62,11 @@ describe "Users API" do
       end
 
       it "returns the correct JSON" do
-        expect( response.body ).to eq( UserSerializer.new( user.reload ).to_json )
+        expect( response.body ).to eq( serialize( UserSerializer, user.reload ) )
       end
 
       it "returns updated attributes" do
         expect( json_to_hash( response.body )[:user][:name] ).to eq( "Updated Name" )
-        expect( json_to_hash( response.body )[:user][:role] ).to eq( "judge" )
       end
     end
 
@@ -124,7 +114,7 @@ describe "Users API" do
       end
 
       it "returns the correct JSON" do
-        expect( json_at_key( response.body, "users" ) ).to eq( serialize_array( UserSerializer, @users ) )
+        expect( json_at_key( response.body, "users" ) ).to eq( serialize_array( UserSerializer, @users, user ) )
       end
     end
 

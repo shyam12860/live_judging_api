@@ -1,6 +1,9 @@
 class Event < ActiveRecord::Base
-  belongs_to :organizer, class_name: "User", foreign_key: "organizer_id"
-  
+  # Associations
+  has_many :event_organizers
+  has_many :organizers, through: :event_organizers
+
+  # Validations
   validates :name,
     presence: true
 

@@ -4,6 +4,5 @@ FactoryGirl.define do
     location   { Faker::Address.street_address + ', ' + Faker::Address.city + ' ' + Faker::Address.state }
     start_time { Faker::Time.forward( 60, :morning )                          }
     end_time   { Faker::Time.between( start_time + 3.hours, start_time + 8.hours ) }
-    association :organizer, factory: :user
   end
 end
