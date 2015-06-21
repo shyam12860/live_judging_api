@@ -59,10 +59,10 @@ class EventTeamsController < ApplicationController
 
   private
     def create_params
-      params.permit( :event_id, :name, :logo )
+      params.permit( :event_id, :name )
     end
     
     def update_params
-      params.permit( :name, :logo )
+      params.permit( :name )
     end
 end
