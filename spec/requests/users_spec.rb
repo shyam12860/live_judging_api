@@ -179,4 +179,104 @@ describe "Users API" do
       end
     end
   end
+
+  describe "GET /users/:id/judged_events" do
+    let( :user ) { create( :user ) }
+    let( :judged_event ) { create( :event, judges: [user] ) }
+    describe "with valid token", :show_in_doc do
+      before :each do
+        judged_event.save
+        get "/users/#{user.id}/judged_events", nil, { "Authorization" => "Token token=" + user.token.access_token }
+      end
+
+      it "returns a success status code" do
+        expect( response ).to have_http_status( :ok )
+      end
+
+      it "returns the correct JSON" do
+        expect( json_at_key( response.body, "event_judges" ) ).to eq( serialize_array( EventJudgeSerializer, [EventJudge.first], user ) )
+      end
+    end
+
+    describe "with invalid token" do
+      before :each do
+        get "/users", nil, { "Authorization" => "Token token=" + SecureRandom.hex }
+      end
+
+      it "returns an unauthorized status code" do
+        expect( response ).to have_http_status( :unauthorized )
+      end
+
+      it "returns the correct JSON" do
+        expect( response.body ).to eq( "Bad credentials. Token required." )
+      end
+    end
+
+    describe "with no judged events" do
+      let( :other_user ) { create( :user ) }
+      before :each do
+        judged_event.save
+        get "/users/#{other_user.id}/judged_events", nil, { "Authorization" => "Token token=" + other_user.token.access_token }
+      end
+
+      it "returns a success status code" do
+        expect( response ).to have_http_status( :ok )  
+      end
+
+      it "returns the correct JSON" do
+        expect( json_to_hash( response.body )[:event_judges] ).to be_empty
+      end
+    end
+  end
+
+  describe "GET /users/:id/organized_events" do
+    let( :user ) { create( :user ) }
+    let( :organized_event ) { create( :event, organizers: [user] ) }
+
+    describe "with valid token", :show_in_doc do
+      before :each do
+        organized_event.save
+        get "/users/#{user.id}/organized_events", nil, { "Authorization" => "Token token=" + user.token.access_token }
+      end
+
+      it "returns a success status code" do
+        expect( response ).to have_http_status( :ok )
+      end
+
+      it "returns the correct JSON" do
+        expect( json_at_key( response.body, "event_organizers" ) ).to eq( serialize_array( EventOrganizerSerializer, [EventOrganizer.first], user ) )
+      end
+    end
+
+    describe "with invalid token" do
+      before :each do
+        get "/users", nil, { "Authorization" => "Token token=" + SecureRandom.hex }
+      end
+
+      it "returns an unauthorized status code" do
+        expect( response ).to have_http_status( :unauthorized )
+      end
+
+      it "returns the correct JSON" do
+        expect( response.body ).to eq( "Bad credentials. Token required." )
+      end
+    end
+
+    describe "with no organized events" do
+      let( :other_user ) { create( :user ) }
+
+      before :each do
+        organized_event.save
+        get "/users/#{other_user.id}/organized_events", nil, { "Authorization" => "Token token=" + other_user.token.access_token }
+      end
+
+      it "returns a success status code" do
+        expect( response ).to have_http_status( :ok )  
+      end
+
+      it "returns the correct JSON" do
+        expect( json_to_hash( response.body )[:event_organizers] ).to be_empty
+      end
+    end
+  end
 end

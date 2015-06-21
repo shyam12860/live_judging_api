@@ -27,6 +27,17 @@ class EventOrganizersController < ApplicationController
     render json: @event_organizers, status: :ok
   end
 
+  api :GET, "users/:user_id/organized_events", "Get a list of events organized by a user"
+    description "Get a list of all events a user is organizing"
+    error code: :unauthorized, desc: " - Bad Token"
+    header "Authorization", "Token token=[access_token]", required: true
+  def index_by_organizer
+    @event_organizers = EventOrganizer.where( organizer_id: params[:user_id] )
+    authorize @event_organizers
+
+    render json: @event_organizers, status: :ok
+  end
+
   api :DELETE, "events/:event_id/organizers/:id", "Remove an organizer from an event"
     description "Remove an organizer from an event. Must be an organizer for the event."
   def destroy

@@ -1,6 +1,10 @@
 class EventOrganizerPolicy < ApplicationPolicy
   def index?
-    user.present? && record.first.event.organizers.include?( user )
+    user.present?
+  end
+
+  def index_by_organizer?
+    user.present?
   end
 
   def create?

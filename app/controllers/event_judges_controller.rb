@@ -27,6 +27,17 @@ class EventJudgesController < ApplicationController
     render json: @event_judges, status: :ok
   end
 
+  api :GET, "users/:user_id/judged_events", "Get a list of events being judged by a user"
+    description "Get a list of all events a user can judge"
+    error code: :unauthorized, desc: " - Bad Token"
+    header "Authorization", "Token token=[access_token]", required: true
+  def index_by_judge
+    @event_judges = EventJudge.where( judge_id: params[:user_id] )
+    authorize @event_judges
+
+    render json: @event_judges, status: :ok
+  end
+
   api :DELETE, "events/:event_id/judges/:id", "Remove a judge from an event"
     description "Remove a judge from an event. Must be an organizer for the event."
   def destroy
