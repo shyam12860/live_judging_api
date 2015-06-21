@@ -11,9 +11,13 @@
 #
 
 class EventTeamSerializer < ActiveModel::Serializer
-  attributes :id, :event, :name
+  attributes :id, :event, :name, :logo
 
   def event
     object.event.id
+  end
+
+  def logo
+    Refile.attachment_url( object, :logo )
   end
 end
