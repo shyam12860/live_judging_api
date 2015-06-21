@@ -28,7 +28,7 @@ class EventCategoriesController < ApplicationController
     end
   end
 
-  api :PUT, "/event_categories/:id", "Update an event category. Must be an organizer of the event"
+  api :PUT, "/categories/:id", "Update an event category. Must be an organizer of the event"
     description "Update an event category."
     error code: :unprocessable_entity, desc: " - Bad parameters for User"
     error code: :unauthorized, desc: " - Bad Token"
@@ -45,7 +45,7 @@ class EventCategoriesController < ApplicationController
     end
   end
 
-  api :DELETE, "/event_categories/:id", "Delete an event category. Must be an organizer of the event."
+  api :DELETE, "/categories/:id", "Delete an event category. Must be an organizer of the event."
     description "Delete an event category."
     error code: :not_found, desc: " - Requested event category did not exist"
     error code: :unauthorized, desc: " - Bad Token"

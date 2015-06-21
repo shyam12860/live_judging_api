@@ -1,4 +1,4 @@
-class EventCategoryPolicy < ApplicationPolicy
+class EventTeamPolicy < ApplicationPolicy
   def index?
     user.present?
   end

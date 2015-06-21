@@ -81,12 +81,12 @@
           {
             "id": 2,
             "event": 3,
-            "label": "Zulauf, West and Block"
+            "label": "Graham, Mayer and Rippin"
           },
           {
             "id": 4,
             "event": 3,
-            "label": "Lemke Group"
+            "label": "Pouros and Sons"
           },
           {
             "id": 5,
@@ -112,12 +112,12 @@
           {
             "id": 2,
             "event": 3,
-            "label": "Dickinson-Shields"
+            "label": "Gaylord-Torphy"
           },
           {
             "id": 4,
             "event": 3,
-            "label": "Schoen, Langworth and Tremblay"
+            "label": "Kihn, Franecki and Moore"
           },
           {
             "id": 5,
@@ -530,6 +530,187 @@
       "recorded": true
     }
   ],
+  "event_teams#create": [
+    {
+      "verb": "POST",
+      "path": "/events/2/teams",
+      "versions": [
+        "1.0"
+      ],
+      "query": null,
+      "request_data": "name=Test+Team",
+      "response_data": {
+        "event_team": {
+          "id": 2,
+          "event": 2,
+          "name": "Test Team"
+        }
+      },
+      "code": 201,
+      "show_in_doc": 1,
+      "recorded": true
+    },
+    {
+      "verb": "POST",
+      "path": "/events/2/teams",
+      "versions": [
+        "1.0"
+      ],
+      "query": null,
+      "request_data": "name=Test+Team",
+      "response_data": {
+        "event_team": {
+          "id": 2,
+          "event": 2,
+          "name": "Test Team"
+        }
+      },
+      "code": 201,
+      "show_in_doc": 0,
+      "recorded": true
+    }
+  ],
+  "event_teams#destroy": [
+    {
+      "verb": "DELETE",
+      "path": "/teams/1",
+      "versions": [
+        "1.0"
+      ],
+      "query": null,
+      "request_data": null,
+      "response_data": null,
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    },
+    {
+      "verb": "DELETE",
+      "path": "/teams/1",
+      "versions": [
+        "1.0"
+      ],
+      "query": null,
+      "request_data": null,
+      "response_data": null,
+      "code": 200,
+      "show_in_doc": 0,
+      "recorded": true
+    }
+  ],
+  "event_teams#index": [
+    {
+      "verb": "GET",
+      "path": "/events/3/teams",
+      "versions": [
+        "1.0"
+      ],
+      "query": null,
+      "request_data": null,
+      "response_data": {
+        "event_teams": [
+          {
+            "id": 1,
+            "event": 3,
+            "name": "Anderson-Muller"
+          },
+          {
+            "id": 2,
+            "event": 3,
+            "name": "Adams, Abshire and Yundt"
+          }
+        ]
+      },
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    },
+    {
+      "verb": "GET",
+      "path": "/events/3/teams",
+      "versions": [
+        "1.0"
+      ],
+      "query": null,
+      "request_data": null,
+      "response_data": {
+        "event_teams": [
+          {
+            "id": 1,
+            "event": 3,
+            "name": "Keeling, Schowalter and Little"
+          },
+          {
+            "id": 2,
+            "event": 3,
+            "name": "Jacobson LLC"
+          }
+        ]
+      },
+      "code": 200,
+      "show_in_doc": 0,
+      "recorded": true
+    }
+  ],
+  "event_teams#update": [
+    {
+      "verb": "PUT",
+      "path": "/teams/1",
+      "versions": [
+        "1.0"
+      ],
+      "query": null,
+      "request_data": null,
+      "response_data": {
+        "event_team": {
+          "id": 1,
+          "event": 2,
+          "name": "updated"
+        }
+      },
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    },
+    {
+      "verb": "PUT",
+      "path": "/teams/1",
+      "versions": [
+        "1.0"
+      ],
+      "query": null,
+      "request_data": null,
+      "response_data": {
+        "event_team": {
+          "id": 1,
+          "event": 2,
+          "name": "updated"
+        }
+      },
+      "code": 200,
+      "show_in_doc": 0,
+      "recorded": true
+    },
+    {
+      "verb": "PUT",
+      "path": "/teams/1",
+      "versions": [
+        "1.0"
+      ],
+      "query": null,
+      "request_data": null,
+      "response_data": {
+        "event_team": {
+          "id": 1,
+          "event": 2,
+          "name": "updated"
+        }
+      },
+      "code": 200,
+      "show_in_doc": 0,
+      "recorded": true
+    }
+  ],
   "events#create": [
     {
       "verb": "POST",
@@ -538,14 +719,14 @@
         "1.0"
       ],
       "query": null,
-      "request_data": "name=Rank&location=1940+Keaton+Turnpike%2C+Dashawnfurt+Oklahoma&start_time=2015-07-26+09%3A38%3A36+-0400&end_time=2015-07-26+08%3A46%3A12+-0400",
+      "request_data": "name=Viva&location=496+Pfeffer+Inlet%2C+Thompsonland+California&start_time=2015-07-29+07%3A10%3A05+-0400&end_time=2015-07-29+00%3A38%3A12+-0400",
       "response_data": {
         "event": {
           "id": 3,
-          "name": "Rank",
-          "location": "1940 Keaton Turnpike, Dashawnfurt Oklahoma",
-          "start_time": "2015-07-26 01:38:36 PM",
-          "end_time": "2015-07-26 12:46:12 PM",
+          "name": "Viva",
+          "location": "496 Pfeffer Inlet, Thompsonland California",
+          "start_time": "2015-07-29 11:10:05 AM",
+          "end_time": "2015-07-29 04:38:12 AM",
           "organizer_ids": [
             2
           ],
@@ -568,14 +749,14 @@
         "1.0"
       ],
       "query": null,
-      "request_data": "name=Daltfresh&location=42341+Manley+Point%2C+Lake+Lesly+New+Mexico&start_time=2015-07-19+09%3A53%3A03+-0400&end_time=2015-07-19+11%3A40%3A49+-0400",
+      "request_data": "name=Bigtax&location=5086+Clare+Ports%2C+Quitzonhaven+New+York&start_time=2015-08-11+08%3A04%3A17+-0400&end_time=2015-08-11+06%3A34%3A19+-0400",
       "response_data": {
         "event": {
           "id": 3,
-          "name": "Daltfresh",
-          "location": "42341 Manley Point, Lake Lesly New Mexico",
-          "start_time": "2015-07-19 01:53:03 PM",
-          "end_time": "2015-07-19 03:40:49 PM",
+          "name": "Bigtax",
+          "location": "5086 Clare Ports, Quitzonhaven New York",
+          "start_time": "2015-08-11 12:04:17 PM",
+          "end_time": "2015-08-11 10:34:19 AM",
           "organizer_ids": [
             2
           ],
@@ -598,14 +779,14 @@
         "1.0"
       ],
       "query": null,
-      "request_data": "name=Subin&location=74864+Davis+Burg%2C+New+Titostad+Iowa&start_time=2015-07-15+07%3A10%3A37+-0400&end_time=2015-07-15+04%3A26%3A45+-0400",
+      "request_data": "name=Konklab&location=7451+Funk+Mountains%2C+Collierfurt+Kentucky&start_time=2015-08-13+10%3A15%3A16+-0400&end_time=2015-08-13+19%3A57%3A49+-0400",
       "response_data": {
         "event": {
           "id": 1,
-          "name": "Subin",
-          "location": "74864 Davis Burg, New Titostad Iowa",
-          "start_time": "2015-07-15 11:10:37 AM",
-          "end_time": "2015-07-15 08:26:45 AM",
+          "name": "Konklab",
+          "location": "7451 Funk Mountains, Collierfurt Kentucky",
+          "start_time": "2015-08-13 02:15:16 PM",
+          "end_time": "2015-08-13 11:57:49 PM",
           "organizer_ids": [
             1
           ],
@@ -628,14 +809,14 @@
         "1.0"
       ],
       "query": null,
-      "request_data": "name=Latlux&location=7677+Bins+Vista%2C+Huelsville+Virginia&start_time=2015-08-20+11%3A53%3A13+-0400&end_time=2015-08-20+09%3A27%3A45+-0400",
+      "request_data": "name=Konklux&location=9429+Johanna+Crescent%2C+New+Audreannemouth+New+Mexico&start_time=2015-07-03+06%3A52%3A55+-0400&end_time=2015-07-03+19%3A00%3A17+-0400",
       "response_data": {
         "event": {
           "id": 1,
-          "name": "Latlux",
-          "location": "7677 Bins Vista, Huelsville Virginia",
-          "start_time": "2015-08-20 03:53:13 PM",
-          "end_time": "2015-08-20 01:27:45 PM",
+          "name": "Konklux",
+          "location": "9429 Johanna Crescent, New Audreannemouth New Mexico",
+          "start_time": "2015-07-03 10:52:55 AM",
+          "end_time": "2015-07-03 11:00:17 PM",
           "organizer_ids": [
             1
           ],
@@ -658,14 +839,14 @@
         "1.0"
       ],
       "query": null,
-      "request_data": "name=Quo+Lux&location=930+Cruickshank+Inlet%2C+North+Jamieport+Wisconsin&start_time=2015-07-12+08%3A21%3A34+-0400&end_time=2015-07-12+17%3A22%3A21+-0400",
+      "request_data": "name=Voltsillam&location=6968+Trantow+Cove%2C+McGlynnton+Alabama&start_time=2015-08-10+11%3A06%3A05+-0400&end_time=2015-08-10+18%3A06%3A46+-0400",
       "response_data": {
         "event": {
           "id": 1,
-          "name": "Quo Lux",
-          "location": "930 Cruickshank Inlet, North Jamieport Wisconsin",
-          "start_time": "2015-07-12 12:21:34 PM",
-          "end_time": "2015-07-12 09:22:21 PM",
+          "name": "Voltsillam",
+          "location": "6968 Trantow Cove, McGlynnton Alabama",
+          "start_time": "2015-08-10 03:06:05 PM",
+          "end_time": "2015-08-10 10:06:46 PM",
           "organizer_ids": [
             1
           ],
@@ -688,14 +869,14 @@
         "1.0"
       ],
       "query": null,
-      "request_data": "name=Sonsing&location=5121+Rolfson+Spurs%2C+South+Alexysfurt+Kansas&start_time=2015-08-06+07%3A03%3A04+-0400&end_time=2015-08-06+03%3A06%3A01+-0400",
+      "request_data": "name=Job&location=50753+Mohammed+Gardens%2C+Annamarieborough+Wisconsin&start_time=2015-07-17+10%3A28%3A28+-0400&end_time=2015-07-17+02%3A58%3A50+-0400",
       "response_data": {
         "event": {
           "id": 1,
-          "name": "Sonsing",
-          "location": "5121 Rolfson Spurs, South Alexysfurt Kansas",
-          "start_time": "2015-08-06 11:03:04 AM",
-          "end_time": "2015-08-06 07:06:01 AM",
+          "name": "Job",
+          "location": "50753 Mohammed Gardens, Annamarieborough Wisconsin",
+          "start_time": "2015-07-17 02:28:28 PM",
+          "end_time": "2015-07-17 06:58:50 AM",
           "organizer_ids": [
             1
           ],
@@ -725,10 +906,10 @@
         "events": [
           {
             "id": 1,
-            "name": "Matsoft",
-            "location": "679 Schroeder Hollow, Kathrynburgh Kentucky",
-            "start_time": "2015-08-03 01:46:26 PM",
-            "end_time": "2015-08-03 05:18:26 PM",
+            "name": "Otcom",
+            "location": "716 Moore Hills, Bauchborough Texas",
+            "start_time": "2015-07-02 11:46:35 AM",
+            "end_time": "2015-07-03 12:17:45 AM",
             "organizer_ids": [
               1
             ],
@@ -741,10 +922,10 @@
           },
           {
             "id": 2,
-            "name": "Zaam-Dox",
-            "location": "370 Zakary Prairie, Lebsackmouth Wyoming",
-            "start_time": "2015-07-28 12:13:58 PM",
-            "end_time": "2015-07-28 11:24:11 AM",
+            "name": "Sub-Ex",
+            "location": "14616 King Expressway, Leannastad Massachusetts",
+            "start_time": "2015-07-10 03:46:51 PM",
+            "end_time": "2015-07-10 01:44:17 PM",
             "organizer_ids": [
               1
             ],
@@ -773,10 +954,10 @@
         "events": [
           {
             "id": 1,
-            "name": "Kanlam",
-            "location": "64102 Greenholt Road, North Armandofurt Wyoming",
-            "start_time": "2015-08-11 01:37:21 PM",
-            "end_time": "2015-08-11 05:18:22 AM",
+            "name": "Stim",
+            "location": "27724 Douglas Prairie, South Jonathantown Connecticut",
+            "start_time": "2015-07-09 03:03:43 PM",
+            "end_time": "2015-07-09 11:38:00 PM",
             "organizer_ids": [
               1
             ],
@@ -789,10 +970,10 @@
           },
           {
             "id": 2,
-            "name": "Fintone",
-            "location": "4675 Nikolaus Place, Kirlinport Kentucky",
-            "start_time": "2015-07-31 12:02:52 PM",
-            "end_time": "2015-07-31 01:48:40 PM",
+            "name": "Hatity",
+            "location": "2335 Batz Isle, Lake Malachiville New Mexico",
+            "start_time": "2015-06-27 11:46:02 AM",
+            "end_time": "2015-06-27 09:25:34 PM",
             "organizer_ids": [
               1
             ],
@@ -822,10 +1003,10 @@
       "response_data": {
         "event": {
           "id": 1,
-          "name": "It",
-          "location": "880 Maggio Alley, South Brando Michigan",
-          "start_time": "2015-08-12 01:20:32 PM",
-          "end_time": "2015-08-12 04:23:43 PM",
+          "name": "Duobam",
+          "location": "95766 Arne Crest, Lonnyville Iowa",
+          "start_time": "2015-08-01 10:08:58 AM",
+          "end_time": "2015-08-02 03:24:26 AM",
           "organizer_ids": [
 
           ],
@@ -852,10 +1033,10 @@
       "response_data": {
         "event": {
           "id": 1,
-          "name": "Tin",
-          "location": "574 Dooley Trail, New Tristin West Virginia",
-          "start_time": "2015-07-27 02:05:26 PM",
-          "end_time": "2015-07-27 01:46:49 PM",
+          "name": "Voyatouch",
+          "location": "7914 Elta Crossing, North Dominic Colorado",
+          "start_time": "2015-08-08 10:49:24 AM",
+          "end_time": "2015-08-08 06:24:45 PM",
           "organizer_ids": [
 
           ],
@@ -880,14 +1061,14 @@
         "1.0"
       ],
       "query": null,
-      "request_data": "name=Updated+Name&location=937+Keyon+Keys%2C+Port+Nelda+Illinois&start_time=2015-06-27+09%3A09%3A46+-0400&end_time=2015-06-27+17%3A13%3A40+-0400",
+      "request_data": "name=Updated+Name&location=965+Keanu+Mill%2C+Marshallmouth+Virginia&start_time=2015-07-08+07%3A44%3A13+-0400&end_time=2015-07-08+01%3A14%3A06+-0400",
       "response_data": {
         "event": {
           "id": 1,
           "name": "Updated Name",
-          "location": "937 Keyon Keys, Port Nelda Illinois",
-          "start_time": "2015-06-27 01:09:46 PM",
-          "end_time": "2015-06-27 09:13:40 PM",
+          "location": "965 Keanu Mill, Marshallmouth Virginia",
+          "start_time": "2015-07-08 11:44:13 AM",
+          "end_time": "2015-07-08 05:14:06 AM",
           "organizer_ids": [
 
           ],
@@ -910,14 +1091,14 @@
         "1.0"
       ],
       "query": null,
-      "request_data": "name=Updated+Name&location=541+Fritz+Coves%2C+Bessieshire+Arizona&start_time=2015-07-29+07%3A27%3A26+-0400&end_time=2015-07-29+08%3A08%3A26+-0400",
+      "request_data": "name=Updated+Name&location=5515+Sienna+Isle%2C+Lesliebury+Virginia&start_time=2015-07-14+06%3A48%3A50+-0400&end_time=2015-07-14+11%3A55%3A40+-0400",
       "response_data": {
         "event": {
           "id": 1,
           "name": "Updated Name",
-          "location": "541 Fritz Coves, Bessieshire Arizona",
-          "start_time": "2015-07-29 11:27:26 AM",
-          "end_time": "2015-07-29 12:08:26 PM",
+          "location": "5515 Sienna Isle, Lesliebury Virginia",
+          "start_time": "2015-07-14 10:48:50 AM",
+          "end_time": "2015-07-14 03:55:40 PM",
           "organizer_ids": [
 
           ],
@@ -940,14 +1121,14 @@
         "1.0"
       ],
       "query": null,
-      "request_data": "name=Updated+Name&location=8428+Cummings+Ways%2C+New+Vincenza+Iowa&start_time=2015-06-26+08%3A58%3A10+-0400&end_time=2015-06-26+08%3A10%3A16+-0400",
+      "request_data": "name=Updated+Name&location=2008+Krajcik+Knoll%2C+Kennethborough+Texas&start_time=2015-07-11+06%3A56%3A28+-0400&end_time=2015-07-11+13%3A01%3A15+-0400",
       "response_data": {
         "event": {
           "id": 1,
           "name": "Updated Name",
-          "location": "8428 Cummings Ways, New Vincenza Iowa",
-          "start_time": "2015-06-26 12:58:10 PM",
-          "end_time": "2015-06-26 12:10:16 PM",
+          "location": "2008 Krajcik Knoll, Kennethborough Texas",
+          "start_time": "2015-07-11 10:56:28 AM",
+          "end_time": "2015-07-11 05:01:15 PM",
           "organizer_ids": [
 
           ],
@@ -976,11 +1157,11 @@
       "response_data": {
         "user": {
           "id": 1,
-          "email": "raheem_christiansen@kilback.name",
-          "name": "Raheem Christiansen",
+          "email": "kennedi_walsh@okeefehane.com",
+          "name": "Kennedi Walsh",
           "admin": false,
           "token": {
-            "access_token": "457fbde7c244fef850cd20a3948df087"
+            "access_token": "9084849ec5be4ce38b00960133810474"
           }
         }
       },
@@ -999,11 +1180,11 @@
       "response_data": {
         "user": {
           "id": 1,
-          "email": "emilio_osinski@becker.net",
-          "name": "Emilio Osinski",
+          "email": "modesta_jacobi@smith.biz",
+          "name": "Modesta Jacobi",
           "admin": false,
           "token": {
-            "access_token": "816e2d955c2d7e300ee0639b7ec106d1"
+            "access_token": "42716e334417e685ff477b40fa1b013c"
           }
         }
       },
@@ -1048,15 +1229,15 @@
         "1.0"
       ],
       "query": null,
-      "request_data": "first_name=Mckenzie&last_name=Haag&email=mckenzie_haag%40kub.org&password=xje0yeogt&password_confirmation=xje0yeogt",
+      "request_data": "first_name=Russel&last_name=Orn&email=russel_orn%40langworth.biz&password=hxzc2irfq&password_confirmation=hxzc2irfq",
       "response_data": {
         "user": {
           "id": 1,
-          "email": "mckenzie_haag@kub.org",
-          "name": "Mckenzie Haag",
+          "email": "russel_orn@langworth.biz",
+          "name": "Russel Orn",
           "admin": false,
           "token": {
-            "access_token": "96a4ac2429ebaf54169489f2cdd29e76"
+            "access_token": "62aa11d35bce0e20100c594194960bce"
           }
         }
       },
@@ -1071,15 +1252,15 @@
         "1.0"
       ],
       "query": null,
-      "request_data": "first_name=Kennith&last_name=Friesen&email=kennith_friesen%40okonheel.name&password=vgug4aoyz&password_confirmation=vgug4aoyz",
+      "request_data": "first_name=Marty&last_name=Wilkinson&email=marty_wilkinson%40cummings.info&password=hxqdgpvrq&password_confirmation=hxqdgpvrq",
       "response_data": {
         "user": {
           "id": 1,
-          "email": "kennith_friesen@okonheel.name",
-          "name": "Kennith Friesen",
+          "email": "marty_wilkinson@cummings.info",
+          "name": "Marty Wilkinson",
           "admin": false,
           "token": {
-            "access_token": "429f746862161024619cca4cf4d567b8"
+            "access_token": "84bdde32f8e35cd8c5d9170e7ed39b11"
           }
         }
       },
@@ -1101,17 +1282,17 @@
         "users": [
           {
             "id": 1,
-            "email": "naomi_marquardt@klein.net",
-            "name": "Naomi Marquardt",
+            "email": "skye_powlowski@legros.info",
+            "name": "Skye Powlowski",
             "admin": false
           },
           {
             "id": 2,
-            "email": "moises_renner@willberge.biz",
-            "name": "Moises Renner",
+            "email": "citlalli_pfeffer@champlin.com",
+            "name": "Citlalli Pfeffer",
             "admin": false,
             "token": {
-              "access_token": "06afcf720a130a6b4de4e4daa2456523"
+              "access_token": "e3ef1fbc48fc003bc9a7b87716011bf2"
             }
           }
         ]
@@ -1132,17 +1313,17 @@
         "users": [
           {
             "id": 1,
-            "email": "connie_bruen@moriettekovacek.net",
-            "name": "Connie Bruen",
+            "email": "rosemary_strosin@kreigerlind.biz",
+            "name": "Rosemary Strosin",
             "admin": false
           },
           {
             "id": 2,
-            "email": "reymundo_wunsch@simonis.org",
-            "name": "Reymundo Wunsch",
+            "email": "sterling_predovic@willmsmertz.net",
+            "name": "Sterling Predovic",
             "admin": false,
             "token": {
-              "access_token": "ed7462b1e04e1304789f3667e6e63b9d"
+              "access_token": "bfb24594d588ef0cc9097c10748f97e4"
             }
           }
         ]
@@ -1164,11 +1345,11 @@
       "response_data": {
         "user": {
           "id": 1,
-          "email": "sterling_fisher@johnstonwalter.info",
-          "name": "Sterling Fisher",
+          "email": "clemens_wilkinson@rippinpouros.com",
+          "name": "Clemens Wilkinson",
           "admin": false,
           "token": {
-            "access_token": "5a5579658a60c0faedf47281e4034e95"
+            "access_token": "6e5da716356b8e42c81534aecf5d54b1"
           }
         }
       },
@@ -1187,11 +1368,11 @@
       "response_data": {
         "user": {
           "id": 1,
-          "email": "al_funk@turnerbuckridge.biz",
-          "name": "Al Funk",
+          "email": "ryder_zemlak@lind.org",
+          "name": "Ryder Zemlak",
           "admin": false,
           "token": {
-            "access_token": "89c3ff4e2ef3ff2d9a57f617ccd697d2"
+            "access_token": "1a6172ebc7915fc4a4e2d0757c5b9d16"
           }
         }
       },
@@ -1208,15 +1389,15 @@
         "1.0"
       ],
       "query": null,
-      "request_data": "first_name=Updated&last_name=Name&email=updated_name%40westhilll.info&password=7vbljmera&password_confirmation=7vbljmera",
+      "request_data": "first_name=Updated&last_name=Name&email=updated_name%40wisokyhayes.biz&password=xc90hbbhf&password_confirmation=xc90hbbhf",
       "response_data": {
         "user": {
           "id": 1,
-          "email": "updated_name@westhilll.info",
+          "email": "updated_name@wisokyhayes.biz",
           "name": "Updated Name",
           "admin": false,
           "token": {
-            "access_token": "4a004b97ad419ef6d01d98e31c3e7186"
+            "access_token": "6c66c0666548a673a8992fa154cc588c"
           }
         }
       },
@@ -1231,15 +1412,15 @@
         "1.0"
       ],
       "query": null,
-      "request_data": "first_name=Updated&last_name=Name&email=updated_name%40mann.net&password=c370se8s5&password_confirmation=c370se8s5",
+      "request_data": "first_name=Updated&last_name=Name&email=updated_name%40christiansenauer.org&password=xlpxrq097&password_confirmation=xlpxrq097",
       "response_data": {
         "user": {
           "id": 1,
-          "email": "updated_name@mann.net",
+          "email": "updated_name@christiansenauer.org",
           "name": "Updated Name",
           "admin": false,
           "token": {
-            "access_token": "c684a02a1bddf4cb010331af47823721"
+            "access_token": "cd50dbd9480f976abf939d0c7bdb20aa"
           }
         }
       },
@@ -1254,15 +1435,15 @@
         "1.0"
       ],
       "query": null,
-      "request_data": "first_name=Updated&last_name=Name&email=updated_name%40cummings.name&password=75qswmxo5&password_confirmation=75qswmxo5",
+      "request_data": "first_name=Updated&last_name=Name&email=updated_name%40kutch.com&password=bkac0yc6p&password_confirmation=bkac0yc6p",
       "response_data": {
         "user": {
           "id": 1,
-          "email": "updated_name@cummings.name",
+          "email": "updated_name@kutch.com",
           "name": "Updated Name",
           "admin": false,
           "token": {
-            "access_token": "e7c365c1d9bbad8d180996664bc4bbe2"
+            "access_token": "19715a3de453a57616f1dd434eeea50d"
           }
         }
       },
