@@ -24,7 +24,7 @@ class ApplicationController < ActionController::API
     end
 
     def render_unauthorized
-      render json: 'Bad credentials. Token required.', status: :unauthorized
+      render json: "Bad credentials. Token required.", status: :unauthorized
     end
 
     def current_user

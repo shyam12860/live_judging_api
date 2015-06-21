@@ -13,6 +13,16 @@
 
 ActiveRecord::Schema.define(version: 31) do
 
+  create_table "event_categories", force: :cascade do |t|
+    t.integer  "event_id",   null: false
+    t.string   "label",      null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "event_categories", ["event_id", "label"], name: "index_event_categories_on_event_id_and_label", unique: true
+  add_index "event_categories", ["event_id"], name: "index_event_categories_on_event_id"
+
   create_table "event_judges", force: :cascade do |t|
     t.integer "event_id", null: false
     t.integer "judge_id", null: false

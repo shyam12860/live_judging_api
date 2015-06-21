@@ -118,12 +118,12 @@ describe "Event Organizers API" do
       end
     end
 
-    describe "with invalid attributes" do
+    describe "with an invalid identifier" do
       before :each do
         delete "/events/#{event.id}/organizers/another_user", {}, { "Authorization" => "Token token=" + user.token.access_token }
       end
 
-      it "returns an unprocessable entity status code" do
+      it "returns a not found entity status code" do
         expect( response ).to have_http_status( :not_found )
       end
 

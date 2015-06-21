@@ -119,12 +119,12 @@ describe "Event Judges API" do
       end
     end
 
-    describe "with invalid attributes" do
+    describe "with invalid judge identifier" do
       before :each do
         delete "/events/#{event.id}/judges/another_user", {}, { "Authorization" => "Token token=" + user.token.access_token }
       end
 
-      it "returns an unprocessable entity status code" do
+      it "returns a not found entity status code" do
         expect( response ).to have_http_status( :not_found )
       end
 
@@ -133,5 +133,4 @@ describe "Event Judges API" do
       end
     end
   end
-
 end

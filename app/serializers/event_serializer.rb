@@ -1,7 +1,21 @@
+# == Schema Information
+#
+# Table name: events
+#
+#  id         :integer          not null, primary key
+#  name       :string           not null
+#  location   :string           not null
+#  start_time :datetime         not null
+#  end_time   :datetime         not null
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 class EventSerializer < ActiveModel::Serializer
   attributes :id, :name, :location, :start_time, :end_time
 
   has_many :organizers, embed: :ids
+  has_many :categories, embed: :ids
   has_many :judges, embed: :ids
 
   def start_time

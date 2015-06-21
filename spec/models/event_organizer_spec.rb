@@ -1,3 +1,14 @@
+# == Schema Information
+#
+# Table name: event_organizers
+#
+#  id           :integer          not null, primary key
+#  event_id     :integer          not null
+#  organizer_id :integer          not null
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#
+
 require 'rails_helper'
 
 RSpec.describe EventOrganizer, type: :model do

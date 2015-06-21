@@ -99,6 +99,21 @@ describe "Users API" do
         expect( response.body ).to eq( "Bad credentials. Token required." )
       end
     end
+
+    describe "when the user does not exist" do
+      before :each do
+        hash = attributes_for( :user, first_name: 'Updated', last_name: 'Name' )
+        put "/users/awoejfa", hash, { "Authorization" => "Token token=" + user.token.access_token }
+      end
+
+      it "returns a not found status code" do
+        expect( response ).to have_http_status( :not_found )
+      end
+
+      it "returns the correct JSON" do
+        expect( response.body ).to be_blank
+      end
+    end
   end
 
   describe "GET /users" do

@@ -1,3 +1,12 @@
+# == Schema Information
+#
+# Table name: event_judges
+#
+#  id       :integer          not null, primary key
+#  event_id :integer          not null
+#  judge_id :integer          not null
+#
+
 require 'rails_helper'
 
 RSpec.describe EventJudge do

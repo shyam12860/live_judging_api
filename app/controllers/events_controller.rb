@@ -63,20 +63,6 @@ class EventsController < ApplicationController
     render json: @event, status: :ok
   end
 
-  def judges
-    @event = Event.find( params[:id] )
-    authorize @event 
-
-    render json: @event.judges, status: :ok
-  end
-
-  def organizers
-    @event = Event.find( params[:id] )
-    authorize @event 
-
-    render json: @event.organizers, status: :ok
-  end
-
   private
   def my_params
     params.permit( :name, :location, :start_time, :end_time )

@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: events
+#
+#  id         :integer          not null, primary key
+#  name       :string           not null
+#  location   :string           not null
+#  start_time :datetime         not null
+#  end_time   :datetime         not null
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 FactoryGirl.define do
   factory :event do
     name       { Faker::App.name }

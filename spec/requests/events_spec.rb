@@ -156,6 +156,10 @@ describe "Events API" do
       it "has the current user added as the event organizer" do
         expect( Event.first.organizers ).to match_array( [user] )
       end
+
+      it "has an 'Uncategorized' category added to it" do
+        expect( Event.first.categories.first.label ).to eq( "Uncategorized" )
+      end
     end
 
     describe "with invalid attributes" do

@@ -40,6 +40,8 @@ class EventOrganizersController < ApplicationController
 
   api :DELETE, "events/:event_id/organizers/:id", "Remove an organizer from an event"
     description "Remove an organizer from an event. Must be an organizer for the event."
+    error code: :unauthorized, desc: " - Bad Token"
+    header "Authorization", "Token token=[access_token]", required: true
   def destroy
     @event_organizer = EventOrganizer.find_by( organizer_id: params[:id], event_id: params[:event_id] )
     authorize @event_organizer
