@@ -1,6 +1,6 @@
 class EventCategoriesController < ApplicationController
 
-  api :GET, "/event/:event_id/categories", "Get a list of event categories"
+  api :GET, "/events/:event_id/categories", "Get a list of event categories"
     description "Get a list of all categories for an event."
     error code: :unauthorized, desc: " - Bad Token"
     header "Authorization", "Token token=[access_token]", required: true
