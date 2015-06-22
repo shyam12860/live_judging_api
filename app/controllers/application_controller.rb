@@ -45,4 +45,10 @@ class ApplicationController < ActionController::API
     def user_not_authorized
       head :unauthorized
     end
+
+    def parse_image_data( base64_image )
+      filename = "upload-image"
+      in_content_type, encoding, string = base64_image.split( /[:;,]/ )[1..3]
+      StringIO.new( Base64.decode64( string ) )
+    end
 end

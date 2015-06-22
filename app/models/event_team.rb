@@ -15,7 +15,7 @@ class EventTeam < ActiveRecord::Base
   belongs_to :event
 
   # Refile
-  attachment :logo, type: :image
+  attachment :logo
 
   # Validations
   validates :name,

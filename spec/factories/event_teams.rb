@@ -12,7 +12,7 @@
 
 FactoryGirl.define do
   factory :event_team do
-    logo_id { fixture_file_upload( Rails.root.join( 'spec', 'files', 'team_logo.png' ), 'image/png' ) }
+    #logo_id { fixture_file_upload( Rails.root.join( 'spec', 'files', 'team_logo.png' ), 'image/png' ) }
     name { Faker::Company.name }
     event
   end

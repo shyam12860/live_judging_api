@@ -166,7 +166,7 @@ describe "Event Teams API" do
   end
 
   describe "DELETE /teams/:id" do
-    let( :team ) { create( :event_team, logo_id: nil ) }
+    let( :team ) { create( :event_team ) }
     let( :event ) { create( :event, teams: [team], organizers: [user] ) }
     describe "with valid attributes", :show_in_doc do
       before :each do

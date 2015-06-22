@@ -18,6 +18,6 @@ class EventTeamSerializer < ActiveModel::Serializer
   end
 
   def logo
-    Refile.attachment_url( object, :logo )
+    Refile.attachment_url( object, :logo, :fill, 300, 300, format: "jpg" )
   end
 end
