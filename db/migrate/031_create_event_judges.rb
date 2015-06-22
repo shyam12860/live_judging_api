@@ -6,7 +6,7 @@ class CreateEventJudges < ActiveRecord::Migration
     end
 
     add_index :event_judges, [:event_id, :judge_id], unique: true
-    add_foreign_key :event_judges, :event, name: "event_judge_event"
-    add_foreign_key :event_judges, :user, column: :judge_id, name: "event_judge_judge"
+    add_foreign_key :event_judges, :events, name: "event_judge_event"
+    add_foreign_key :event_judges, :users, column: :judge_id, name: "event_judge_judge"
   end
 end
