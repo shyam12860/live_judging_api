@@ -43,7 +43,7 @@ describe "Event Categories API" do
     let( :event ) { create( :event, categories: [category_1], organizers: [user] ) }
     describe "with valid attributes", :show_in_doc do
       before :each do
-        post "/events/#{event.id}/categories", { label: "Test Category" }, { "Authorization" => "Token token=" + user.token.access_token } 
+        post "/events/#{event.id}/categories", attributes_for( :event_category ), { "Authorization" => "Token token=" + user.token.access_token } 
       end
 
       it "returns a created status code" do
@@ -58,7 +58,7 @@ describe "Event Categories API" do
     describe "as a user that did not organize the event" do
       let( :other_user ) { create( :user ) }
       before :each do
-        post "/events/#{event.id}/categories", { label: "Test Category" }, { "Authorization" => "Token token=" + other_user.token.access_token } 
+        post "/events/#{event.id}/categories", attributes_for( :event_category ), { "Authorization" => "Token token=" + other_user.token.access_token } 
       end
 
       it "returns a created status code" do
@@ -72,7 +72,7 @@ describe "Event Categories API" do
 
     describe "with invalid attributes" do
       before :each do
-        post "/events/#{event.id}/categories", { label: nil }, { "Authorization" => "Token token=" + user.token.access_token }
+        post "/events/#{event.id}/categories", attributes_for( :event_category, label: nil ), { "Authorization" => "Token token=" + user.token.access_token }
       end
 
       it "returns an unprocessable entity status code" do

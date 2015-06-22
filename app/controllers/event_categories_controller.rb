@@ -16,6 +16,9 @@ class EventCategoriesController < ApplicationController
     error code: :unprocessable_entity, desc: " - Bad parameters for User"
     error code: :unauthorized, desc: " - Bad Token"
     param :label, String, desc: "Category label", required: true
+    param :color, Integer, desc: "Integer value for a color", required: true
+    param :due_at, String, desc: "Datetime that judging for this category is due at", required: false
+    param :description, String, desc: "Description of the category", required: false
     header "Authorization", "Token token=[access_token]", required: true
   def create
     @category = EventCategory.new( create_params )
@@ -45,6 +48,9 @@ class EventCategoriesController < ApplicationController
     error code: :unprocessable_entity, desc: " - Bad parameters for User"
     error code: :unauthorized, desc: " - Bad Token"
     param :label, String, desc: "Category label", required: true
+    param :color, Integer, desc: "Integer value for a color", required: true
+    param :due_at, String, desc: "Datetime that judging for this category is due at", required: false
+    param :description, String, desc: "Description of the category", required: false
     header "Authorization", "Token token=[access_token]", required: true
   def update
     @category = EventCategory.find( params[:id] )
@@ -72,10 +78,10 @@ class EventCategoriesController < ApplicationController
 
   private
     def create_params
-      params.permit( :event_id, :label )
+      params.permit( :event_id, :label, :color, :description, :due_at )
     end
     
     def update_params
-      params.permit( :label )
+      params.permit( :label, :color, :description, :due_at  )
     end
 end

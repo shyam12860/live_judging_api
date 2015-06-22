@@ -14,10 +14,13 @@
 ActiveRecord::Schema.define(version: 40) do
 
   create_table "event_categories", force: :cascade do |t|
-    t.integer  "event_id",   null: false
-    t.string   "label",      null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "event_id",    null: false
+    t.string   "label",       null: false
+    t.integer  "color",       null: false
+    t.datetime "due_at"
+    t.string   "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   add_index "event_categories", ["event_id", "label"], name: "index_event_categories_on_event_id_and_label", unique: true
@@ -61,7 +64,7 @@ ActiveRecord::Schema.define(version: 40) do
 
   create_table "tokens", force: :cascade do |t|
     t.string   "access_token",                                 null: false
-    t.datetime "expires_at",   default: '2015-07-06 00:35:23', null: false
+    t.datetime "expires_at",   default: '2015-07-06 03:44:17', null: false
     t.integer  "user_id"
     t.datetime "created_at",                                   null: false
     t.datetime "updated_at",                                   null: false

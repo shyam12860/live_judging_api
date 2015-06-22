@@ -2,11 +2,14 @@
 #
 # Table name: event_categories
 #
-#  id         :integer          not null, primary key
-#  event_id   :integer          not null
-#  label      :string           not null
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id          :integer          not null, primary key
+#  event_id    :integer          not null
+#  label       :string           not null
+#  color       :integer          not null
+#  due_at      :datetime
+#  description :string
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
 #
 
 require 'rails_helper'
@@ -34,5 +37,17 @@ RSpec.describe EventCategory, type: :model do
     dup_event_category = build( :event_category, label: event_category.label, event: event_category.event )
     dup_event_category.valid?
     expect( dup_event_category.errors[:label] ).to include( "has already been taken" )
+  end
+
+  it "is invalid without a color" do
+    event_category.color = nil
+    event_category.valid?
+    expect( event_category.errors[:color] ).to include( "can't be blank" )
+  end
+
+  it "is invalid with a duplicated event and color" do
+    dup_event_category = build( :event_category, color: event_category.color, event: event_category.event )
+    dup_event_category.valid?
+    expect( dup_event_category.errors[:color] ).to include( "has already been taken" )
   end
 end

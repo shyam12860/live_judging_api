@@ -1,8 +1,11 @@
 class CreateEventCategories < ActiveRecord::Migration
   def change
     create_table :event_categories do |t|
-      t.references :event, index: true,  foreign_key: true, null: false
-      t.string :label,     null: false
+      t.references :event, index: true, foreign_key: true, null: false
+      t.string   :label,   null: false
+      t.integer  :color,   null: false
+      t.datetime :due_at
+      t.string   :description
 
       t.timestamps null: false
     end

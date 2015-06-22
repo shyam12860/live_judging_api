@@ -37,6 +37,11 @@ class Event < ActiveRecord::Base
 
   private
     def set_up_default_category
-      self.categories << EventCategory.create( event_id: id, label: "Uncategorized" )
+      self.categories << EventCategory.create( 
+        event_id: id, 
+        label: "Uncategorized",
+        color: 12303291,
+        description: "The default category for an event. All teams you create without explicit categories will be placed here."
+      )
     end
 end
