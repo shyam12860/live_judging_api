@@ -9,6 +9,6 @@ class CreateEventOrganizers < ActiveRecord::Migration
 
     add_index :event_organizers, [:event_id, :organizer_id], unique: true
     add_foreign_key :event_organizers, :events, name: "event_organizer_event"
-    add_foreign_key :event_organizers, :users, name: "event_organizer_organizer", column_name: "organizer_id"
+    add_foreign_key :event_organizers, :users, name: "event_organizer_organizer", column: "organizer_id"
   end
 end
