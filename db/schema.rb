@@ -61,7 +61,7 @@ ActiveRecord::Schema.define(version: 40) do
 
   create_table "tokens", force: :cascade do |t|
     t.string   "access_token",                                 null: false
-    t.datetime "expires_at",   default: '2015-07-04 04:00:14', null: false
+    t.datetime "expires_at",   default: '2015-07-06 00:26:47', null: false
     t.integer  "user_id"
     t.datetime "created_at",                                   null: false
     t.datetime "updated_at",                                   null: false
