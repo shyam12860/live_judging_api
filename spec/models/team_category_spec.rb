@@ -24,4 +24,11 @@ RSpec.describe TeamCategory, type: :model do
     dup_team_category.valid?
     expect( dup_team_category.errors[:team] ).to include( "has already been taken" )
   end
+
+  it "is invalid if the team has a different event from the category" do
+    other_team = create( :event_team )
+    team_category.team = other_team
+    team_category.valid?
+    expect( team_category.errors[:team] ).to include( "event does not match category event" )
+  end
 end
