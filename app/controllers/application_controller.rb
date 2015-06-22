@@ -24,6 +24,7 @@ class ApplicationController < ActionController::API
     end
 
     def render_unauthorized
+      headers["WWW-Authenticate"] = %(Basic realm="Live Judging")
       render json: "Bad credentials. Token required.", status: :unauthorized
     end
 
@@ -43,6 +44,7 @@ class ApplicationController < ActionController::API
     end
 
     def user_not_authorized
+      headers["WWW-Authenticate"] = %(Basic realm="Pundit")
       head :unauthorized
     end
 

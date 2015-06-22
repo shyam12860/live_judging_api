@@ -34,6 +34,7 @@ class SessionsController < ApplicationController
     end
 
     def render_unauthorized_basic
+      headers["WWW-Authenticate"] = %(Basic realm="Live Judging")
       render json: 'Bad credentials. Email/Password required.', status: :unauthorized
     end
 end
