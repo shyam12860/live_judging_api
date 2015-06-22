@@ -12,7 +12,9 @@ Rails.application.routes.draw do
     end
 
     resources :event_categories, only: [:update, :destroy, :show], as: "categories", path: "categories"
-    resources :event_teams,      only: [:update, :destroy, :show], as: "teams",      path: "teams"
+    resources :event_teams,      only: [:update, :destroy, :show], as: "teams",      path: "teams" do
+      resources :team_categories, only: [:create, :index, :destroy], as: "categories", path: "categories"
+    end
 
     resources :events, only: [:index, :show, :create, :update ] do
       resources :event_judges,     only: [:create, :index, :destroy], as: "judges",     path: "judges"
