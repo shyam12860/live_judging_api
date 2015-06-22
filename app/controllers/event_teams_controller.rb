@@ -10,6 +10,18 @@ class EventTeamsController < ApplicationController
     render json: @teams, status: :ok
   end
 
+  api :GET, "/teams/:id", "Get a team. Must be an organizer of the event it belongs to"
+    description "Show an event team."
+    error code: :not_found, desc: " - Team not found in system"
+    error code: :unauthorized, desc: " - Bad Token"
+    header "Authorization", "Token token=[access_token]", required: true
+  def show
+    @team = EventTeam.find( params[:id] )
+    authorize @team
+
+    render json: @team, status: :ok
+  end
+
   api :POST, "/events/:event_id/teams", "Create a new event team. Must be an organizer of the event"
     description "Create a new team for an event."
     error code: :unprocessable_entity, desc: " - Bad parameters for User"

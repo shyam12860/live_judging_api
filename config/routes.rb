@@ -11,8 +11,8 @@ Rails.application.routes.draw do
       resources :event_organizers, only: [:index], as: "organized_events", path: "organized_events", to: "event_organizers#index_by_organizer"
     end
 
-    resources :event_categories, only: [:update, :destroy], as: "categories", path: "categories"
-    resources :event_teams,      only: [:update, :destroy], as: "teams",      path: "teams"
+    resources :event_categories, only: [:update, :destroy, :show], as: "categories", path: "categories"
+    resources :event_teams,      only: [:update, :destroy, :show], as: "teams",      path: "teams"
 
     resources :events, only: [:index, :show, :create, :update ] do
       resources :event_judges,     only: [:create, :index, :destroy], as: "judges",     path: "judges"
@@ -20,7 +20,5 @@ Rails.application.routes.draw do
       resources :event_categories, only: [:create, :index          ], as: "categories", path: "categories"
       resources :event_teams,      only: [:create, :index          ], as: "teams",      path: "teams"
     end
-
-    resources :roles, only: [:index, :show]
   end
 end

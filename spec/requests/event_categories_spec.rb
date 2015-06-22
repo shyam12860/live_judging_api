@@ -99,6 +99,72 @@ describe "Event Categories API" do
     end
   end
 
+  describe "GET /categories/:id" do
+    let( :user ) { create( :user ) }
+    let( :category ) { create( :event_category ) }
+    let( :event ) { create( :event, categories: [category], organizers: [user] ) }
+  
+    describe "with valid identifier", :show_in_doc do
+      before :each do
+        event.save
+        get "/categories/#{category.id}", nil, { "Authorization" => "Token token=" + user.token.access_token }
+      end
+
+      it "returns a success status code" do
+        expect( response ).to have_http_status( :ok )
+      end
+
+      it "returns the correct JSON" do
+        expect( response.body ).to eq( serialize( EventCategorySerializer, category ) )
+      end
+    end
+
+    describe "with invalid token" do
+      before :each do
+        event.save
+        get "/categories/#{category.id}", nil, { "Authorization" => "Token token=" + SecureRandom.hex }
+      end
+
+      it "returns an unauthorized status code" do
+        expect( response ).to have_http_status( :unauthorized )
+      end
+
+      it "returns the correct JSON" do
+        expect( response.body ).to eq( "Bad credentials. Token required." )
+      end
+    end
+
+    describe "when the category does not exist" do
+      before :each do
+        get "/categories/awoifa", nil, { "Authorization" => "Token token=" + user.token.access_token }
+      end
+
+      it "returns a not found status code" do
+        expect( response ).to have_http_status( :not_found )
+      end
+
+      it "returns the correct JSON" do
+        expect( response.body ).to be_blank
+      end
+    end
+
+    describe "as a user that did not organize the event" do
+      let( :other_user ) { create( :user ) }
+      before :each do
+        event.save
+        get "/categories/#{category.id}", nil, { "Authorization" => "Token token=" + other_user.token.access_token }
+      end
+
+      it "returns a success status code" do
+        expect( response ).to have_http_status( :unauthorized )
+      end
+
+      it "returns the correct JSON" do
+        expect( response.body ).to be_blank
+      end
+    end
+  end
+
   describe "PUT /categories/:id" do
     let( :user ) { create( :user ) }
     let( :category ) { create( :event_category ) }

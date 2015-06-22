@@ -3,6 +3,10 @@ class EventCategoryPolicy < ApplicationPolicy
     user.present?
   end
 
+  def show?
+    user.present? && ( record.event.organizers.include?( user ) || record.event.judges.include?( user ) )
+  end
+
   def create?
     user.present? && record.event.organizers.include?( user )
   end

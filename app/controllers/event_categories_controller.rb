@@ -28,6 +28,18 @@ class EventCategoriesController < ApplicationController
     end
   end
 
+  api :GET, "/categories/:id", "Get a category. Must be an organizer of the event it belongs to"
+    description "Show an event category."
+    error code: :not_found, desc: " - Category not found in system"
+    error code: :unauthorized, desc: " - Bad Token"
+    header "Authorization", "Token token=[access_token]", required: true
+  def show
+    @category = EventCategory.find( params[:id] )
+    authorize @category
+
+    render json: @category, status: :ok
+  end
+
   api :PUT, "/categories/:id", "Update an event category. Must be an organizer of the event"
     description "Update an event category."
     error code: :unprocessable_entity, desc: " - Bad parameters for User"
