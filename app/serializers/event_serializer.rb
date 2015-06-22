@@ -17,6 +17,7 @@ class EventSerializer < ActiveModel::Serializer
   has_many :organizers, embed: :ids
   has_many :categories, embed: :ids
   has_many :judges, embed: :ids
+  has_many :teams, embed: :ids
 
   def start_time
     object.start_time.strftime( "%F %r" )
