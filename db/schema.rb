@@ -62,6 +62,15 @@ ActiveRecord::Schema.define(version: 50) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "judge_teams", force: :cascade do |t|
+    t.integer  "judge_id",   null: false
+    t.integer  "team_id",    null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "judge_teams", ["judge_id", "team_id"], name: "index_judge_teams_on_judge_id_and_team_id", unique: true
+
   create_table "team_categories", force: :cascade do |t|
     t.integer  "team_id",     null: false
     t.integer  "category_id", null: false

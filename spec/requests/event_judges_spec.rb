@@ -87,15 +87,15 @@ describe "Event Judges API" do
     end
   end
 
-  describe "DELETE /events/:event_id/judges/:id" do
-    let( :judge_user ) { create( :user ) }
-    let( :event ) { create( :event, organizers: [user], judges: [judge_user] ) }
+  describe "DELETE /judges/:id" do
+    let( :event ) { create( :event, organizers: [user] ) }
+    let( :event_judge ) { create( :event_judge, event: event ) }
     describe "with valid attributes", :show_in_doc do
       before :each do
-        delete "/events/#{event.id}/judges/#{judge_user.id}", {}, { "Authorization" => "Token token=" + user.token.access_token } 
+        delete "/judges/#{event_judge.id}", {}, { "Authorization" => "Token token=" + user.token.access_token } 
       end
 
-      it "returns a created status code" do
+      it "returns an ok status code" do
         expect( response ).to have_http_status( :ok )
       end
 
@@ -107,7 +107,7 @@ describe "Event Judges API" do
     describe "as a user that did not organize the event" do
       let( :other_user ) { create( :user ) }
       before :each do
-        delete "/events/#{event.id}/judges/#{judge_user.id}", {}, { "Authorization" => "Token token=" + other_user.token.access_token } 
+        delete "/judges/#{event_judge.id}", {}, { "Authorization" => "Token token=" + other_user.token.access_token } 
       end
 
       it "returns a created status code" do
@@ -121,7 +121,7 @@ describe "Event Judges API" do
 
     describe "with invalid judge identifier" do
       before :each do
-        delete "/events/#{event.id}/judges/another_user", {}, { "Authorization" => "Token token=" + user.token.access_token }
+        delete "/judges/another_user", {}, { "Authorization" => "Token token=" + user.token.access_token }
       end
 
       it "returns a not found entity status code" do

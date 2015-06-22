@@ -9,6 +9,6 @@
 #  updated_at  :datetime         not null
 #
 
-class TeamCategorySerializer < ActiveModel::Serializer
-  attributes :id, :team, :category
+class JudgeTeamSerializer < ActiveModel::Serializer
+  attributes :id, :team, :judge
 end

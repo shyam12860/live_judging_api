@@ -1,3 +1,14 @@
+# == Schema Information
+#
+# Table name: team_categories
+#
+#  id          :integer          not null, primary key
+#  team_id     :integer          not null
+#  category_id :integer          not null
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
 require 'rails_helper'
 
 RSpec.describe TeamCategory, type: :model do
@@ -29,6 +40,6 @@ RSpec.describe TeamCategory, type: :model do
     other_team = create( :event_team )
     team_category.team = other_team
     team_category.valid?
-    expect( team_category.errors[:team] ).to include( "event does not match category event" )
+    expect( team_category.errors[:team] ).to include( "event does not match Category event" )
   end
 end

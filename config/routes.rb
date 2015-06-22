@@ -16,11 +16,15 @@ Rails.application.routes.draw do
       resources :team_categories, only: [:create, :index, :destroy], as: "categories", path: "categories"
     end
 
+    resources :event_judges,     only: [:destroy], as: "judges", path: "judges" do
+      resources :judge_teams,    only: [:create, :index, :destroy], as: "teams",      path: "teams"
+    end
+
     resources :events, only: [:index, :show, :create, :update ] do
-      resources :event_judges,     only: [:create, :index, :destroy], as: "judges",     path: "judges"
       resources :event_organizers, only: [:create, :index, :destroy], as: "organizers", path: "organizers"
       resources :event_categories, only: [:create, :index          ], as: "categories", path: "categories"
       resources :event_teams,      only: [:create, :index          ], as: "teams",      path: "teams"
+      resources :event_judges,     only: [:create, :index          ], as: "judges",     path: "judges"
     end
   end
 end

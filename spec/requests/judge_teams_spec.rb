@@ -1,15 +1,15 @@
 require "rails_helper"
 
-describe "Team Categories API" do
+describe "Judge Teams API" do
   let( :user ) { create( :user ) }
   before { host! "api.example.com" }
 
-  describe "GET /teams/:team_id/categories" do
-    let( :team_category ) { create( :team_category ) }
+  describe "GET /judges/:judge_id/teams" do
+    let( :judge_team ) { create( :judge_team ) }
 
     describe "with valid token", :show_in_doc do
       before :each do
-        get "/teams/#{team_category.team.id}/categories", nil, { "Authorization" => "Token token=" + user.token.access_token }
+        get "/judges/#{judge_team.judge.id}/teams", nil, { "Authorization" => "Token token=" + user.token.access_token }
       end
 
       it "returns a success status code" do
@@ -17,13 +17,13 @@ describe "Team Categories API" do
       end
 
       it "returns the correct JSON" do
-        expect( json_at_key( response.body, "team_categories" ) ).to eq( serialize_array( TeamCategorySerializer, TeamCategory.where( team: team_category.team ), user ) )
+        expect( json_at_key( response.body, "judge_teams" ) ).to eq( serialize_array( JudgeTeamSerializer, JudgeTeam.where( team: judge_team.team ), user ) )
       end
     end
 
     describe "with invalid token" do
       before :each do
-        get "/teams/#{team_category.team.id}/categories", nil, { "Authorization" => "Token token=" + SecureRandom.hex }
+        get "/judges/#{judge_team.judge.id}/teams", nil, { "Authorization" => "Token token=" + SecureRandom.hex }
       end
 
       it "returns an unauthorized status code" do
@@ -36,14 +36,14 @@ describe "Team Categories API" do
     end
   end
 
-  describe "DELETE /teams/:team_id/categories/:id" do
-    let( :team_category ) { create( :team_category ) }
+  describe "DELETE /judges/:judge_id/teams/:id" do
+    let( :judge_team ) { create( :judge_team ) }
 
     describe "with valid attributes", :show_in_doc do
       before :each do
-        team_category.team.event.organizers << user
-        team_category.save
-        delete "/teams/#{team_category.team.id}/categories/#{team_category.category.id}", {}, { "Authorization" => "Token token=" + user.token.access_token } 
+        judge_team.judge.event.organizers << user
+        judge_team.save
+        delete "/judges/#{judge_team.judge.id}/teams/#{judge_team.team.id}", {}, { "Authorization" => "Token token=" + user.token.access_token } 
       end
 
       it "returns an ok status code" do
@@ -58,7 +58,7 @@ describe "Team Categories API" do
     describe "as a user that did not organize the event" do
       let( :other_user ) { create( :user ) }
       before :each do
-        delete "/teams/#{team_category.team.id}/categories/#{team_category.category.id}", {}, { "Authorization" => "Token token=" + other_user.token.access_token } 
+        delete "/judges/#{judge_team.judge.id}/teams/#{judge_team.team.id}", {}, { "Authorization" => "Token token=" + other_user.token.access_token } 
       end
 
       it "returns a created status code" do
@@ -72,7 +72,7 @@ describe "Team Categories API" do
 
     describe "with invalid token" do
       before :each do
-        delete "/teams/#{team_category.team.id}/categories/#{team_category.category.id}", nil, { "Authorization" => "Token token=" + SecureRandom.hex }
+        delete "/judges/#{judge_team.judge.id}/teams/#{judge_team.team.id}", nil, { "Authorization" => "Token token=" + SecureRandom.hex }
       end
 
       it "returns an unauthorized status code" do
@@ -86,7 +86,7 @@ describe "Team Categories API" do
 
     describe "when the team does not exist" do
       before :each do
-        delete "/teams/#{team_category.team.id}/categories/aowijfea", {}, { "Authorization" => "Token token=" + user.token.access_token } 
+        delete "/judges/#{judge_team.judge.id}/teams/aowijfea", {}, { "Authorization" => "Token token=" + user.token.access_token } 
       end
 
       it "returns a not found status code" do
@@ -99,16 +99,16 @@ describe "Team Categories API" do
     end
   end
 
-  describe "POST /teams/:team_id/categories" do
-    let( :team_category ) { create( :team_category ) }
-    let( :category ) { create( :event_category, event: team_category.team.event ) }
+  describe "POST /judges/:judge_id/teams" do
+    let( :judge ) { create( :event_judge ) }
+    let( :team ) { create( :event_team, event: judge.event ) }
 
     describe "with valid attributes", :show_in_doc do
       before :each do
-        team_category.team.event.organizers << user
-        team_category.save
-        category.save
-        post "/teams/#{team_category.team.id}/categories", { category_id: category.id }, { "Authorization" => "Token token=" + user.token.access_token } 
+        judge.event.organizers << user
+        judge.save
+        team.save
+        post "/judges/#{judge.id}/teams", { team_id: team.id }, { "Authorization" => "Token token=" + user.token.access_token } 
       end
 
       it "returns a created status code" do
@@ -116,14 +116,14 @@ describe "Team Categories API" do
       end
 
       it "returns the correct JSON" do
-        expect( response.body ).to eq( serialize( TeamCategorySerializer, TeamCategory.last, user ) )
+        expect( response.body ).to eq( serialize( JudgeTeamSerializer, JudgeTeam.last, user ) )
       end
     end
 
     describe "as a user that did not organize the event" do
       let( :other_user ) { create( :user ) }
       before :each do
-        post "/teams/#{team_category.team.id}/categories", { category_id: category.id }, { "Authorization" => "Token token=" + other_user.token.access_token } 
+        post "/judges/#{judge.id}/teams", { team_id: team.id }, { "Authorization" => "Token token=" + other_user.token.access_token } 
       end
 
       it "returns a created status code" do
@@ -137,9 +137,9 @@ describe "Team Categories API" do
 
     describe "with invalid attributes" do
       before :each do
-        team_category.team.event.organizers << user
-        team_category.save
-        post "/teams/#{team_category.team.id}/categories", { category_id: nil }, { "Authorization" => "Token token=" + user.token.access_token }
+        judge.event.organizers << user
+        judge.save
+        post "/judges/#{judge.id}/teams", { team_id: nil }, { "Authorization" => "Token token=" + user.token.access_token }
       end
 
       it "returns an unprocessable entity status code" do
@@ -147,13 +147,13 @@ describe "Team Categories API" do
       end
 
       it "returns the correct JSON" do
-        expect( json_to_hash( response.body )[:category].first ).to eq( "can't be blank" )
+        expect( json_to_hash( response.body )[:team].first ).to eq( "can't be blank" )
       end
     end
 
     describe "with invalid token" do
       before :each do
-        post "/teams/#{team_category.team.id}/categories", nil, { "Authorization" => "Token token=" + SecureRandom.hex }
+        post "/judges/#{judge.id}/teams", nil, { "Authorization" => "Token token=" + SecureRandom.hex }
       end
 
       it "returns an unauthorized status code" do

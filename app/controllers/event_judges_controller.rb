@@ -38,12 +38,12 @@ class EventJudgesController < ApplicationController
     render json: @event_judges, status: :ok
   end
 
-  api :DELETE, "events/:event_id/judges/:id", "Remove a judge from an event"
+  api :DELETE, "judges/:id", "Remove a judge from an event"
     description "Remove a judge from an event. Must be an organizer for the event."
     error code: :unauthorized, desc: " - Bad Token"
     header "Authorization", "Token token=[access_token]", required: true
   def destroy
-    @event_judge = EventJudge.find_by( judge_id: params[:id], event_id: params[:event_id] )
+    @event_judge = EventJudge.find( params[:id] )
     authorize @event_judge
     @event_judge.destroy
 
