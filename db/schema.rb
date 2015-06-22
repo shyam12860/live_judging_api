@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 40) do
+ActiveRecord::Schema.define(version: 50) do
 
   create_table "event_categories", force: :cascade do |t|
     t.integer  "event_id",   null: false
@@ -59,9 +59,18 @@ ActiveRecord::Schema.define(version: 40) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "team_categories", force: :cascade do |t|
+    t.integer  "team_id",     null: false
+    t.integer  "category_id", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "team_categories", ["team_id", "category_id"], name: "index_team_categories_on_team_id_and_category_id", unique: true
+
   create_table "tokens", force: :cascade do |t|
     t.string   "access_token",                                 null: false
-    t.datetime "expires_at",   default: '2015-07-06 00:35:23', null: false
+    t.datetime "expires_at",   default: '2015-07-06 01:55:32', null: false
     t.integer  "user_id"
     t.datetime "created_at",                                   null: false
     t.datetime "updated_at",                                   null: false
