@@ -249,6 +249,34 @@ describe "Event Teams API" do
       end
     end
 
+    describe "with a judge attached to the team" do
+      let( :judge_team ) { create( :judge_team, team: team ) }
+      let( :team_category ) { create( :team_category, team: team ) }
+
+      before :each do
+        event.save
+        judge_team.save
+        team_category.save
+        delete "/teams/#{team.id}", {}, { "Authorization" => "Token token=" + user.token.access_token } 
+      end
+
+      it "removes all judges from the team" do
+        expect( JudgeTeam.where( team_id: team.id ) ).to be_empty
+      end
+
+      it "removes all categories from the team" do
+        expect( TeamCategory.where( team_id: team.id ) ).to be_empty
+      end
+
+      it "returns an ok status code" do
+        expect( response ).to have_http_status( :ok )
+      end
+
+      it "returns the correct JSON" do
+        expect( response.body ).to be_blank
+      end
+    end
+
     describe "as a user that did not organize the event" do
       let( :other_user ) { create( :user ) }
       before :each do

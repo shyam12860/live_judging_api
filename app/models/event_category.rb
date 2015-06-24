@@ -14,6 +14,8 @@
 
 class EventCategory < ActiveRecord::Base
   belongs_to :event
+  has_many :team_categories, foreign_key: "category_id", dependent: :destroy
+  has_many :teams, through: :team_categories
 
   validates :event,
     presence: true

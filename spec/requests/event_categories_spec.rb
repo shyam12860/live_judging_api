@@ -249,6 +249,29 @@ describe "Event Categories API" do
       end
     end
 
+    describe "when a team is in the category" do
+      let( :team ) { create( :event_team, event: event ) }
+      let( :team_category ) { create( :team_category, team: team, category: category ) }
+
+      before :each do
+        team_category.save
+        event.save
+        delete "/categories/#{category.id}", {}, { "Authorization" => "Token token=" + user.token.access_token } 
+      end
+
+      it "deletes all teams from the category" do
+        expect( TeamCategory.where( category_id: category.id ) ).to be_empty
+      end
+
+      it "returns an ok status code" do
+        expect( response ).to have_http_status( :ok )
+      end
+
+      it "returns the correct JSON" do
+        expect( response.body ).to be_blank
+      end
+    end
+
     describe "as a user that did not organize the event" do
       let( :other_user ) { create( :user ) }
       before :each do

@@ -13,6 +13,9 @@
 class EventTeamSerializer < ActiveModel::Serializer
   attributes :id, :event, :name, :logo
 
+  has_many :categories, embed: :ids
+  has_many :judges, embed: :ids
+
   def event
     object.event.id
   end

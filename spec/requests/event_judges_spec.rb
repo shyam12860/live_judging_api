@@ -104,6 +104,27 @@ describe "Event Judges API" do
       end
     end
 
+    describe "when the judge is judging a team" do
+      let( :judge_team ) { create( :judge_team, judge: event_judge ) }
+
+      before :each do
+        judge_team.save
+        delete "/judges/#{event_judge.id}", {}, { "Authorization" => "Token token=" + user.token.access_token } 
+      end
+
+      it "removes the judge from any teams they were judging" do
+        expect( JudgeTeam.where( judge_id: event_judge.id ) ).to be_empty
+      end
+
+      it "returns an ok status code" do
+        expect( response ).to have_http_status( :ok )
+      end
+
+      it "returns the correct JSON" do
+        expect( response.body ).to be_blank
+      end
+    end
+
     describe "as a user that did not organize the event" do
       let( :other_user ) { create( :user ) }
       before :each do

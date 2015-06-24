@@ -13,6 +13,10 @@
 class EventTeam < ActiveRecord::Base
   # Associations
   belongs_to :event
+  has_many :team_categories, foreign_key: "team_id", dependent: :destroy
+  has_many :categories, through: :team_categories
+  has_many :judge_teams, foreign_key: "team_id", dependent: :destroy
+  has_many :judges, through: :judge_teams
 
   # Refile
   attachment :logo
