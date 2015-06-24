@@ -5,6 +5,7 @@ class ApplicationController < ActionController::API
   include Pundit
 
   before_action :authenticate
+  before_filter :set_cors_headers
   after_action :verify_authorized, except: :index
 
   rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
@@ -52,5 +53,12 @@ class ApplicationController < ActionController::API
       filename = "upload-image"
       in_content_type, encoding, string = base64_image.split( /[:;,]/ )[1..3]
       StringIO.new( Base64.decode64( string ) )
+    end
+
+    def set_cors_headers
+      headers['Access-Control-Allow-Origin'] = '*'
+      headers['Access-Control-Allow-Methods'] = 'POST, PUT, DELETE, GET, OPTIONS'
+      headers['Access-Control-Request-Method'] = '*'
+      headers['Access-Control-Allow-Headers'] = 'Origin, X-Requested-With, Content-Type, Accept, Authorization'
     end
 end
