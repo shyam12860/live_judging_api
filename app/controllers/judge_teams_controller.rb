@@ -22,7 +22,10 @@ class JudgeTeamsController < ApplicationController
     param :team_id, Integer, desc: "ID of the team you want to add to the judge", required: true
     header "Authorization", "Token token=[access_token]", required: true
   def create
-    @judge = JudgeTeam.new( create_params )
+    @team  = EventTeam.find( params[:team_id] )
+    @judge = EventJudge.find( params[:judge_id] )
+
+    @judge = JudgeTeam.new( team: @team, judge: @judge )
     authorize @judge
 
     if @judge.save
@@ -44,9 +47,4 @@ class JudgeTeamsController < ApplicationController
 
     head :ok
   end
-
-  private
-    def create_params
-      params.permit( :judge_id, :team_id )
-    end
 end

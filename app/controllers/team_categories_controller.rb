@@ -22,7 +22,10 @@ class TeamCategoriesController < ApplicationController
     param :category_id, Integer, desc: "ID of the category you want to add the team to", required: true
     header "Authorization", "Token token=[access_token]", required: true
   def create
-    @category = TeamCategory.new( create_params )
+    @team = EventTeam.find( params[:team_id] )
+    @category = EventCategory.find( params[:category_id] )
+
+    @category = TeamCategory.new( team: @team, category: @category )
     authorize @category
 
     if @category.save
@@ -44,9 +47,4 @@ class TeamCategoriesController < ApplicationController
 
     head :ok
   end
-
-  private
-    def create_params
-      params.permit( :team_id, :category_id )
-    end
 end

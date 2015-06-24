@@ -143,11 +143,27 @@ describe "Judge Teams API" do
       end
 
       it "returns an unprocessable entity status code" do
-        expect( response ).to have_http_status( :unprocessable_entity )
+        expect( response ).to have_http_status( :not_found )
       end
 
       it "returns the correct JSON" do
-        expect( json_to_hash( response.body )[:team].first ).to eq( "can't be blank" )
+        expect( response.body ).to be_blank
+      end
+    end
+
+    describe "with a team that does not exist" do
+      before :each do
+        judge.event.organizers << user
+        judge.save
+        post "/judges/#{judge.id}/teams", { team_id: 20 }, { "Authorization" => "Token token=" + user.token.access_token }
+      end
+
+      it "returns an unprocessable entity status code" do
+        expect( response ).to have_http_status( :not_found )
+      end
+
+      it "returns the correct JSON" do
+        expect( response.body ).to be_blank
       end
     end
 
