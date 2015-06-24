@@ -5,7 +5,7 @@ class ApplicationController < ActionController::API
   include Pundit
 
   before_action :authenticate
-  before_filter :set_cors_headers
+  after_filter :set_cors_headers
   after_action :verify_authorized, except: :index
 
   rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
@@ -57,8 +57,8 @@ class ApplicationController < ActionController::API
 
     def set_cors_headers
       headers['Access-Control-Allow-Origin'] = '*'
-      headers['Access-Control-Allow-Methods'] = 'POST, PUT, DELETE, GET, OPTIONS'
-      headers['Access-Control-Request-Method'] = '*'
-      headers['Access-Control-Allow-Headers'] = 'Origin, X-Requested-With, Content-Type, Accept, Authorization'
+      headers['Access-Control-Allow-Methods'] = 'POST, GET, OPTIONS'
+      headers['Access-Control-Allow-Headers'] = %w{Origin Accept Content-Type X-Requested-With X-CSRF-Token}.join(',')
+      headers['Access-Control-Max-Age'] = "1728000"
     end
 end
