@@ -16,8 +16,6 @@ class EventSerializer < ActiveModel::Serializer
 
   has_many :organizers
   has_many :judges
-  has_many :event_categories
-  #has_many :teams
 
   def start_time
     object.start_time.strftime( "%F %r" )

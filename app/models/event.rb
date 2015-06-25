@@ -19,8 +19,6 @@ class Event < ActiveRecord::Base
   has_many :organizers, through: :event_organizers
   has_many :event_judges
   has_many :judges, through: :event_judges
-  has_many :event_categories
-  #has_many :teams,      class_name: "EventTeam"
 
   # Validations
   validates :name,
