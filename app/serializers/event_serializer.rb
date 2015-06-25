@@ -14,10 +14,10 @@
 class EventSerializer < ActiveModel::Serializer
   attributes :id, :name, :location, :start_time, :end_time
 
-  has_many :organizers, embed: :ids
-  has_many :categories, embed: :ids
-  has_many :judges, embed: :ids
-  has_many :teams, embed: :ids
+  has_many :organizers
+  has_many :categories
+  has_many :judges
+  has_many :teams
 
   def start_time
     object.start_time.strftime( "%F %r" )
