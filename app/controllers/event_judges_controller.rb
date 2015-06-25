@@ -3,10 +3,10 @@ class EventJudgesController < ApplicationController
     description "Adds a given user to a given event as a judge. Must be an organizer of the event"
     error code: :unprocessable_entity, desc: " - Bad parameters for User"
     error code: :unauthorized, desc: " - Bad Token"
-    param :user_id, Integer, desc: "User ID to add as a judge", required: true
+    param :judge_id, Integer, desc: "User ID to add as a judge", required: true
     header "Authorization", "Token token=[access_token]", required: true
   def create
-    @event_judge = EventJudge.new( event_id: params[:event_id], judge_id: params[:user_id] )
+    @event_judge = EventJudge.new( event_id: params[:event_id], judge_id: params[:judge_id] )
     authorize @event_judge
 
     if @event_judge.save

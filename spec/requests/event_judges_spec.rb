@@ -45,7 +45,7 @@ describe "Event Judges API" do
     let( :judge_user ) { create( :user ) }
     describe "with valid attributes", :show_in_doc do
       before :each do
-        post "/events/#{event.id}/judges", { user_id: judge_user.id }, { "Authorization" => "Token token=" + user.token.access_token } 
+        post "/events/#{event.id}/judges", { judge_id: judge_user.id }, { "Authorization" => "Token token=" + user.token.access_token } 
       end
 
       it "returns a created status code" do
@@ -60,7 +60,7 @@ describe "Event Judges API" do
     describe "as a user that did not organize the event" do
       let( :other_user ) { create( :user ) }
       before :each do
-        post "/events/#{event.id}/judges", { user_id: judge_user.id }, { "Authorization" => "Token token=" + other_user.token.access_token } 
+        post "/events/#{event.id}/judges", { judge_id: judge_user.id }, { "Authorization" => "Token token=" + other_user.token.access_token } 
       end
 
       it "returns a created status code" do
@@ -74,7 +74,7 @@ describe "Event Judges API" do
 
     describe "with invalid attributes" do
       before :each do
-        post "/events/#{event.id}/judges", { user_id: "asdoijf" }, { "Authorization" => "Token token=" + user.token.access_token }
+        post "/events/#{event.id}/judges", { judge_id: "asdoijf" }, { "Authorization" => "Token token=" + user.token.access_token }
       end
 
       it "returns an unprocessable entity status code" do
