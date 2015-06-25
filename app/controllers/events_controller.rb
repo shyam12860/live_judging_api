@@ -45,7 +45,7 @@ class EventsController < ApplicationController
     error code: :unauthorized, desc: " - Bad Token"
     header "Authorization", "Token token=[access_token]", required: true
   def index
-    @events = current_user.organized_events
+    @events = Event.all
     authorize @events
     render json: @events, status: :ok
   end
