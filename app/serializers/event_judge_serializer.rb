@@ -10,5 +10,5 @@
 class EventJudgeSerializer < ActiveModel::Serializer
   attributes :event_id, :judge_id
 
-  has_many :teams
+  #has_many :teams
 end

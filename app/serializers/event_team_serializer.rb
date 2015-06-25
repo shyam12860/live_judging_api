@@ -11,10 +11,10 @@
 #
 
 class EventTeamSerializer < ActiveModel::Serializer
-  attributes :id, :event, :name, :logo
+  attributes :id, :name, :logo
 
-  has_many :categories
-  has_many :judges
+  #has_many :categories
+  #has_many :judges
 
   def event
     object.event.id
