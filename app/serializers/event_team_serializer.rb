@@ -16,6 +16,10 @@ class EventTeamSerializer < ActiveModel::Serializer
   has_many :categories
   has_many :judges
 
+  def event
+    object.event.id
+  end
+
   def logo
     Refile.attachment_url( object, :logo, :fill, 300, 300, format: "jpg" )
   end
