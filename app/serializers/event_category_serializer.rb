@@ -15,7 +15,7 @@
 class EventCategorySerializer < ActiveModel::Serializer
   attributes :id, :event, :label, :description, :color, :due_at
 
-  #has_many :teams
+  has_many :teams
 
   def event
     object.event.id
