@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 50) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "event_categories", force: :cascade do |t|
     t.integer  "event_id",    null: false
     t.string   "label",       null: false
@@ -23,15 +26,15 @@ ActiveRecord::Schema.define(version: 50) do
     t.datetime "updated_at",  null: false
   end
 
-  add_index "event_categories", ["event_id", "label"], name: "index_event_categories_on_event_id_and_label", unique: true
-  add_index "event_categories", ["event_id"], name: "index_event_categories_on_event_id"
+  add_index "event_categories", ["event_id", "label"], name: "index_event_categories_on_event_id_and_label", unique: true, using: :btree
+  add_index "event_categories", ["event_id"], name: "index_event_categories_on_event_id", using: :btree
 
   create_table "event_judges", force: :cascade do |t|
     t.integer "event_id", null: false
     t.integer "judge_id", null: false
   end
 
-  add_index "event_judges", ["event_id", "judge_id"], name: "index_event_judges_on_event_id_and_judge_id", unique: true
+  add_index "event_judges", ["event_id", "judge_id"], name: "index_event_judges_on_event_id_and_judge_id", unique: true, using: :btree
 
   create_table "event_organizers", force: :cascade do |t|
     t.integer  "event_id",     null: false
@@ -40,7 +43,7 @@ ActiveRecord::Schema.define(version: 50) do
     t.datetime "updated_at",   null: false
   end
 
-  add_index "event_organizers", ["event_id", "organizer_id"], name: "index_event_organizers_on_event_id_and_organizer_id", unique: true
+  add_index "event_organizers", ["event_id", "organizer_id"], name: "index_event_organizers_on_event_id_and_organizer_id", unique: true, using: :btree
 
   create_table "event_teams", force: :cascade do |t|
     t.string   "logo_id"
@@ -50,8 +53,8 @@ ActiveRecord::Schema.define(version: 50) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "event_teams", ["event_id", "name"], name: "index_event_teams_on_event_id_and_name", unique: true
-  add_index "event_teams", ["event_id"], name: "index_event_teams_on_event_id"
+  add_index "event_teams", ["event_id", "name"], name: "index_event_teams_on_event_id_and_name", unique: true, using: :btree
+  add_index "event_teams", ["event_id"], name: "index_event_teams_on_event_id", using: :btree
 
   create_table "events", force: :cascade do |t|
     t.string   "name",       null: false
@@ -69,7 +72,7 @@ ActiveRecord::Schema.define(version: 50) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "judge_teams", ["judge_id", "team_id"], name: "index_judge_teams_on_judge_id_and_team_id", unique: true
+  add_index "judge_teams", ["judge_id", "team_id"], name: "index_judge_teams_on_judge_id_and_team_id", unique: true, using: :btree
 
   create_table "team_categories", force: :cascade do |t|
     t.integer  "team_id",     null: false
@@ -78,17 +81,17 @@ ActiveRecord::Schema.define(version: 50) do
     t.datetime "updated_at",  null: false
   end
 
-  add_index "team_categories", ["team_id", "category_id"], name: "index_team_categories_on_team_id_and_category_id", unique: true
+  add_index "team_categories", ["team_id", "category_id"], name: "index_team_categories_on_team_id_and_category_id", unique: true, using: :btree
 
   create_table "tokens", force: :cascade do |t|
     t.string   "access_token",                                 null: false
-    t.datetime "expires_at",   default: '2015-07-06 19:37:54', null: false
+    t.datetime "expires_at",   default: '2015-07-20 18:48:00', null: false
     t.integer  "user_id"
     t.datetime "created_at",                                   null: false
     t.datetime "updated_at",                                   null: false
   end
 
-  add_index "tokens", ["access_token"], name: "index_tokens_on_access_token", unique: true
+  add_index "tokens", ["access_token"], name: "index_tokens_on_access_token", unique: true, using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                           null: false
@@ -100,6 +103,16 @@ ActiveRecord::Schema.define(version: 50) do
     t.datetime "updated_at",                      null: false
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
 
+  add_foreign_key "event_categories", "events", name: "event_category_event"
+  add_foreign_key "event_judges", "events", name: "event_judge_event"
+  add_foreign_key "event_judges", "users", column: "judge_id", name: "event_judge_judge"
+  add_foreign_key "event_organizers", "events", name: "event_organizer_event"
+  add_foreign_key "event_organizers", "users", column: "organizer_id", name: "event_organizer_organizer"
+  add_foreign_key "event_teams", "events", name: "event_team_event"
+  add_foreign_key "judge_teams", "event_judges", column: "judge_id", name: "judge_team_judge"
+  add_foreign_key "judge_teams", "event_teams", column: "team_id", name: "judge_team_team"
+  add_foreign_key "team_categories", "event_categories", column: "category_id", name: "team_category_category"
+  add_foreign_key "team_categories", "event_teams", column: "team_id", name: "team_category_team"
 end

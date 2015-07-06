@@ -1,8 +1,8 @@
 require "refile/s3"
 
 aws = {
-  access_key_id: Rails.application.secrets.aws.access_key,
-  secret_access_key: Rails.application.secrets.aws.secret,
+  access_key_id: Rails.application.secrets[:aws][:access_key],
+  secret_access_key: Rails.application.secrets[:aws][:secret],
   region: "us-east-1",
   bucket: "live-judging"
 }
