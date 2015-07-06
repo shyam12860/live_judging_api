@@ -17,10 +17,10 @@ gem "pundit",                   "~> 1.0.1" # Permissions
 gem "rack-cors", require: "rack/cors"
 
 # Deployment
-gem "capistrano",         "~> 3.4.0"    # Deployment
-gem "capistrano-rails",   "~> 1.1.2"    # Deployment Helper
-gem "capistrano-bundler", "~> 1.1.3"    # Deployment Helper
-gem "capistrano-rbenv",   github: "capistrano/rbenv"    # Deployment Helper
+gem "capistrano",         "~> 3.4.0"                 # Deployment
+gem "capistrano-rails",   "~> 1.1.2"                 # Deployment Helper
+gem "capistrano-bundler", "~> 1.1.3"                 # Deployment Helper
+gem "capistrano-rbenv",   github: "capistrano/rbenv" # Deployment Helper
 
 # File Uploads
 gem "refile", "~> 0.5.5", require: "refile/rails"
