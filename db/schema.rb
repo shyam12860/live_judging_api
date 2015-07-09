@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 50) do
+ActiveRecord::Schema.define(version: 60) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -74,6 +74,15 @@ ActiveRecord::Schema.define(version: 50) do
 
   add_index "judge_teams", ["judge_id", "team_id"], name: "index_judge_teams_on_judge_id_and_team_id", unique: true, using: :btree
 
+  create_table "rubrics", force: :cascade do |t|
+    t.string   "name",       null: false
+    t.integer  "event_id",   null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "rubrics", ["name"], name: "index_rubrics_on_name", using: :btree
+
   create_table "team_categories", force: :cascade do |t|
     t.integer  "team_id",     null: false
     t.integer  "category_id", null: false
@@ -85,7 +94,7 @@ ActiveRecord::Schema.define(version: 50) do
 
   create_table "tokens", force: :cascade do |t|
     t.string   "access_token",                                 null: false
-    t.datetime "expires_at",   default: '2015-07-20 18:48:00', null: false
+    t.datetime "expires_at",   default: '2015-07-23 11:35:11', null: false
     t.integer  "user_id"
     t.datetime "created_at",                                   null: false
     t.datetime "updated_at",                                   null: false
@@ -113,6 +122,7 @@ ActiveRecord::Schema.define(version: 50) do
   add_foreign_key "event_teams", "events", name: "event_team_event"
   add_foreign_key "judge_teams", "event_judges", column: "judge_id", name: "judge_team_judge"
   add_foreign_key "judge_teams", "event_teams", column: "team_id", name: "judge_team_team"
+  add_foreign_key "rubrics", "events", name: "rubric_event"
   add_foreign_key "team_categories", "event_categories", column: "category_id", name: "team_category_category"
   add_foreign_key "team_categories", "event_teams", column: "team_id", name: "team_category_team"
 end

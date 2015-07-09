@@ -1,12 +1,12 @@
 # == Schema Information
 #
-# Table name: team_categories
+# Table name: judge_teams
 #
-#  id          :integer          not null, primary key
-#  team_id     :integer          not null
-#  category_id :integer          not null
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null
+#  id         :integer          not null, primary key
+#  judge_id   :integer          not null
+#  team_id    :integer          not null
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
 #
 
 class JudgeTeamSerializer < ActiveModel::Serializer

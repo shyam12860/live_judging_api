@@ -1,5 +1,5 @@
 class EventTeamsController < ApplicationController
-  api :GET, "/event/:event_id/teams", "Get a list of event teams"
+  api :GET, "/events/:event_id/teams", "Get a list of event teams"
     description "Get a list of all teams for an event."
     error code: :unauthorized, desc: " - Bad Token"
     header "Authorization", "Token token=[access_token]", required: true
