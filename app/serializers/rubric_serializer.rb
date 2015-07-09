@@ -9,9 +9,10 @@
 #  updated_at :datetime         not null
 #
 
-FactoryGirl.define do
-  factory :rubric do
-    name { Faker::Company.name }
-    event
+class RubricSerializer < ActiveModel::Serializer
+  attributes :id, :name
+
+  def event
+    object.event.id
   end
 end

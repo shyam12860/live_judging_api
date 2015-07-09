@@ -20,11 +20,14 @@ Rails.application.routes.draw do
       resources :judge_teams,    only: [:create, :index, :destroy], as: "teams",      path: "teams"
     end
 
+    resources :rubrics, only: [:update, :destroy, :show]
+
     resources :events, only: [:index, :show, :create, :update ] do
       resources :event_organizers, only: [:create, :index, :destroy], as: "organizers", path: "organizers"
       resources :event_categories, only: [:create, :index          ], as: "categories", path: "categories"
       resources :event_teams,      only: [:create, :index          ], as: "teams",      path: "teams"
       resources :event_judges,     only: [:create, :index          ], as: "judges",     path: "judges"
+      resources :rubrics,          only: [:create, :index          ]
     end
   end
 end
