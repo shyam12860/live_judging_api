@@ -25,13 +25,13 @@ class TeamCategoriesController < ApplicationController
     @team = EventTeam.find( params[:team_id] )
     @category = EventCategory.find( params[:category_id] )
 
-    @category = TeamCategory.new( team: @team, category: @category )
-    authorize @category
+    @team_category = TeamCategory.new( team: @team, category: @category )
+    authorize @team_category
 
-    if @category.save
-      render json: @category, status: :created
+    if @team_category.save
+      render json: @team_category, status: :created
     else
-      render json: @category.errors, status: :unprocessable_entity
+      render json: @team_category.errors, status: :unprocessable_entity
     end
   end
 
@@ -41,9 +41,9 @@ class TeamCategoriesController < ApplicationController
     error code: :unauthorized, desc: " - Bad Token"
     header "Authorization", "Token token=[access_token]", required: true
   def destroy
-    @category = TeamCategory.find_by( team_id: params[:team_id], category_id: params[:id] )
-    authorize @category
-    @category.destroy
+    @team_category = TeamCategory.find_by( team_id: params[:team_id], category_id: params[:id] )
+    authorize @team_category
+    @team_category.destroy
 
     head :ok
   end
