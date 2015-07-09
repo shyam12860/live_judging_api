@@ -9,9 +9,6 @@
 #  updated_at  :datetime         not null
 #
 
-FactoryGirl.define do
-  factory :rubric_category do
-    rubric
-    association :category, factory: :event_category
-  end
+class RubricCategorySerializer < ActiveModel::Serializer
+  attributes :id, :rubric, :category
 end

@@ -1,3 +1,14 @@
+# == Schema Information
+#
+# Table name: rubric_categories
+#
+#  id          :integer          not null, primary key
+#  rubric_id   :integer          not null
+#  category_id :integer          not null
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
 require 'rails_helper'
 
 RSpec.describe RubricCategory, type: :model do
