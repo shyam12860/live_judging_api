@@ -15,7 +15,7 @@ FactoryGirl.define do
   factory :criterion do
     label { Faker::Company.name }
     min_score { Faker::Number.between( 0, 5 )   }
-    max_score { Faker::Number.between( 5, 100 ) }
+    max_score { Faker::Number.between( 6, 100 ) }
     rubric
   end
 end

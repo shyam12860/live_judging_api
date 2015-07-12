@@ -12,6 +12,8 @@
 class RubricSerializer < ActiveModel::Serializer
   attributes :id, :name
 
+  has_many :criteria
+
   def event
     object.event.id
   end

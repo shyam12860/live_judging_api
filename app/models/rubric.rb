@@ -14,6 +14,7 @@ class Rubric < ActiveRecord::Base
   belongs_to :event
   belongs_to :rubric_category
   has_many :categories, through: :rubric_category
+  has_many :criteria
 
   # Validations
   validates :name,

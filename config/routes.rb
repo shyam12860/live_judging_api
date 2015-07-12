@@ -17,8 +17,11 @@ Rails.application.routes.draw do
       resources :team_categories, only: [:create, :index, :destroy], as: "categories", path: "categories"
     end
 
+    resources :criteria, only: [:show, :update, :destroy]
+
     resources :rubrics, only: [:update, :destroy, :show] do
       resources :rubric_categories, only: [:create, :index, :destroy], as: "categories", path: "categories"
+      resources :criteria, only: [:create, :index]
     end
 
     resources :event_judges,     only: [:destroy], as: "judges", path: "judges" do
