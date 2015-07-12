@@ -11,10 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 65) do
+ActiveRecord::Schema.define(version: 70) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "criteria", force: :cascade do |t|
+    t.string   "label",                  null: false
+    t.integer  "min_score",  default: 0, null: false
+    t.integer  "max_score",  default: 5, null: false
+    t.integer  "rubric_id"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
 
   create_table "event_categories", force: :cascade do |t|
     t.integer  "event_id",    null: false
@@ -101,7 +110,7 @@ ActiveRecord::Schema.define(version: 65) do
 
   create_table "tokens", force: :cascade do |t|
     t.string   "access_token",                                 null: false
-    t.datetime "expires_at",   default: '2015-07-23 11:28:26', null: false
+    t.datetime "expires_at",   default: '2015-07-23 17:29:24', null: false
     t.integer  "user_id"
     t.datetime "created_at",                                   null: false
     t.datetime "updated_at",                                   null: false
@@ -121,6 +130,7 @@ ActiveRecord::Schema.define(version: 65) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
 
+  add_foreign_key "criteria", "rubrics", name: "category_rubric"
   add_foreign_key "event_categories", "events", name: "event_category_event"
   add_foreign_key "event_judges", "events", name: "event_judge_event"
   add_foreign_key "event_judges", "users", column: "judge_id", name: "event_judge_judge"
