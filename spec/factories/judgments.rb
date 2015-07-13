@@ -13,9 +13,19 @@
 
 FactoryGirl.define do
   factory :judgment do
+    criterion
     association :judge, factory: :event_judge
     association :team, factory: :event_team
-    criterion
     value { Faker::Number.between( criterion.min_score, criterion.max_score ) }
+
+    after :create do |judgment|
+      judgment.judge.event = judgment.criterion.rubric.event
+      judgment.team.event = judgment.criterion.rubric.event
+    end
+
+    after :build do |judgment|
+      judgment.judge.event = judgment.criterion.rubric.event
+      judgment.team.event = judgment.criterion.rubric.event
+    end
   end
 end

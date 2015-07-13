@@ -75,4 +75,22 @@ RSpec.describe Judgment, type: :model do
     dup_judgment.valid?
     expect( dup_judgment.errors[:criterion] ).to include( "has already been taken" )
   end
+
+  it "is invalid when the judge event does not match the team event" do
+    judgment.judge.event = create( :event )
+    judgment.valid?
+    expect( judgment.errors[:criterion] ).to include( "event does not match Team or Judge events" )
+  end
+
+  it "is invalid when the team event does not match the criterion event" do
+    judgment.team.event = create( :event )
+    judgment.valid?
+    expect( judgment.errors[:criterion] ).to include( "event does not match Team or Judge events" )
+  end
+
+  it "is invalid when the judge event does not match the criterion event" do
+    judgment.criterion.rubric.event = create( :event )
+    judgment.valid?
+    expect( judgment.errors[:criterion] ).to include( "event does not match Team or Judge events" )
+  end
 end

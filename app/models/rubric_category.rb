@@ -19,4 +19,13 @@ class RubricCategory < ActiveRecord::Base
 
   validates :category,
     presence: true
+
+  validate :events_must_match, if: "rubric_id && category_id"
+
+  private
+    def events_must_match
+      if rubric.event != category.event
+        errors.add( :rubric, "event does not match Category event" )
+      end
+    end
 end
