@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: categories
+# Table name: criteria
 #
 #  id         :integer          not null, primary key
 #  label      :string           not null
@@ -13,6 +13,7 @@
 
 class Criterion < ActiveRecord::Base
   belongs_to :rubric
+  has_many :judgments
 
   validates :label,
     presence: true,

@@ -23,6 +23,8 @@ class Event < ActiveRecord::Base
   has_many :categories, class_name: "EventCategory"
   has_many :teams, class_name: "EventTeam"
   has_many :rubrics
+  has_many :criteria, through: :rubrics
+  has_many :judgments, through: :criteria
 
   # Validations
   validates :name,

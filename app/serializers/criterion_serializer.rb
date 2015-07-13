@@ -1,12 +1,14 @@
 # == Schema Information
 #
-# Table name: rubric_categories
+# Table name: criteria
 #
-#  id          :integer          not null, primary key
-#  rubric_id   :integer          not null
-#  category_id :integer          not null
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null
+#  id         :integer          not null, primary key
+#  label      :string           not null
+#  min_score  :integer          default(0), not null
+#  max_score  :integer          default(5), not null
+#  rubric_id  :integer
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
 #
 
 class CriterionSerializer < ActiveModel::Serializer

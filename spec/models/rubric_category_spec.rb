@@ -35,4 +35,10 @@ RSpec.describe RubricCategory, type: :model do
     dup_rubric_category.valid?
     expect( dup_rubric_category.errors[:rubric] ).to include( "has already been taken" )
   end
+
+  it "is invalid when the category event does not match the rubric event" do
+    rubric_category.category.event = create( :event )
+    rubric_category.valid?
+    expect( rubric_category.errors[:rubric] ).to include( "event does not match Category event" )
+  end
 end

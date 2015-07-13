@@ -137,6 +137,21 @@ describe "Events API" do
         expect( response.body ).to eq( "Bad credentials. Token required." )
       end
     end
+
+    describe "with an event that does not exist" do
+      before :each do
+        hash = attributes_for( :event, name: 'Updated Name' )
+        put "/events/aowiejf", hash, { "Authorization" => "Token token=" + user.token.access_token }
+      end
+
+      it "returns a not found status code" do
+        expect( response ).to have_http_status( :not_found )
+      end
+
+      it "returns the correct JSON" do
+        expect( response.body ).to be_blank
+      end
+    end
   end
 
   describe "POST /events" do

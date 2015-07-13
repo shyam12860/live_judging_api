@@ -4,8 +4,7 @@ class CriteriaController < ApplicationController
     error code: :unauthorized, desc: " - Bad Token"
     header "Authorization", "Token token=[access_token]", required: true
   def index
-    @rubric = Rubric.find( params[:rubric_id] ).criteria
-    @criteria = @rubric.criteria
+    @criteria = Rubric.find( params[:rubric_id] ).criteria
 
     if @criteria.any?
       authorize @criteria
@@ -27,22 +26,22 @@ class CriteriaController < ApplicationController
     render json: @criterion, status: :ok
   end
 
-  api :PUT, "/criteria/:id", "Update a rubric criterion. Must be an organizer of the event"
-    description "Update a rubric criterion"
+  api :PUT, "/criteria/:id", "Update a criterion. Must be an organizer of the event"
+    description "Update a criterion"
     error code: :unprocessable_entity, desc: " - Bad parameters for User"
     error code: :unauthorized, desc: " - Bad Token"
-    param :label,     String,  desc: "Team name", required: false
+    param :label,     String,  desc: "Criterion label", required: false
     param :min_score, Integer, desc: "Minimum score a judge can give this criterion", required: false
     param :max_score, Integer, desc: "Maximum score a judge can give this criterion", required: false
     header "Authorization", "Token token=[access_token]", required: true
   def update
-    @team = EventTeam.find( params[:id] )
-    authorize @team
+    @criterion = Criterion.find( params[:id] )
+    authorize @criterion
 
-    if @team.update_attributes( my_params )
-      render json: @team, status: :ok
+    if @criterion.update_attributes( my_params )
+      render json: @criterion, status: :ok
     else
-      render json: @team.errors, status: :unprocessable_entity
+      render json: @criterion.errors, status: :unprocessable_entity
     end
   end
 
