@@ -3,7 +3,7 @@
 # Table name: judgments
 #
 #  id           :integer          not null, primary key
-#  value        :string           not null
+#  value        :integer          not null
 #  team_id      :integer          not null
 #  judge_id     :integer          not null
 #  criterion_id :integer          not null

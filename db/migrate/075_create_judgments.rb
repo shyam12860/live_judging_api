@@ -1,7 +1,7 @@
 class CreateJudgments < ActiveRecord::Migration
   def change
     create_table :judgments do |t|
-      t.string :value,         null: false
+      t.integer :value,        null: false
       t.integer :team_id,      null: false
       t.integer :judge_id,     null: false
       t.references :criterion, null: false

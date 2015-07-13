@@ -84,7 +84,7 @@ ActiveRecord::Schema.define(version: 75) do
   add_index "judge_teams", ["judge_id", "team_id"], name: "index_judge_teams_on_judge_id_and_team_id", unique: true, using: :btree
 
   create_table "judgments", force: :cascade do |t|
-    t.string   "value",        null: false
+    t.integer  "value",        null: false
     t.integer  "team_id",      null: false
     t.integer  "judge_id",     null: false
     t.integer  "criterion_id", null: false
@@ -121,7 +121,7 @@ ActiveRecord::Schema.define(version: 75) do
 
   create_table "tokens", force: :cascade do |t|
     t.string   "access_token",                                 null: false
-    t.datetime "expires_at",   default: '2015-07-23 17:29:05', null: false
+    t.datetime "expires_at",   default: '2015-07-27 14:49:16', null: false
     t.integer  "user_id"
     t.datetime "created_at",                                   null: false
     t.datetime "updated_at",                                   null: false

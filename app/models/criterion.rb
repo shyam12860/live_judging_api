@@ -13,6 +13,7 @@
 
 class Criterion < ActiveRecord::Base
   belongs_to :rubric
+  has_many :judgments
 
   validates :label,
     presence: true,
