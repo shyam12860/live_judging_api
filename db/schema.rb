@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 70) do
+ActiveRecord::Schema.define(version: 75) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -83,6 +83,17 @@ ActiveRecord::Schema.define(version: 70) do
 
   add_index "judge_teams", ["judge_id", "team_id"], name: "index_judge_teams_on_judge_id_and_team_id", unique: true, using: :btree
 
+  create_table "judgments", force: :cascade do |t|
+    t.string   "value",        null: false
+    t.integer  "team_id",      null: false
+    t.integer  "judge_id",     null: false
+    t.integer  "criterion_id", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "judgments", ["judge_id", "team_id", "criterion_id"], name: "index_judgments_on_judge_id_and_team_id_and_criterion_id", unique: true, using: :btree
+
   create_table "rubric_categories", force: :cascade do |t|
     t.integer  "rubric_id",   null: false
     t.integer  "category_id", null: false
@@ -110,7 +121,7 @@ ActiveRecord::Schema.define(version: 70) do
 
   create_table "tokens", force: :cascade do |t|
     t.string   "access_token",                                 null: false
-    t.datetime "expires_at",   default: '2015-07-23 17:29:24', null: false
+    t.datetime "expires_at",   default: '2015-07-23 17:29:05', null: false
     t.integer  "user_id"
     t.datetime "created_at",                                   null: false
     t.datetime "updated_at",                                   null: false
@@ -139,6 +150,9 @@ ActiveRecord::Schema.define(version: 70) do
   add_foreign_key "event_teams", "events", name: "event_team_event"
   add_foreign_key "judge_teams", "event_judges", column: "judge_id", name: "judge_team_judge"
   add_foreign_key "judge_teams", "event_teams", column: "team_id", name: "judge_team_team"
+  add_foreign_key "judgments", "criteria", name: "judgment_criterion"
+  add_foreign_key "judgments", "event_judges", column: "judge_id", name: "judgment_judge"
+  add_foreign_key "judgments", "event_teams", column: "team_id", name: "judgment_team"
   add_foreign_key "rubric_categories", "event_categories", column: "category_id", name: "rubric_category_category"
   add_foreign_key "rubric_categories", "rubrics", name: "rubric_category_rubric"
   add_foreign_key "rubrics", "events", name: "rubric_event"

@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: categories
+# Table name: criteria
 #
 #  id         :integer          not null, primary key
 #  label      :string           not null
