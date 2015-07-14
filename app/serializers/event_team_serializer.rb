@@ -11,13 +11,13 @@
 #
 
 class EventTeamSerializer < ActiveModel::Serializer
-  attributes :id, :name, :logo
+  attributes :id, :name
 
   belongs_to :event
   has_many :categories
   has_many :judges
 
   def logo
-    "https://s3.amazonaws.com/live-judging/store/#{logo}"
+    "https://s3.amazonaws.com/live-judging/store/#{logo_id}"
   end
 end
