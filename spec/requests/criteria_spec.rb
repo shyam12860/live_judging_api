@@ -9,6 +9,7 @@ describe "Criteria API" do
 
     describe "with valid token", :show_in_doc do
       before :each do
+        criterion.rubric.event.organizers << user
         get "/criteria/#{criterion.id}", nil, { "Authorization" => "Token token=" + user.token.access_token }
       end
 
@@ -55,6 +56,7 @@ describe "Criteria API" do
 
     describe "with valid token", :show_in_doc do
       before :each do
+        criterion.rubric.event.organizers << user
         get "/rubrics/#{criterion.rubric.id}/criteria", nil, { "Authorization" => "Token token=" + user.token.access_token }
       end
 
@@ -63,7 +65,7 @@ describe "Criteria API" do
       end
 
       it "returns the correct JSON" do
-        expect( json_at_key( response.body, "criteria" ) ).to eq( serialize_array( CriterionSerializer, Criterion.where( id: criterion ), user ) )
+        expect( response.body ).to eq( serialize_array( CriterionSerializer, Criterion.where( id: criterion ), user ) )
       end
     end
 
@@ -231,11 +233,7 @@ describe "Criteria API" do
       end
 
       it "returns the correct JSON" do
-        expect( response.body ).to eq( CriterionSerializer.new( criterion.reload ).to_json )
-      end
-
-      it "returns updated attributes" do
-        expect( json_to_hash( response.body )[:criterion][:min_score] ).to eq( criterion.min_score + 1 )
+        expect( response.body ).to eq( serialize( CriterionSerializer, criterion.reload, user ) )
       end
     end
 

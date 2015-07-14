@@ -10,5 +10,8 @@
 #
 
 class EventOrganizerSerializer < ActiveModel::Serializer
-  attributes :event_id, :organizer_id
+  attributes :id
+
+  belongs_to :event
+  belongs_to :organizer
 end

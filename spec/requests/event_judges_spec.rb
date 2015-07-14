@@ -6,7 +6,7 @@ describe "Event Judges API" do
   before { host! "api.example.com" }
 
   describe "GET /events/:event_id/judges" do
-    let( :event ) { create( :event, organizers: [user] ) }
+    let( :event ) { create( :event, organizers: [user], judges: [create( :user ), create( :user )], teams: [create( :event_team )] ) }
 
     describe "with valid token", :show_in_doc do
       before :each do
@@ -21,7 +21,7 @@ describe "Event Judges API" do
       end
 
       it "returns the correct JSON" do
-        expect( json_at_key( response.body, "event_judges" ) ).to eq( serialize_array( EventJudgeSerializer, EventJudge.all, user ) )
+        expect( response.body ).to eq( serialize_array( EventJudgeSerializer, EventJudge.all, user ) )
       end
     end
 
@@ -41,7 +41,7 @@ describe "Event Judges API" do
   end
 
   describe "POST /events/:event_id/judges" do
-    let( :event ) { create( :event, organizers: [user] ) }
+    let( :event ) { create( :event, organizers: [user], judges: [create( :user ), create( :user )], teams: [create( :event_team )] ) }
     let( :judge_user ) { create( :user ) }
     describe "with valid attributes", :show_in_doc do
       before :each do
@@ -53,7 +53,7 @@ describe "Event Judges API" do
       end
 
       it "returns the correct JSON" do
-        expect( response.body ).to eq( serialize( EventJudgeSerializer, EventJudge.first, user ) )
+        expect( response.body ).to eq( serialize( EventJudgeSerializer, EventJudge.last, user ) )
       end
     end
 
@@ -88,7 +88,7 @@ describe "Event Judges API" do
   end
 
   describe "DELETE /judges/:id" do
-    let( :event ) { create( :event, organizers: [user] ) }
+    let( :event ) { create( :event, organizers: [user], judges: [create( :user ), create( :user )], teams: [create( :event_team )] ) }
     let( :event_judge ) { create( :event_judge, event: event ) }
     describe "with valid attributes", :show_in_doc do
       before :each do

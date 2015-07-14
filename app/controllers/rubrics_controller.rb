@@ -5,7 +5,12 @@ class RubricsController < ApplicationController
     header "Authorization", "Token token=[access_token]", required: true
   def index
     @rubrics = Rubric.where( event_id: params[:event_id] )
-    authorize @rubrics
+
+    if @rubrics.any?
+      authorize @rubrics
+    else
+      skip_authorization
+    end
 
     render json: @rubrics, status: :ok
   end

@@ -31,7 +31,7 @@ describe "Judgments API" do
       end
 
       it "returns the correct JSON" do
-        expect( json_at_key( response.body, "judgments" ) ).to eq( serialize_array( JudgmentSerializer, Judgment.all, user ) )
+        expect( response.body ).to eq( serialize_array( JudgmentSerializer, Judgment.all, user ) )
       end
     end
 
@@ -190,11 +190,11 @@ describe "Judgments API" do
       end
 
       it "returns the correct JSON" do
-        expect( response.body ).to eq( JudgmentSerializer.new( judgment.reload ).to_json )
+        expect( response.body ).to eq( serialize( JudgmentSerializer, judgment.reload, user ) )
       end
 
       it "returns updated attributes" do
-        expect( json_to_hash( response.body )[:judgment][:value] ).to eq( judgment.value + 1 )
+        expect( json_to_hash( response.body )[:value] ).to eq( judgment.value + 1 )
       end
     end
 

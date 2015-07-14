@@ -5,7 +5,7 @@ describe "Judge Teams API" do
   before { host! "api.example.com" }
 
   describe "GET /judges/:judge_id/teams" do
-    let( :judge_team ) { create( :judge_team ) }
+    let( :judge_team ) { create( :judge_team, judge: create( :event_judge, event: create( :event, organizers: [user] ) ) ) }
 
     describe "with valid token", :show_in_doc do
       before :each do
@@ -17,7 +17,7 @@ describe "Judge Teams API" do
       end
 
       it "returns the correct JSON" do
-        expect( json_at_key( response.body, "judge_teams" ) ).to eq( serialize_array( JudgeTeamSerializer, JudgeTeam.where( team: judge_team.team ), user ) )
+        expect( response.body ).to eq( serialize_array( JudgeTeamSerializer, JudgeTeam.where( team: judge_team.team ), user ) )
       end
     end
 

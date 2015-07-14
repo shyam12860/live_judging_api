@@ -12,9 +12,8 @@
 class Rubric < ActiveRecord::Base
   # Associations
   belongs_to :event
-  belongs_to :rubric_category
-  has_many :categories, through: :rubric_category
-  has_many :criteria
+  has_many :categories, class_name: "EventCategory", dependent: :nullify
+  has_many :criteria, dependent: :destroy
 
   # Validations
   validates :name,

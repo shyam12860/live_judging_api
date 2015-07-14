@@ -10,8 +10,8 @@ class CreateJudgments < ActiveRecord::Migration
     end
 
     add_index :judgments, [:judge_id, :team_id, :criterion_id], unique: true
-    add_foreign_key :judgments, :criteria,     name: "judgment_criterion"
-    add_foreign_key :judgments, :event_teams,  name: "judgment_team",  column: "team_id"
-    add_foreign_key :judgments, :event_judges, name: "judgment_judge", column: "judge_id"
+    add_foreign_key :judgments, :criteria,     name: "judgment_criterion", on_delete: :cascade
+    add_foreign_key :judgments, :event_teams,  name: "judgment_team",  column: "team_id", on_delete: :cascade
+    add_foreign_key :judgments, :event_judges, name: "judgment_judge", column: "judge_id", on_delete: :cascade
   end
 end

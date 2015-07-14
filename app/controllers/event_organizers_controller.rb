@@ -22,7 +22,12 @@ class EventOrganizersController < ApplicationController
     header "Authorization", "Token token=[access_token]", required: true
   def index
     @event_organizers = EventOrganizer.where( event_id: params[:event_id] )
-    authorize @event_organizers
+
+    if @event_organizers.any?
+      authorize @event_organizers
+    else
+      skip_authorization
+    end
 
     render json: @event_organizers, status: :ok
   end
@@ -33,7 +38,12 @@ class EventOrganizersController < ApplicationController
     header "Authorization", "Token token=[access_token]", required: true
   def index_by_organizer
     @event_organizers = EventOrganizer.where( organizer_id: params[:user_id] )
-    authorize @event_organizers
+
+    if @event_organizers.any?
+      authorize @event_organizers
+    else
+      skip_authorization
+    end
 
     render json: @event_organizers, status: :ok
   end

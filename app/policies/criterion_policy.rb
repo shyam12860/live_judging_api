@@ -1,10 +1,10 @@
 class CriterionPolicy < ApplicationPolicy
   def index?
-    user.present?
+    user.present? && record.first.rubric.event.organizers.include?( user )
   end
 
   def show?
-    user.present?
+    user.present? && record.rubric.event.organizers.include?( user )
   end
 
   def create?

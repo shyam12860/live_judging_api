@@ -5,7 +5,12 @@ class EventTeamsController < ApplicationController
     header "Authorization", "Token token=[access_token]", required: true
   def index
     @teams = EventTeam.where( event_id: params[:event_id] )
-    authorize @teams
+
+    if @teams.any?
+      authorize @teams
+    else
+      skip_authorization
+    end
 
     render json: @teams, status: :ok
   end

@@ -1,6 +1,6 @@
 class EventTeamPolicy < ApplicationPolicy
   def index?
-    user.present?
+    user.present? && ( record.first.event.organizers.include?( user ) || record.first.event.judges.include?( user ) )
   end
 
   def show?

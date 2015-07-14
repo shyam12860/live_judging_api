@@ -6,12 +6,12 @@ describe "Events API" do
   before { host! "api.example.com" }
 
   describe "GET /events" do
-    let( :event ) { create( :event, organizers: [user] ) }
+    let( :event ) { create( :event, organizers: [user], judges: [create( :user )], teams: [create( :event_team )] ) }
+
     describe "with valid token", :show_in_doc do
       before :each do
-        @events = [create( :event, organizers: [user] ), event]
-        user_2 = create( :user )
-        post "/events", attributes_for( :event ), { "Authorization" => "Token token=" + user_2.token.access_token } 
+        @events = [create( :event, organizers: [user], judges: [create( :user )], teams: [create( :event_team )] ), event]
+        @other_event = create( :event )
         get "/events", nil, { "Authorization" => "Token token=" + user.token.access_token }
       end
 
@@ -20,7 +20,7 @@ describe "Events API" do
       end
 
       it "returns the correct JSON" do
-        expect( json_at_key( response.body, "events" ) ).to eq( serialize_array( EventSerializer, @events ) )
+        expect( response.body ).to eq( serialize_array( EventSerializer, @events ) )
       end
     end
 
@@ -41,7 +41,7 @@ describe "Events API" do
   end
 
   describe "GET /events/:id" do
-    let( :event ) { create( :event ) }
+    let( :event ) { create( :event, organizers: [user], judges: [create( :user )], teams: [create( :event_team )] ) }
   
     describe "with valid identifier", :show_in_doc do
       before :each do
@@ -53,7 +53,7 @@ describe "Events API" do
       end
 
       it "returns the correct JSON" do
-        expect( response.body ).to eq( EventSerializer.new( event ).to_json )
+        expect( response.body ).to eq( serialize( EventSerializer, event, user ) )
       end
     end
 
@@ -87,12 +87,11 @@ describe "Events API" do
   end
 
   describe "PUT /events/:id" do
-    let( :event ) { create( :event ) }
+    let( :event ) { create( :event, organizers: [user], judges: [create( :user )], teams: [create( :event_team )] ) }
   
     describe "with valid identifier", :show_in_doc do
       before :each do
-        hash = attributes_for( :event, name: 'Updated Name' )
-        put "/events/#{event.id}", hash, { "Authorization" => "Token token=" + user.token.access_token }
+        put "/events/#{event.id}", { name: "Updated Name" }, { "Authorization" => "Token token=" + user.token.access_token }
       end
 
       it "returns a success status code" do
@@ -100,18 +99,17 @@ describe "Events API" do
       end
 
       it "returns the correct JSON" do
-        expect( response.body ).to eq( EventSerializer.new( event.reload ).to_json )
+        expect( response.body ).to eq( serialize( EventSerializer, event.reload, user ) )
       end
 
       it "returns updated attributes" do
-        expect( json_to_hash( response.body )[:event][:name] ).to eq( "Updated Name" )
+        expect( json_to_hash( response.body )[:name] ).to eq( "Updated Name" )
       end
     end
 
     describe "with invalid parameters" do
       before :each do
-        hash = attributes_for( :event, name: nil )
-        put "/events/#{event.id}", hash, { "Authorization" => "Token token=" + user.token.access_token }
+        put "/events/#{event.id}", { name: nil }, { "Authorization" => "Token token=" + user.token.access_token }
       end
 
       it "returns an unprocessable entity status code" do
@@ -125,8 +123,7 @@ describe "Events API" do
 
     describe "with invalid token" do
       before :each do
-        hash = attributes_for( :event, name: 'Updated Name' )
-        put "/events/#{event.id}", hash, { "Authorization" => "Token token=" + SecureRandom.hex }
+        put "/events/#{event.id}", { name: "Updated Name" }, { "Authorization" => "Token token=" + SecureRandom.hex }
       end
 
       it "returns an unauthorized status code" do
@@ -140,8 +137,7 @@ describe "Events API" do
 
     describe "with an event that does not exist" do
       before :each do
-        hash = attributes_for( :event, name: 'Updated Name' )
-        put "/events/aowiejf", hash, { "Authorization" => "Token token=" + user.token.access_token }
+        put "/events/aowiejf", { name: "Updated Name" }, { "Authorization" => "Token token=" + user.token.access_token }
       end
 
       it "returns a not found status code" do

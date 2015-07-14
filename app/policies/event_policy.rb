@@ -8,10 +8,10 @@ class EventPolicy < ApplicationPolicy
   end
 
   def update?
-    user.present?
+    user.present? && record.organizers.include?( user )
   end
 
   def show?
-    user.present?
+    user.present? && record.organizers.include?( user )
   end
 end

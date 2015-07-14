@@ -9,6 +9,6 @@ class CreateEventTeams < ActiveRecord::Migration
     end
 
     add_index :event_teams, [:event_id, :name], unique: true
-    add_foreign_key :event_teams, :events, name: "event_team_event"
+    add_foreign_key :event_teams, :events, name: "event_team_event", on_delete: :cascade
   end
 end

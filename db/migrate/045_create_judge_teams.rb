@@ -8,7 +8,7 @@ class CreateJudgeTeams < ActiveRecord::Migration
     end
 
     add_index :judge_teams, [:judge_id, :team_id], unique: true
-    add_foreign_key :judge_teams, :event_teams,  name: "judge_team_team",  column: "team_id"
-    add_foreign_key :judge_teams, :event_judges, name: "judge_team_judge", column: "judge_id"
+    add_foreign_key :judge_teams, :event_teams,  name: "judge_team_team",  column: "team_id", on_delete: :cascade
+    add_foreign_key :judge_teams, :event_judges, name: "judge_team_judge", column: "judge_id", on_delete: :cascade
   end
 end

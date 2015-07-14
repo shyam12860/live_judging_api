@@ -5,12 +5,11 @@ describe "Event Categories API" do
   before { host! "api.example.com" }
 
   describe "GET /events/:event_id/categories" do
-    let( :category_1 ) { create( :event_category ) }
-    let( :category_2 ) { create( :event_category ) }
-    let( :event ) { create( :event, categories: [ category_1, category_2 ] ) }
+    let( :event ) { create( :event, organizers: [user], teams: [create( :event_team )] ) }
 
     describe "with valid token", :show_in_doc do
       before :each do
+        event.categories << create( :event_category, rubric: create( :rubric, event: event ) )
         get "/events/#{event.id}/categories", nil, { "Authorization" => "Token token=" + user.token.access_token }
       end
 
@@ -19,7 +18,7 @@ describe "Event Categories API" do
       end
 
       it "returns the correct JSON" do
-        expect( json_at_key( response.body, "event_categories" ) ).to eq( serialize_array( EventCategorySerializer, EventCategory.where( event: event ), user ) )
+        expect( response.body ).to eq( serialize_array( EventCategorySerializer, EventCategory.where( event: event ), user ) )
       end
     end
 
@@ -39,10 +38,11 @@ describe "Event Categories API" do
   end
 
   describe "POST /events/:event_id/categories" do
-    let( :category_1 ) { create( :event_category ) }
-    let( :event ) { create( :event, categories: [category_1], organizers: [user] ) }
+    let( :event ) { create( :event, organizers: [user], teams: [create( :event_team )] ) }
+
     describe "with valid attributes", :show_in_doc do
       before :each do
+        event.categories << create( :event_category, rubric: create( :rubric, event: event ) )
         post "/events/#{event.id}/categories", attributes_for( :event_category ), { "Authorization" => "Token token=" + user.token.access_token } 
       end
 
@@ -101,12 +101,12 @@ describe "Event Categories API" do
 
   describe "GET /categories/:id" do
     let( :user ) { create( :user ) }
-    let( :category ) { create( :event_category ) }
-    let( :event ) { create( :event, categories: [category], organizers: [user] ) }
+    let( :event ) { create( :event, organizers: [user], teams: [create( :event_team )] ) }
+    let( :category ) { create( :event_category, event: event, rubric: create( :rubric, event: event ) ) }
   
     describe "with valid identifier", :show_in_doc do
       before :each do
-        event.save
+        event.categories << category
         get "/categories/#{category.id}", nil, { "Authorization" => "Token token=" + user.token.access_token }
       end
 
@@ -167,11 +167,12 @@ describe "Event Categories API" do
 
   describe "PUT /categories/:id" do
     let( :user ) { create( :user ) }
-    let( :category ) { create( :event_category ) }
-    let( :event ) { create( :event, categories: [category], organizers: [user] ) }
+    let( :event ) { create( :event, organizers: [user], teams: [create( :event_team )] ) }
+    let( :category ) { create( :event_category, event: event, rubric: create( :rubric, event: event ) ) }
   
     describe "with valid identifier", :show_in_doc do
       before :each do
+        event.categories << category
         put "/categories/#{category.id}", attributes_for( :event_category, label: "updated", event: event ), { "Authorization" => "Token token=" + user.token.access_token }
       end
 
@@ -184,7 +185,7 @@ describe "Event Categories API" do
       end
 
       it "returns updated attributes" do
-        expect( json_to_hash( response.body )[:event_category][:label] ).to eq( "updated" )
+        expect( json_to_hash( response.body )[:label] ).to eq( "updated" )
       end
     end
 
@@ -232,11 +233,11 @@ describe "Event Categories API" do
   end
 
   describe "DELETE /categories/:id" do
-    let( :category ) { create( :event_category ) }
-    let( :event ) { create( :event, categories: [category], organizers: [user] ) }
+    let( :event ) { create( :event, organizers: [user], teams: [create( :event_team )] ) }
+    let( :category ) { create( :event_category, event: event, rubric: create( :rubric, event: event ) ) }
     describe "with valid attributes", :show_in_doc do
       before :each do
-        event.save
+        event.categories << category
         delete "/categories/#{category.id}", {}, { "Authorization" => "Token token=" + user.token.access_token } 
       end
 

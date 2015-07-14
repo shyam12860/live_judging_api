@@ -7,6 +7,10 @@ describe "Team Categories API" do
   describe "GET /teams/:team_id/categories" do
     let( :team_category ) { create( :team_category ) }
 
+    before :each do
+      team_category.team.event.organizers << user
+    end
+
     describe "with valid token", :show_in_doc do
       before :each do
         get "/teams/#{team_category.team.id}/categories", nil, { "Authorization" => "Token token=" + user.token.access_token }
@@ -17,7 +21,7 @@ describe "Team Categories API" do
       end
 
       it "returns the correct JSON" do
-        expect( json_at_key( response.body, "team_categories" ) ).to eq( serialize_array( TeamCategorySerializer, TeamCategory.where( team: team_category.team ), user ) )
+        expect( response.body ).to eq( serialize_array( TeamCategorySerializer, TeamCategory.where( team: team_category.team ), user ) )
       end
     end
 

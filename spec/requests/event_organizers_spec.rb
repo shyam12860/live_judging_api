@@ -5,13 +5,10 @@ describe "Event Organizers API" do
   before { host! "api.example.com" }
 
   describe "GET /events/:event_id/organizers" do
-    let( :event ) { create( :event ) }
+    let( :event ) { create( :event, organizers: [user, create( :user ), create( :user )] ) }
 
     describe "with valid token", :show_in_doc do
       before :each do
-        @organizers = [ user, create( :user ), create( :user ), create( :user )]
-        event.organizers = @organizers
-        event.save
         get "/events/#{event.id}/organizers", nil, { "Authorization" => "Token token=" + user.token.access_token }
       end
 
@@ -20,7 +17,7 @@ describe "Event Organizers API" do
       end
 
       it "returns the correct JSON" do
-        expect( json_at_key( response.body, "event_organizers" ) ).to eq( serialize_array( EventOrganizerSerializer, EventOrganizer.all, user ) )
+        expect( response.body ).to eq( serialize_array( EventOrganizerSerializer, EventOrganizer.all, user ) )
       end
     end
 
@@ -42,6 +39,7 @@ describe "Event Organizers API" do
   describe "POST /events/:event_id/organizers" do
     let( :event ) { create( :event, organizers: [user] ) }
     let( :organizer_user ) { create( :user ) }
+
     describe "with valid attributes", :show_in_doc do
       before :each do
         post "/events/#{event.id}/organizers", { user_id: organizer_user.id }, { "Authorization" => "Token token=" + user.token.access_token } 
@@ -58,6 +56,7 @@ describe "Event Organizers API" do
 
     describe "as a user that did not organize the event" do
       let( :other_user ) { create( :user ) }
+
       before :each do
         post "/events/#{event.id}/organizers", { user_id: organizer_user.id }, { "Authorization" => "Token token=" + other_user.token.access_token } 
       end

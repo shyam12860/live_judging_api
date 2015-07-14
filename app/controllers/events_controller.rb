@@ -46,7 +46,13 @@ class EventsController < ApplicationController
     header "Authorization", "Token token=[access_token]", required: true
   def index
     @events = current_user.organized_events
-    authorize @events
+
+    if @events.any?
+      authorize @events
+    else
+      skip_authorization
+    end
+
     render json: @events, status: :ok
   end
 

@@ -22,7 +22,12 @@ class EventJudgesController < ApplicationController
     header "Authorization", "Token token=[access_token]", required: true
   def index
     @event_judges = EventJudge.where( event_id: params[:event_id] )
-    authorize @event_judges
+
+    if @event_judges.any?
+      authorize @event_judges
+    else
+      skip_authorization
+    end
 
     render json: @event_judges, status: :ok
   end
@@ -33,7 +38,12 @@ class EventJudgesController < ApplicationController
     header "Authorization", "Token token=[access_token]", required: true
   def index_by_judge
     @event_judges = EventJudge.where( judge_id: params[:user_id] )
-    authorize @event_judges
+
+    if @event_judges.any?
+      authorize @event_judges
+    else
+      skip_authorization
+    end
 
     render json: @event_judges, status: :ok
   end

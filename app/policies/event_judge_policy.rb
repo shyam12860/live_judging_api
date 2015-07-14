@@ -1,6 +1,6 @@
 class EventJudgePolicy < ApplicationPolicy
   def index?
-    user.present?
+    user.present? && record.first.event.organizers.include?( user )
   end
 
   def index_by_judge?
