@@ -95,6 +95,16 @@ ActiveRecord::Schema.define(version: 75) do
 
   add_index "judgments", ["judge_id", "team_id", "criterion_id"], name: "index_judgments_on_judge_id_and_team_id_and_criterion_id", unique: true, using: :btree
 
+  create_table "messages", force: :cascade do |t|
+    t.string   "subject",      null: false
+    t.string   "body",         null: false
+    t.integer  "sender_id",    null: false
+    t.integer  "recipient_id", null: false
+    t.datetime "read"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
   create_table "rubrics", force: :cascade do |t|
     t.string   "name",       null: false
     t.integer  "event_id",   null: false
@@ -148,6 +158,8 @@ ActiveRecord::Schema.define(version: 75) do
   add_foreign_key "judgments", "criteria", name: "judgment_criterion", on_delete: :cascade
   add_foreign_key "judgments", "event_judges", column: "judge_id", name: "judgment_judge", on_delete: :cascade
   add_foreign_key "judgments", "event_teams", column: "team_id", name: "judgment_team", on_delete: :cascade
+  add_foreign_key "messages", "users", column: "recipient_id", name: "message_recipient"
+  add_foreign_key "messages", "users", column: "sender_id", name: "message_sender"
   add_foreign_key "rubrics", "events", name: "rubric_event", on_delete: :cascade
   add_foreign_key "team_categories", "event_categories", column: "category_id", name: "team_category_category", on_delete: :cascade
   add_foreign_key "team_categories", "event_teams", column: "team_id", name: "team_category_team", on_delete: :cascade
