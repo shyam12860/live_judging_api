@@ -35,7 +35,7 @@ class UsersController < ApplicationController
     @user = User.find( params[:id] )
     authorize @user
 
-    if @user.update_attributes( my_params )
+    if @user.update_attributes( permitted_attributes( @user ) )
       render json: @user, status: :ok
     else
       render json: @user.errors, status: :unprocessable_entity
