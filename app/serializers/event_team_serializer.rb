@@ -18,6 +18,6 @@ class EventTeamSerializer < ActiveModel::Serializer
   has_many :judges
 
   def logo
-    Refile.attachment_url( object, :logo, :fill, 300, 300, format: "jpg" )
+    "https://s3.amazonaws.com/live-judging/store/#{logo}"
   end
 end
