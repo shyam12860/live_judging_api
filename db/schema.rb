@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 75) do
     t.integer  "color",       null: false
     t.datetime "due_at"
     t.string   "description"
+    t.integer  "rubric_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
@@ -94,13 +95,6 @@ ActiveRecord::Schema.define(version: 75) do
 
   add_index "judgments", ["judge_id", "team_id", "criterion_id"], name: "index_judgments_on_judge_id_and_team_id_and_criterion_id", unique: true, using: :btree
 
-  create_table "rubric_categories", force: :cascade do |t|
-    t.integer  "rubric_id",   null: false
-    t.integer  "category_id", null: false
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
-
   create_table "rubrics", force: :cascade do |t|
     t.string   "name",       null: false
     t.integer  "event_id",   null: false
@@ -121,7 +115,7 @@ ActiveRecord::Schema.define(version: 75) do
 
   create_table "tokens", force: :cascade do |t|
     t.string   "access_token",                                 null: false
-    t.datetime "expires_at",   default: '2015-07-27 14:49:16', null: false
+    t.datetime "expires_at",   default: '2015-07-28 04:50:42', null: false
     t.integer  "user_id"
     t.datetime "created_at",                                   null: false
     t.datetime "updated_at",                                   null: false
@@ -141,21 +135,20 @@ ActiveRecord::Schema.define(version: 75) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
 
-  add_foreign_key "criteria", "rubrics", name: "category_rubric"
-  add_foreign_key "event_categories", "events", name: "event_category_event"
-  add_foreign_key "event_judges", "events", name: "event_judge_event"
-  add_foreign_key "event_judges", "users", column: "judge_id", name: "event_judge_judge"
-  add_foreign_key "event_organizers", "events", name: "event_organizer_event"
-  add_foreign_key "event_organizers", "users", column: "organizer_id", name: "event_organizer_organizer"
-  add_foreign_key "event_teams", "events", name: "event_team_event"
-  add_foreign_key "judge_teams", "event_judges", column: "judge_id", name: "judge_team_judge"
-  add_foreign_key "judge_teams", "event_teams", column: "team_id", name: "judge_team_team"
-  add_foreign_key "judgments", "criteria", name: "judgment_criterion"
-  add_foreign_key "judgments", "event_judges", column: "judge_id", name: "judgment_judge"
-  add_foreign_key "judgments", "event_teams", column: "team_id", name: "judgment_team"
-  add_foreign_key "rubric_categories", "event_categories", column: "category_id", name: "rubric_category_category"
-  add_foreign_key "rubric_categories", "rubrics", name: "rubric_category_rubric"
-  add_foreign_key "rubrics", "events", name: "rubric_event"
-  add_foreign_key "team_categories", "event_categories", column: "category_id", name: "team_category_category"
-  add_foreign_key "team_categories", "event_teams", column: "team_id", name: "team_category_team"
+  add_foreign_key "criteria", "rubrics", name: "category_rubric", on_delete: :nullify
+  add_foreign_key "event_categories", "events", name: "event_category_event", on_delete: :cascade
+  add_foreign_key "event_categories", "rubrics", name: "event_category_rubric", on_delete: :nullify
+  add_foreign_key "event_judges", "events", name: "event_judge_event", on_delete: :cascade
+  add_foreign_key "event_judges", "users", column: "judge_id", name: "event_judge_judge", on_delete: :cascade
+  add_foreign_key "event_organizers", "events", name: "event_organizer_event", on_delete: :cascade
+  add_foreign_key "event_organizers", "users", column: "organizer_id", name: "event_organizer_organizer", on_delete: :cascade
+  add_foreign_key "event_teams", "events", name: "event_team_event", on_delete: :cascade
+  add_foreign_key "judge_teams", "event_judges", column: "judge_id", name: "judge_team_judge", on_delete: :cascade
+  add_foreign_key "judge_teams", "event_teams", column: "team_id", name: "judge_team_team", on_delete: :cascade
+  add_foreign_key "judgments", "criteria", name: "judgment_criterion", on_delete: :cascade
+  add_foreign_key "judgments", "event_judges", column: "judge_id", name: "judgment_judge", on_delete: :cascade
+  add_foreign_key "judgments", "event_teams", column: "team_id", name: "judgment_team", on_delete: :cascade
+  add_foreign_key "rubrics", "events", name: "rubric_event", on_delete: :cascade
+  add_foreign_key "team_categories", "event_categories", column: "category_id", name: "team_category_category", on_delete: :cascade
+  add_foreign_key "team_categories", "event_teams", column: "team_id", name: "team_category_team", on_delete: :cascade
 end

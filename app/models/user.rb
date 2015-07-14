@@ -18,9 +18,9 @@ class User < ActiveRecord::Base
   after_create :set_auth_token
 
   has_one :token
-  has_many :event_organizers, foreign_key: "organizer_id"
+  has_many :event_organizers, foreign_key: "organizer_id", dependent: :destroy
   has_many :organized_events, through: :event_organizers, source: "event"
-  has_many :event_judges, foreign_key: "judge_id"
+  has_many :event_judges, foreign_key: "judge_id", dependent: :destroy
   has_many :judged_events, through: :event_judges, source: "event"
 
   validates :email,

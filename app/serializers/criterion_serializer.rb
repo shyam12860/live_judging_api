@@ -13,4 +13,6 @@
 
 class CriterionSerializer < ActiveModel::Serializer
   attributes :id, :label, :min_score, :max_score
+
+  belongs_to :rubric
 end

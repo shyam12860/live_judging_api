@@ -6,11 +6,13 @@ class CreateEventCategories < ActiveRecord::Migration
       t.integer  :color,   null: false
       t.datetime :due_at
       t.string   :description
+      t.references :rubric
 
       t.timestamps null: false
     end
 
     add_index :event_categories, [:event_id, :label], unique: true
-    add_foreign_key :event_categories, :events, name: "event_category_event"
+    add_foreign_key :event_categories, :rubrics, name: "event_category_rubric", on_delete: :nullify
+    add_foreign_key :event_categories, :events, name: "event_category_event", on_delete: :cascade
   end
 end

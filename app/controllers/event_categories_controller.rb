@@ -6,7 +6,12 @@ class EventCategoriesController < ApplicationController
     header "Authorization", "Token token=[access_token]", required: true
   def index
     @categories = EventCategory.where( event_id: params[:event_id] )
-    authorize @categories
+
+    if @categories.any?
+      authorize @categories
+    else
+      skip_authorization
+    end
 
     render json: @categories, status: :ok
   end
@@ -19,6 +24,7 @@ class EventCategoriesController < ApplicationController
     param :color, Integer, desc: "Integer value for a color", required: true
     param :due_at, String, desc: "Datetime that judging for this category is due at", required: false
     param :description, String, desc: "Description of the category", required: false
+    param :rubric_id, Integer, desc: "The rubric to grade this category with", required: false
     header "Authorization", "Token token=[access_token]", required: true
   def create
     @category = EventCategory.new( create_params )
@@ -51,6 +57,7 @@ class EventCategoriesController < ApplicationController
     param :color, Integer, desc: "Integer value for a color", required: true
     param :due_at, String, desc: "Datetime that judging for this category is due at", required: false
     param :description, String, desc: "Description of the category", required: false
+    param :rubric_id, Integer, desc: "The rubric to grade this category with", required: false
     header "Authorization", "Token token=[access_token]", required: true
   def update
     @category = EventCategory.find( params[:id] )
@@ -78,10 +85,10 @@ class EventCategoriesController < ApplicationController
 
   private
     def create_params
-      params.permit( :event_id, :label, :color, :description, :due_at )
+      params.permit( :event_id, :label, :color, :description, :due_at, :rubric_id )
     end
     
     def update_params
-      params.permit( :label, :color, :description, :due_at  )
+      params.permit( :label, :color, :description, :due_at, :rubric_id  )
     end
 end

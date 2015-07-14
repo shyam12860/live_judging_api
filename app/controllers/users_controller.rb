@@ -22,7 +22,7 @@ class UsersController < ApplicationController
   end
 
   api :PUT, "/users/:id", "Update a specific user"
-    description "Update a specific user by their id"
+    description "Update a specific user by their id. Must be logged in as an admin or the user you are updating."
     error code: :unprocessable_entity, desc: " - Bad parameters for User"
     error code: :unauthorized, desc: " - Bad Token"
     param :email,                 String, desc: "User Email Address",                      required: false
@@ -45,10 +45,21 @@ class UsersController < ApplicationController
   api :GET, "/users", "Get a list of users"
     description "Get a list of all users for the application"
     error code: :unauthorized, desc: " - Bad Token"
+    param :email, String, desc: "Filter users by email", required: false
     header "Authorization", "Token token=[access_token]", required: true
   def index
     @users = User.all
-    authorize @users
+
+    if params[:email]
+      @users = @users.where( email: params[:email] )
+    end
+
+    if @users.any?
+      authorize @users
+    else
+      skip_authorization
+    end
+
     render json: @users, status: :ok
   end
 

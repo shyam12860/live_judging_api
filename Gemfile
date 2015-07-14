@@ -9,7 +9,7 @@ gem "pg"
 
 # Utility
 gem "apipie-rails", github: "Apipie/apipie-rails", branch: "master"
-gem "active_model_serializers", "~> 0.9.3" # JSON Serializer
+gem "active_model_serializers", github: "rails-api/active_model_serializers"
 gem "email_validator",          "~> 1.6.0" # Helper for validating email fields
 gem "pundit",                   "~> 1.0.1" # Permissions
 

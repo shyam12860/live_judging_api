@@ -13,7 +13,7 @@
 
 class Criterion < ActiveRecord::Base
   belongs_to :rubric
-  has_many :judgments
+  has_many :judgments, dependent: :destroy
 
   validates :label,
     presence: true,

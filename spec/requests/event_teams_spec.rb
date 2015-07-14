@@ -5,12 +5,11 @@ describe "Event Teams API" do
   before { host! "api.example.com" }
 
   describe "GET /events/:event_id/teams" do
-    let( :team_1 ) { create( :event_team ) }
-    let( :team_2 ) { create( :event_team ) }
-    let( :event ) { create( :event, teams: [ team_1, team_2 ] ) }
+    let( :event ) { create( :event, teams: [create( :event_team ), create( :event_team )], judges: [create( :user ), create( :user )], organizers: [user] ) }
 
     describe "with valid token", :show_in_doc do
       before :each do
+        event.categories << create( :event_category, rubric: create( :rubric, event: event ) )
         get "/events/#{event.id}/teams", nil, { "Authorization" => "Token token=" + user.token.access_token }
       end
 
@@ -19,7 +18,7 @@ describe "Event Teams API" do
       end
 
       it "returns the correct JSON" do
-        expect( json_at_key( response.body, "event_teams" ) ).to eq( serialize_array( EventTeamSerializer, EventTeam.where( event: event ), user ) )
+        expect( response.body ).to eq( serialize_array( EventTeamSerializer, EventTeam.where( event: event ), user ) )
       end
     end
 
@@ -39,10 +38,10 @@ describe "Event Teams API" do
   end
 
   describe "POST /events/:event_id/teams" do
-    let( :team_1 ) { create( :event_team ) }
-    let( :event ) { create( :event, teams: [team_1], organizers: [user] ) }
+    let( :event ) { create( :event, teams: [create( :event_team ), create( :event_team )], judges: [create( :user ), create( :user )], organizers: [user] ) }
     describe "with valid attributes", :show_in_doc do
       before :each do
+        event.categories << create( :event_category, rubric: create( :rubric, event: event ) )
         post "/events/#{event.id}/teams", { name: "Test Team" }, { "Authorization" => "Token token=" + user.token.access_token } 
       end
 
@@ -100,13 +99,12 @@ describe "Event Teams API" do
   end
 
   describe "GET /teams/:id" do
-    let( :user ) { create( :user ) }
     let( :team ) { create( :event_team ) }
-    let( :event ) { create( :event, teams: [team], organizers: [user] ) }
+    let( :event ) { create( :event, teams: [team, create( :event_team )], judges: [create( :user ), create( :user )], organizers: [user] ) }
   
     describe "with valid identifier", :show_in_doc do
       before :each do
-        event.save
+        event.categories << create( :event_category, rubric: create( :rubric, event: event ) )
         get "/teams/#{team.id}", nil, { "Authorization" => "Token token=" + user.token.access_token }
       end
 
@@ -166,12 +164,12 @@ describe "Event Teams API" do
   end
 
   describe "PUT /teams/:id" do
-    let( :user ) { create( :user ) }
     let( :team ) { create( :event_team ) }
-    let( :event ) { create( :event, teams: [team], organizers: [user] ) }
+    let( :event ) { create( :event, teams: [team, create( :event_team )], judges: [create( :user ), create( :user )], organizers: [user] ) }
   
     describe "with valid identifier", :show_in_doc do
       before :each do
+        event.categories << create( :event_category, rubric: create( :rubric, event: event ) )
         put "/teams/#{team.id}", attributes_for( :event_team, name: "updated", event: event ), { "Authorization" => "Token token=" + user.token.access_token }
       end
 
@@ -184,7 +182,7 @@ describe "Event Teams API" do
       end
 
       it "returns updated attributes" do
-        expect( json_to_hash( response.body )[:event_team][:name] ).to eq( "updated" )
+        expect( json_to_hash( response.body )[:name] ).to eq( "updated" )
       end
     end
 
@@ -233,10 +231,10 @@ describe "Event Teams API" do
 
   describe "DELETE /teams/:id" do
     let( :team ) { create( :event_team ) }
-    let( :event ) { create( :event, teams: [team], organizers: [user] ) }
+    let( :event ) { create( :event, teams: [team, create( :event_team )], judges: [create( :user ), create( :user )], organizers: [user] ) }
     describe "with valid attributes", :show_in_doc do
       before :each do
-        event.save
+        event.categories << create( :event_category, rubric: create( :rubric, event: event ) )
         delete "/teams/#{team.id}", {}, { "Authorization" => "Token token=" + user.token.access_token } 
       end
 

@@ -12,5 +12,9 @@
 #
 
 class JudgmentSerializer < ActiveModel::Serializer
-  attributes :id, :value, :judge, :team, :criterion
+  attributes :id, :value
+
+  belongs_to :judge
+  belongs_to :team
+  belongs_to :criterion
 end

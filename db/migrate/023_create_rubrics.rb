@@ -7,6 +7,6 @@ class CreateRubrics < ActiveRecord::Migration
     end
 
     add_index :rubrics, :name
-    add_foreign_key :rubrics, :events, name: "rubric_event"
+    add_foreign_key :rubrics, :events, name: "rubric_event", on_delete: :cascade
   end
 end

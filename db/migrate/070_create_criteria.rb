@@ -9,6 +9,6 @@ class CreateCriteria < ActiveRecord::Migration
       t.timestamps null: false
     end
 
-    add_foreign_key :criteria, :rubrics, name: "category_rubric"
+    add_foreign_key :criteria, :rubrics, name: "category_rubric", on_delete: :nullify
   end
 end

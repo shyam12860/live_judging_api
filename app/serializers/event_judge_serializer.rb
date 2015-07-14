@@ -8,5 +8,8 @@
 #
 
 class EventJudgeSerializer < ActiveModel::Serializer
-  attributes :event, :judge
+  attributes :id
+
+  belongs_to :event
+  belongs_to :judge
 end
