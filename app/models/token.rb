@@ -4,7 +4,7 @@
 #
 #  id           :integer          not null, primary key
 #  access_token :string           not null
-#  expires_at   :datetime         default(Tue, 28 Jul 2015 03:36:32 UTC +00:00), not null
+#  expires_at   :datetime         default(Tue, 28 Jul 2015 04:50:42 UTC +00:00), not null
 #  user_id      :integer
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null

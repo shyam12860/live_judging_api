@@ -5,11 +5,23 @@ class SessionsController < ApplicationController
 
   api :GET, "/login", "Returns a user and its token"
     description "Returns User JSON object on success, error on failure"
+    param :platform, String, desc: "Which platform the user is logging in from. 'iOS', 'Android', or 'Web'", required: true
     error code: :unauthorized, desc: " - Bad Base64 email:password"
     header "Authorization", "Basic [Base64 email:password]", required: true
   def create
-    @user.set_auth_token
-    render json: @user, status: :ok
+    if params[:platform]
+      @platform = Platform.find_by( label: params[:platform] )
+
+      if @platform
+        @user.platform = @platform
+        @user.set_auth_token
+        render json: @user, status: :ok
+      else
+        render json: "Must provide a valid platform", status: :unauthorized
+      end
+    else
+      render json: "Must provide a platform", status: :unauthorized
+    end
   end
 
   api :GET, "/logout", "Uses HTTP Token Authentication"

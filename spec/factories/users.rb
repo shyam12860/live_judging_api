@@ -10,6 +10,7 @@
 #  admin           :boolean          default(FALSE), not null
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
+#  platform_id     :integer
 #
 
 FactoryGirl.define do
