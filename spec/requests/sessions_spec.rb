@@ -9,7 +9,7 @@ describe "Sessions API" do
     describe "with valid credentials", :show_in_doc do
       before :each do
         base_64 = Base64.encode64( user.email + ":" + user.password )
-        get "/login", nil, { "Authorization" => "Basic " + base_64 }
+        get "/login", { platform: "iOS" }, { "Authorization" => "Basic " + base_64 }
       end
 
       it "returns a success status code" do
@@ -24,7 +24,7 @@ describe "Sessions API" do
     describe "with invalid credentials" do
       before :each do
         base_64 = Base64.encode64( "wrong_email@email.com:wrongpassword" )
-        get "/login", nil, { "Authorization" => "Basic " + base_64 }
+        get "/login", { platform: "Android" }, { "Authorization" => "Basic " + base_64 }
       end
 
       it "returns an unauthorized status code" do
@@ -33,6 +33,21 @@ describe "Sessions API" do
 
       it "returns the correct JSON" do
         expect( response.body ).to eq( "Bad credentials. Email/Password required." )
+      end
+    end
+
+    describe "without a platform" do
+      before :each do
+        base_64 = Base64.encode64( user.email + ":" + user.password )
+        get "/login", nil, { "Authorization" => "Basic " + base_64 }
+      end
+
+      it "returns an unauthorized status code" do
+        expect( response ).to have_http_status( :unauthorized )
+      end
+
+      it "returns the correct JSON" do
+        expect( response.body ).to eq( "Must provide a platform" )
       end
     end
   end
