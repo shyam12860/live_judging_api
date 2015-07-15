@@ -12,12 +12,9 @@
 #  updated_at   :datetime         not null
 #
 
-FactoryGirl.define do
-  factory :message do
-    subject { Faker::Lorem.word }
-    body { Faker::Lorem.sentence }
-    read { Faker::Time.between( 2.days.ago, Time.now, :day ) }
-    association :sender, factory: :user
-    association :recipient, factory: :user
-  end
+class MessageSerializer < ActiveModel::Serializer
+  attributes :id, :subject, :body
+
+  belongs_to :sender
+  belongs_to :recipient
 end

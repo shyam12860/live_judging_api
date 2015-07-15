@@ -8,6 +8,8 @@
 #  sender_id    :integer          not null
 #  recipient_id :integer          not null
 #  read         :datetime
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
 #
 
 require 'rails_helper'
