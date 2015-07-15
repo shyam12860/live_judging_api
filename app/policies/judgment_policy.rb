@@ -1,8 +1,8 @@
 class JudgmentPolicy < ApplicationPolicy
   def index?
     user.present? && 
-    ( record.criterion.rubric.event.organizers.include?( user ) || 
-      record.criterion.rubric.event.judges.include?( user ) )
+    ( record.first.criterion.rubric.event.organizers.include?( user ) || 
+      record.first.criterion.rubric.event.judges.include?( user ) )
   end
 
   def show?
