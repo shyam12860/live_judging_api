@@ -20,6 +20,8 @@ class User < ActiveRecord::Base
 
   has_one :token
   belongs_to :platform
+  has_many :sent_messages, class_name: "Message", foreign_key: "sender_id"
+  has_many :recieved_messagse, class_name: "Message", foreign_key: "reciever_id"
   has_many :event_organizers, foreign_key: "organizer_id", dependent: :destroy
   has_many :organized_events, through: :event_organizers, source: "event"
   has_many :event_judges, foreign_key: "judge_id", dependent: :destroy

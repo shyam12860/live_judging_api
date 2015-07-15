@@ -101,8 +101,6 @@ ActiveRecord::Schema.define(version: 20150715014931) do
     t.integer  "sender_id",    null: false
     t.integer  "recipient_id", null: false
     t.datetime "read"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
   end
 
   create_table "platforms", force: :cascade do |t|
@@ -131,7 +129,7 @@ ActiveRecord::Schema.define(version: 20150715014931) do
 
   create_table "tokens", force: :cascade do |t|
     t.string   "access_token",                                 null: false
-    t.datetime "expires_at",   default: '2015-07-28 04:50:42', null: false
+    t.datetime "expires_at",   default: '2015-07-29 03:06:51', null: false
     t.integer  "user_id"
     t.datetime "created_at",                                   null: false
     t.datetime "updated_at",                                   null: false
