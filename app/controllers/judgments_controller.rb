@@ -2,9 +2,19 @@ class JudgmentsController < ApplicationController
   api :GET, "/events/:event_id/judgments", "Get a list of judgments"
     description "Get a list of all event judgments."
     error code: :unauthorized, desc: " - Bad Token"
+    param :judge_id,     Integer, desc: "Judge that a judgment relates to",               required: false
+    param :team_id,      Integer, desc: "Team that a judgment relates to",                required: false
     header "Authorization", "Token token=[access_token]", required: true
   def index
     @judgments = Judgment.joins( :team ).joins( :event ).where( events: { id: params[:event_id] } )
+
+    if params[:team_id]
+      @judgments = @judgments.where( team: params[:team_id] )
+    end
+
+    if params[:judge_id]
+      @judgments = @judgments.where( judge: params[:judge_id] )
+    end
 
     if @judgments.any?
       authorize @judgments
