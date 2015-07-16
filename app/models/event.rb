@@ -22,9 +22,6 @@ class Event < ActiveRecord::Base
   has_many :judges, through: :event_judges
   has_many :categories, class_name: "EventCategory", dependent: :destroy
   has_many :teams, class_name: "EventTeam", dependent: :destroy
-  has_many :rubrics, through: :categories
-  has_many :criteria, through: :rubrics
-  has_many :judgments, through: :criteria
 
   # Validations
   validates :name,

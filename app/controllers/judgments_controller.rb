@@ -4,7 +4,7 @@ class JudgmentsController < ApplicationController
     error code: :unauthorized, desc: " - Bad Token"
     header "Authorization", "Token token=[access_token]", required: true
   def index
-    @judgments = Event.find( params[:event_id] ).judgments
+    @judgments = Judgment.joins( :team ).joins( :event ).where( events: { id: params[:event_id] } )
 
     if @judgments.any?
       authorize @judgments
