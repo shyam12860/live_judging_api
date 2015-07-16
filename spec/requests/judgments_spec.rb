@@ -8,11 +8,12 @@ describe "Judgments API" do
     let( :event ) { create( :event, judges: [user] ) }
     let( :judge ) { create( :event_judge, event: event ) }
     let( :team ) { create( :event_team, event: event ) }
+    let( :criterion ) { create( :criterion, rubric: create( :rubric, event: event ) ) }
     let( :judgment_1 ) { 
       create( :judgment,
         team: team, 
         judge: judge,
-        criterion: create( :criterion, rubric: create( :rubric, event: event ) )
+        criterion: criterion
       )
     }
     let( :judgment_2 ) { 
@@ -53,6 +54,21 @@ describe "Judgments API" do
         before :each do
           judgment_1.save
           get "/events/#{event.id}/judgments?judge_id=#{judge.id}", nil, { "Authorization" => "Token token=" + user.token.access_token }
+        end
+
+        it "returns a success status code" do
+          expect( response ).to have_http_status( :ok )
+        end
+
+        it "returns the correct JSON" do
+          expect( response.body ).to eq( serialize_array( JudgmentSerializer, [judgment_1], user ) )
+        end
+      end
+
+      describe "when filtering by criterion" do
+        before :each do
+          judgment_1.save
+          get "/events/#{event.id}/judgments?criterion_id=#{criterion.id}", nil, { "Authorization" => "Token token=" + user.token.access_token }
         end
 
         it "returns a success status code" do

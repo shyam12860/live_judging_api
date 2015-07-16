@@ -16,6 +16,10 @@ class JudgmentsController < ApplicationController
       @judgments = @judgments.where( judge: params[:judge_id] )
     end
 
+    if params[:criterion_id]
+      @judgments = @judgments.where( criterion: params[:criterion_id] )
+    end
+
     if @judgments.any?
       authorize @judgments
     else
