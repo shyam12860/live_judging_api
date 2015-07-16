@@ -18,6 +18,8 @@ class EventTeamSerializer < ActiveModel::Serializer
   has_many :judges
 
   def logo
-    "https://s3.amazonaws.com/live-judging/store/#{object.logo_id}"
+    if object.logo_id
+      "https://s3.amazonaws.com/live-judging/store/#{object.logo_id}"
+    end
   end
 end
