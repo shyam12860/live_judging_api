@@ -12,6 +12,7 @@
 class JudgeTeam < ActiveRecord::Base
   belongs_to :judge, class_name: "EventJudge", foreign_key: "judge_id"
   belongs_to :team,  class_name: "EventTeam",  foreign_key: "team_id"
+  has_one :event, through: :judge
 
   validates :team,
     presence: true,

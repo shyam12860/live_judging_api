@@ -10,12 +10,9 @@
 #
 
 class JudgeTeamSerializer < ActiveModel::Serializer
-  attributes :id, :event
+  attributes :id
 
   belongs_to :team
   belongs_to :judge
-
-  def event
-    object.team.event
-  end
+  has_one :event
 end
