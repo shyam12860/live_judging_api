@@ -6,6 +6,8 @@ class SessionsController < ApplicationController
   api :GET, "/login", "Returns a user and its token"
     description "Returns User JSON object on success, error on failure"
     param :platform, String, desc: "Which platform the user is logging in from. 'iOS', 'Android', or 'Web'", required: true
+    param :apn_token, String, desc: "Apple Push Notifications token for this device", required: false
+    param :gcm_token, String, desc: "Google Cloud Messaging token for this device", required: false
     error code: :unauthorized, desc: " - Bad Base64 email:password"
     header "Authorization", "Basic [Base64 email:password]", required: true
   def create
@@ -15,6 +17,15 @@ class SessionsController < ApplicationController
       if @platform
         @user.set_auth_token
         @user.platform = @platform
+
+        if params[:gcm_token]
+          @user.gcm_token = params[:gcm_token]
+        end
+
+        if params[:apn_token]
+          @user.apn_token = params[:apn_token]
+        end
+
         @user.save
 
         render json: @user, status: :ok

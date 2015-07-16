@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150715014931) do
+ActiveRecord::Schema.define(version: 20150716141333) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -101,6 +101,8 @@ ActiveRecord::Schema.define(version: 20150715014931) do
     t.integer  "sender_id",    null: false
     t.integer  "recipient_id", null: false
     t.datetime "read"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   create_table "platforms", force: :cascade do |t|
@@ -129,7 +131,7 @@ ActiveRecord::Schema.define(version: 20150715014931) do
 
   create_table "tokens", force: :cascade do |t|
     t.string   "access_token",                                 null: false
-    t.datetime "expires_at",   default: '2015-07-29 03:06:51', null: false
+    t.datetime "expires_at",   default: '2015-07-28 04:50:42', null: false
     t.integer  "user_id"
     t.datetime "created_at",                                   null: false
     t.datetime "updated_at",                                   null: false
@@ -146,6 +148,8 @@ ActiveRecord::Schema.define(version: 20150715014931) do
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
     t.integer  "platform_id"
+    t.string   "gcm_token"
+    t.string   "apn_token"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

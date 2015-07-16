@@ -11,6 +11,8 @@
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #  platform_id     :integer
+#  gcm_token       :string
+#  apn_token       :string
 #
 
 FactoryGirl.define do
@@ -20,5 +22,8 @@ FactoryGirl.define do
     email                 { Faker::Internet.email( [ first_name, last_name ].join "_" ) }
     password              { Faker::Internet.password }
     password_confirmation { password }
+    gcm_token             { SecureRandom.hex }
+    apn_token             { SecureRandom.hex }
+    platform
   end
 end

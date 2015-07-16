@@ -6,7 +6,7 @@ describe "Sessions API" do
   let( :user ) { create( :user ) }
 
   describe "GET /login" do
-    describe "with valid credentials", :show_in_doc do
+    describe "with valid credentials" do
       before :each do
         base_64 = Base64.encode64( user.email + ":" + user.password )
         get "/login", { platform: "iOS" }, { "Authorization" => "Basic " + base_64 }
@@ -23,6 +23,67 @@ describe "Sessions API" do
       it "returns the correct JSON" do
         expect( response.body ).to eq( serialize( UserSerializer, user.reload, user ) )
       end
+    end
+
+    describe "with tokens" do
+      describe "only gcm", :show_in_doc do
+        before :each do
+          base_64 = Base64.encode64( user.email + ":" + user.password )
+          get "/login", { platform: "Android", gcm_token: "gcm_token" }, { "Authorization" => "Basic " + base_64 }
+        end
+
+        it "returns a success status code" do
+          expect( response ).to have_http_status( :ok )
+        end
+
+        it "has an updated token" do
+          expect( user.reload.gcm_token ).to eq( "gcm_token" )
+        end
+
+        it "returns the correct JSON" do
+          expect( response.body ).to eq( serialize( UserSerializer, user.reload, user ) )
+        end
+      end
+
+      describe "only apn" do
+        before :each do
+          base_64 = Base64.encode64( user.email + ":" + user.password )
+          get "/login", { platform: "iOS", apn_token: "apn_token" }, { "Authorization" => "Basic " + base_64 }
+        end
+
+        it "returns a success status code" do
+          expect( response ).to have_http_status( :ok )
+        end
+
+        it "has an updated token" do
+          expect( user.reload.apn_token ).to eq( "apn_token" )
+        end
+
+        it "returns the correct JSON" do
+          expect( response.body ).to eq( serialize( UserSerializer, user.reload, user ) )
+        end
+      end
+
+      describe "gcm and apn" do
+        before :each do
+          base_64 = Base64.encode64( user.email + ":" + user.password )
+          get "/login", { platform: "Web", apn_token: "apn_token", gcm_token: "gcm_token" }, { "Authorization" => "Basic " + base_64 }
+        end
+
+        it "returns a success status code" do
+          expect( response ).to have_http_status( :ok )
+        end
+
+        it "has an updated gcm token and apn token" do
+          expect( user.reload.gcm_token ).to eq( "gcm_token" )
+          expect( user.reload.apn_token ).to eq( "apn_token" )
+        end
+
+        it "returns the correct JSON" do
+          expect( response.body ).to eq( serialize( UserSerializer, user.reload, user ) )
+        end
+      end
+
     end
 
     describe "with invalid credentials" do

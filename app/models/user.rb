@@ -11,6 +11,8 @@
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #  platform_id     :integer
+#  gcm_token       :string
+#  apn_token       :string
 #
 
 class User < ActiveRecord::Base
