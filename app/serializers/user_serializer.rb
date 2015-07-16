@@ -17,6 +17,7 @@ class UserSerializer < ActiveModel::Serializer
   attributes :id, :email, :name, :admin
 
   has_one :token
+  belongs_to :platform
 
   def name
     object.name

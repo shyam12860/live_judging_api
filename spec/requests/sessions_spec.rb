@@ -16,8 +16,12 @@ describe "Sessions API" do
         expect( response ).to have_http_status( :ok )
       end
 
+      it "has an updated platform" do
+        expect( user.reload.platform ).to eq( Platform.find_by( label: "iOS" ) )
+      end
+
       it "returns the correct JSON" do
-        expect( response.body ).to eq( serialize( UserSerializer, user, user ) )
+        expect( response.body ).to eq( serialize( UserSerializer, user.reload, user ) )
       end
     end
 

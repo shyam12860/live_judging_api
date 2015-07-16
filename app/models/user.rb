@@ -32,16 +32,7 @@ class User < ActiveRecord::Base
     email: true,
     uniqueness: true
 
-  validates :password_digest,
-    presence: true
-
-  validates :password,
-    presence: true,
-    length: { minimum: 6 }
-
-  validates :password_confirmation,
-    presence: true,
-    length: { minimum: 6 }
+  validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
 
   validates :first_name,
     presence: true

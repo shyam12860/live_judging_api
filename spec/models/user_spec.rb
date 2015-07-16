@@ -44,7 +44,6 @@ RSpec.describe User do
   it "is invalid without a password" do
     user.password = nil
     user.valid?
-    expect( user.errors[:password_digest] ).to include( "can't be blank" )
     expect( user.errors[:password] ).to include( "can't be blank" )
   end
 
@@ -64,12 +63,6 @@ RSpec.describe User do
     user.password = '1234567'
     user.valid?
     expect( user.errors[:password] ).to be_empty
-  end
-
-  it "is invalid without a password confirmation" do
-    user.password_confirmation = nil
-    user.valid?
-    expect( user.errors[:password_confirmation] ).to include( "can't be blank" )
   end
 
   it "is invalid without a first name" do

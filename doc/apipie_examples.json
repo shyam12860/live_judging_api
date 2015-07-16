@@ -7,15 +7,15 @@
         "1.0"
       ],
       "query": null,
-      "request_data": "label=Hilpert+Group&min_score=1&max_score=16",
+      "request_data": "label=Metz-Goodwin&min_score=3&max_score=55",
       "response_data": {
         "id": 7,
-        "label": "Hilpert Group",
-        "min_score": 1,
-        "max_score": 16,
+        "label": "Metz-Goodwin",
+        "min_score": 3,
+        "max_score": 55,
         "rubric": {
           "id": 7,
-          "name": "Greenfelder-Senger"
+          "name": "Hauck and Sons"
         }
       },
       "code": 201,
@@ -29,15 +29,15 @@
         "1.0"
       ],
       "query": null,
-      "request_data": "label=Schuppe+LLC&min_score=3&max_score=61",
+      "request_data": "label=Cronin+LLC&min_score=0&max_score=18",
       "response_data": {
         "id": 8,
-        "label": "Schuppe LLC",
-        "min_score": 3,
-        "max_score": 61,
+        "label": "Cronin LLC",
+        "min_score": 0,
+        "max_score": 18,
         "rubric": {
           "id": 8,
-          "name": "Treutel, Kemmer and Runte"
+          "name": "Powlowski-Abbott"
         }
       },
       "code": 201,
@@ -85,12 +85,12 @@
       "response_data": [
         {
           "id": 3,
-          "label": "Fadel-Turner",
-          "min_score": 0,
-          "max_score": 46,
+          "label": "Hansen LLC",
+          "min_score": 2,
+          "max_score": 76,
           "rubric": {
             "id": 3,
-            "name": "Spencer Group"
+            "name": "Schulist and Sons"
           }
         }
       ],
@@ -109,12 +109,12 @@
       "response_data": [
         {
           "id": 4,
-          "label": "Bogisich and Sons",
-          "min_score": 1,
-          "max_score": 88,
+          "label": "Jones-Vandervort",
+          "min_score": 2,
+          "max_score": 93,
           "rubric": {
             "id": 4,
-            "name": "Stehr, Thiel and Walker"
+            "name": "Turcotte Group"
           }
         }
       ],
@@ -134,12 +134,12 @@
       "request_data": null,
       "response_data": {
         "id": 1,
-        "label": "Harris-Dare",
+        "label": "Blanda, Paucek and Block",
         "min_score": 0,
-        "max_score": 91,
+        "max_score": 82,
         "rubric": {
           "id": 1,
-          "name": "Kuhlman, Kub and Harber"
+          "name": "Quitzon Inc"
         }
       },
       "code": 200,
@@ -156,12 +156,12 @@
       "request_data": null,
       "response_data": {
         "id": 2,
-        "label": "Crona Group",
-        "min_score": 4,
-        "max_score": 72,
+        "label": "Fisher, Skiles and Lemke",
+        "min_score": 2,
+        "max_score": 20,
         "rubric": {
           "id": 2,
-          "name": "Wiza-Crist"
+          "name": "Hackett-Lynch"
         }
       },
       "code": 200,
@@ -177,15 +177,15 @@
         "1.0"
       ],
       "query": null,
-      "request_data": "label=Treutel+LLC&min_score=4&max_score=17",
+      "request_data": "label=Cassin+and+Sons&min_score=5&max_score=17",
       "response_data": {
         "id": 9,
-        "label": "Treutel LLC",
-        "min_score": 4,
+        "label": "Cassin and Sons",
+        "min_score": 5,
         "max_score": 17,
         "rubric": {
           "id": 9,
-          "name": "Romaguera and Sons"
+          "name": "Collier LLC"
         }
       },
       "code": 200,
@@ -199,15 +199,15 @@
         "1.0"
       ],
       "query": null,
-      "request_data": "label=Hahn+Group&min_score=6&max_score=52",
+      "request_data": "label=Kiehn%2C+Murray+and+Torphy&min_score=5&max_score=76",
       "response_data": {
         "id": 10,
-        "label": "Hahn Group",
-        "min_score": 6,
-        "max_score": 52,
+        "label": "Kiehn, Murray and Torphy",
+        "min_score": 5,
+        "max_score": 76,
         "rubric": {
           "id": 10,
-          "name": "Kuhic, Feest and Rice"
+          "name": "Crooks Inc"
         }
       },
       "code": 200,
@@ -223,19 +223,19 @@
         "1.0"
       ],
       "query": null,
-      "request_data": "label=Bosco-Becker&description=Itaque+dolores+earum+dolorem+aspernatur+officia.&due_at=2015-07-14+08%3A34%3A40+-0400&color=845575",
+      "request_data": "label=Schultz%2C+McDermott+and+Kuvalis&description=Itaque+pariatur+aliquam+provident+consectetur.&due_at=2015-07-16+11%3A49%3A15+-0400&color=781462",
       "response_data": {
         "id": 23,
-        "label": "Bosco-Becker",
-        "description": "Itaque dolores earum dolorem aspernatur officia.",
-        "color": 845575,
-        "due_at": "2015-07-14T12:34:40.000Z",
+        "label": "Schultz, McDermott and Kuvalis",
+        "description": "Itaque pariatur aliquam provident consectetur.",
+        "color": 781462,
+        "due_at": "2015-07-16T15:49:15.000Z",
         "event": {
           "id": 18,
-          "name": "Mat Lam Tam",
-          "location": "3392 Palma Coves, Bernierfort Alabama",
-          "start_time": "2015-08-14 11:42:43 AM",
-          "end_time": "2015-08-14 07:10:21 AM"
+          "name": "Zathin",
+          "location": "4738 Solon Pike, Lorenmouth Colorado",
+          "start_time": "2015-09-07 01:34:26 PM",
+          "end_time": "2015-09-08 12:25:09 AM"
         },
         "rubric": null,
         "teams": [
@@ -253,19 +253,19 @@
         "1.0"
       ],
       "query": null,
-      "request_data": "label=McCullough+and+Sons&description=Nemo+exercitationem+ipsa+vero.&due_at=2015-07-14+15%3A52%3A39+-0400&color=552619",
+      "request_data": "label=McClure+Inc&description=Qui+quidem+et+enim+voluptatem+ipsam.&due_at=2015-07-16+10%3A33%3A07+-0400&color=321551",
       "response_data": {
         "id": 28,
-        "label": "McCullough and Sons",
-        "description": "Nemo exercitationem ipsa vero.",
-        "color": 552619,
-        "due_at": "2015-07-14T19:52:39.000Z",
+        "label": "McClure Inc",
+        "description": "Qui quidem et enim voluptatem ipsam.",
+        "color": 321551,
+        "due_at": "2015-07-16T14:33:07.000Z",
         "event": {
           "id": 21,
-          "name": "Tresom",
-          "location": "6458 Carroll Bypass, South Carolyn New Hampshire",
-          "start_time": "2015-08-24 02:15:11 PM",
-          "end_time": "2015-08-24 11:53:37 PM"
+          "name": "Alphazap",
+          "location": "8980 Botsford Wells, East Brayanshire Maryland",
+          "start_time": "2015-08-29 11:33:24 AM",
+          "end_time": "2015-08-29 11:48:52 AM"
         },
         "rubric": null,
         "teams": [
@@ -323,10 +323,10 @@
           "due_at": null,
           "event": {
             "id": 12,
-            "name": "Stringtough",
-            "location": "7156 Scarlett Crescent, North Janessashire Indiana",
-            "start_time": "2015-07-26 02:05:21 PM",
-            "end_time": "2015-07-26 09:16:17 AM"
+            "name": "Mat Lam Tam",
+            "location": "84614 Lesch Ports, Jasenton Mississippi",
+            "start_time": "2015-09-05 12:53:42 PM",
+            "end_time": "2015-09-05 08:33:02 AM"
           },
           "rubric": null,
           "teams": [
@@ -355,10 +355,10 @@
           "due_at": null,
           "event": {
             "id": 15,
-            "name": "Subin",
-            "location": "405 Rempel Cape, South Ellis Maryland",
-            "start_time": "2015-07-25 02:22:27 PM",
-            "end_time": "2015-07-25 05:58:42 AM"
+            "name": "Tempsoft",
+            "location": "9125 Christiansen Heights, South Kristinahaven Maryland",
+            "start_time": "2015-09-11 01:29:39 PM",
+            "end_time": "2015-09-11 03:02:32 PM"
           },
           "rubric": null,
           "teams": [
@@ -382,20 +382,20 @@
       "request_data": null,
       "response_data": {
         "id": 31,
-        "label": "Gleason and Sons",
-        "description": "Et blanditiis dicta autem.",
-        "color": 529435,
-        "due_at": "2015-07-14T12:04:39.000Z",
+        "label": "Ruecker, Braun and Miller",
+        "description": "Nihil in voluptate sed consequatur nesciunt ea tempora.",
+        "color": 757836,
+        "due_at": "2015-07-17T03:30:21.000Z",
         "event": {
           "id": 24,
-          "name": "Zontrax",
-          "location": "6126 Watson Tunnel, Leuschkehaven Oregon",
-          "start_time": "2015-08-18 02:56:14 PM",
-          "end_time": "2015-08-18 03:17:08 PM"
+          "name": "Hatity",
+          "location": "71350 Gina Via, Schowalterside Minnesota",
+          "start_time": "2015-08-22 03:56:11 PM",
+          "end_time": "2015-08-22 02:27:26 PM"
         },
         "rubric": {
           "id": 15,
-          "name": "Connelly Inc"
+          "name": "Mann, Casper and Deckow"
         },
         "teams": [
 
@@ -415,20 +415,20 @@
       "request_data": null,
       "response_data": {
         "id": 34,
-        "label": "Bauch Inc",
-        "description": "Et et ipsa aut sequi facilis pariatur qui recusandae.",
-        "color": 581247,
-        "due_at": "2015-07-14T14:09:51.000Z",
+        "label": "Koch LLC",
+        "description": "Voluptatibus ipsam fugit molestiae eum repellat.",
+        "color": 236519,
+        "due_at": "2015-07-16T04:47:47.000Z",
         "event": {
           "id": 26,
-          "name": "Konklux",
-          "location": "3861 Andreane Port, Dickiborough Kansas",
-          "start_time": "2015-08-24 02:52:12 PM",
-          "end_time": "2015-08-25 03:31:12 AM"
+          "name": "Fintone",
+          "location": "935 Stanton View, Port Imani Arkansas",
+          "start_time": "2015-07-26 11:44:57 AM",
+          "end_time": "2015-07-26 03:25:39 PM"
         },
         "rubric": {
           "id": 16,
-          "name": "Ebert LLC"
+          "name": "Daniel, Littel and Pouros"
         },
         "teams": [
 
@@ -447,23 +447,23 @@
         "1.0"
       ],
       "query": null,
-      "request_data": "label=updated&description=Et+distinctio+sint+perspiciatis.&due_at=2015-07-15+06%3A18%3A56+-0400&color=965866",
+      "request_data": "label=updated&description=Recusandae+eos+quo+qui.&due_at=2015-07-16+23%3A50%3A38+-0400&color=494619",
       "response_data": {
         "id": 37,
         "label": "updated",
-        "description": "Et distinctio sint perspiciatis.",
-        "color": 965866,
-        "due_at": "2015-07-15T10:18:56.000Z",
+        "description": "Recusandae eos quo qui.",
+        "color": 494619,
+        "due_at": "2015-07-17T03:50:38.000Z",
         "event": {
           "id": 28,
-          "name": "Redhold",
-          "location": "495 Manley Turnpike, Brownhaven Kansas",
-          "start_time": "2015-08-11 10:15:16 AM",
-          "end_time": "2015-08-11 10:06:28 PM"
+          "name": "Viva",
+          "location": "17145 White Mountain, Rohanville Nebraska",
+          "start_time": "2015-08-30 11:52:25 AM",
+          "end_time": "2015-08-30 11:14:09 AM"
         },
         "rubric": {
           "id": 17,
-          "name": "Rowe and Sons"
+          "name": "Wunsch and Sons"
         },
         "teams": [
 
@@ -480,23 +480,23 @@
         "1.0"
       ],
       "query": null,
-      "request_data": "label=updated&description=Quisquam+possimus+voluptatum+et+qui+aspernatur+et+vel.&due_at=2015-07-14+11%3A47%3A30+-0400&color=683439",
+      "request_data": "label=updated&description=Porro+molestiae+sit+rerum+ut+incidunt+error.&due_at=2015-07-16+23%3A34%3A44+-0400&color=556682",
       "response_data": {
         "id": 40,
         "label": "updated",
-        "description": "Quisquam possimus voluptatum et qui aspernatur et vel.",
-        "color": 683439,
-        "due_at": "2015-07-14T15:47:30.000Z",
+        "description": "Porro molestiae sit rerum ut incidunt error.",
+        "color": 556682,
+        "due_at": "2015-07-17T03:34:44.000Z",
         "event": {
           "id": 30,
-          "name": "Voyatouch",
-          "location": "13684 Larson Spur, New Zoe Ohio",
-          "start_time": "2015-08-15 10:12:35 AM",
-          "end_time": "2015-08-15 11:04:08 AM"
+          "name": "Fixflex",
+          "location": "315 Katelyn Ford, Daughertybury Maine",
+          "start_time": "2015-07-19 02:40:50 PM",
+          "end_time": "2015-07-19 11:44:09 PM"
         },
         "rubric": {
           "id": 18,
-          "name": "Ratke, Greenholt and Ziemann"
+          "name": "Kuvalis-Legros"
         },
         "teams": [
 
@@ -513,23 +513,23 @@
         "1.0"
       ],
       "query": null,
-      "request_data": "label=updated&description=Et+quis+suscipit+ut.&due_at=2015-07-15+14%3A42%3A38+-0400&color=449453",
+      "request_data": "label=updated&description=Iure+aut+qui+sed+suscipit+magni.&due_at=2015-07-16+22%3A12%3A39+-0400&color=871878",
       "response_data": {
         "id": 43,
         "label": "updated",
-        "description": "Et quis suscipit ut.",
-        "color": 449453,
-        "due_at": "2015-07-15T18:42:38.000Z",
+        "description": "Iure aut qui sed suscipit magni.",
+        "color": 871878,
+        "due_at": "2015-07-17T02:12:39.000Z",
         "event": {
           "id": 32,
-          "name": "Span",
-          "location": "985 Schuster Green, Lake Hiramberg Vermont",
-          "start_time": "2015-08-03 02:24:38 PM",
-          "end_time": "2015-08-03 09:04:53 PM"
+          "name": "Fintone",
+          "location": "18331 Bednar Lane, Adrainburgh New Hampshire",
+          "start_time": "2015-08-22 01:01:48 PM",
+          "end_time": "2015-08-22 11:20:33 PM"
         },
         "rubric": {
           "id": 19,
-          "name": "Schmidt Inc"
+          "name": "Welch-Grimes"
         },
         "teams": [
 
@@ -553,15 +553,15 @@
         "id": 13,
         "event": {
           "id": 42,
-          "name": "Lotlux",
-          "location": "145 Hope Street, New Jeramie Maine",
-          "start_time": "2015-08-02 02:32:31 PM",
-          "end_time": "2015-08-02 04:33:46 PM"
+          "name": "Rank",
+          "location": "619 Considine Mill, Dorothyborough Vermont",
+          "start_time": "2015-08-30 10:03:43 AM",
+          "end_time": "2015-08-31 01:07:34 AM"
         },
         "judge": {
           "id": 37,
-          "email": "rocky_ledner@emmerichokeefe.net",
-          "name": "Rocky Ledner",
+          "email": "landen_konopelski@emmerich.name",
+          "name": "Landen Konopelski",
           "admin": false
         }
       },
@@ -581,15 +581,15 @@
         "id": 16,
         "event": {
           "id": 44,
-          "name": "Ventosanzap",
-          "location": "3837 Murphy Rapid, North Brownshire Montana",
-          "start_time": "2015-08-10 03:20:06 PM",
-          "end_time": "2015-08-10 08:02:22 PM"
+          "name": "Tempsoft",
+          "location": "67843 Bruen Parks, Dereckland Minnesota",
+          "start_time": "2015-08-12 10:05:40 AM",
+          "end_time": "2015-08-12 05:24:00 PM"
         },
         "judge": {
           "id": 41,
-          "email": "tanner_larson@mullerkautzer.net",
-          "name": "Tanner Larson",
+          "email": "freddy_shanahan@borer.name",
+          "name": "Freddy Shanahan",
           "admin": false
         }
       },
@@ -640,15 +640,15 @@
           "id": 3,
           "event": {
             "id": 38,
-            "name": "Ronstring",
-            "location": "2629 Camilla Light, Port Alvamouth Iowa",
-            "start_time": "2015-08-09 11:03:54 AM",
-            "end_time": "2015-08-10 12:18:22 AM"
+            "name": "Opela",
+            "location": "15487 King Port, Hudsonbury Florida",
+            "start_time": "2015-09-12 03:22:19 PM",
+            "end_time": "2015-09-12 09:38:42 PM"
           },
           "judge": {
             "id": 22,
-            "email": "delaney_rowe@paucek.com",
-            "name": "Delaney Rowe",
+            "email": "edwina_muller@larkin.net",
+            "name": "Edwina Muller",
             "admin": false
           }
         },
@@ -656,15 +656,15 @@
           "id": 4,
           "event": {
             "id": 38,
-            "name": "Ronstring",
-            "location": "2629 Camilla Light, Port Alvamouth Iowa",
-            "start_time": "2015-08-09 11:03:54 AM",
-            "end_time": "2015-08-10 12:18:22 AM"
+            "name": "Opela",
+            "location": "15487 King Port, Hudsonbury Florida",
+            "start_time": "2015-09-12 03:22:19 PM",
+            "end_time": "2015-09-12 09:38:42 PM"
           },
           "judge": {
             "id": 23,
-            "email": "brittany_stoltenberg@emmerich.com",
-            "name": "Brittany Stoltenberg",
+            "email": "jared_hyatt@shanahan.biz",
+            "name": "Jared Hyatt",
             "admin": false
           }
         },
@@ -672,15 +672,15 @@
           "id": 5,
           "event": {
             "id": 38,
-            "name": "Ronstring",
-            "location": "2629 Camilla Light, Port Alvamouth Iowa",
-            "start_time": "2015-08-09 11:03:54 AM",
-            "end_time": "2015-08-10 12:18:22 AM"
+            "name": "Opela",
+            "location": "15487 King Port, Hudsonbury Florida",
+            "start_time": "2015-09-12 03:22:19 PM",
+            "end_time": "2015-09-12 09:38:42 PM"
           },
           "judge": {
             "id": 24,
-            "email": "jessika_daugherty@mayergottlieb.biz",
-            "name": "Jessika Daugherty",
+            "email": "maude_turner@labadiedach.org",
+            "name": "Maude Turner",
             "admin": false
           }
         }
@@ -702,15 +702,15 @@
           "id": 8,
           "event": {
             "id": 40,
-            "name": "Lotlux",
-            "location": "51061 Vidal Center, Bulahborough South Dakota",
-            "start_time": "2015-08-10 12:55:02 PM",
-            "end_time": "2015-08-10 11:02:16 PM"
+            "name": "Lotstring",
+            "location": "412 Pink Pine, New Rod Alaska",
+            "start_time": "2015-08-04 11:30:37 AM",
+            "end_time": "2015-08-05 03:53:23 AM"
           },
           "judge": {
             "id": 28,
-            "email": "rico_littel@bergstromkshlerin.net",
-            "name": "Rico Littel",
+            "email": "philip_adams@sporer.name",
+            "name": "Philip Adams",
             "admin": false
           }
         },
@@ -718,15 +718,15 @@
           "id": 9,
           "event": {
             "id": 40,
-            "name": "Lotlux",
-            "location": "51061 Vidal Center, Bulahborough South Dakota",
-            "start_time": "2015-08-10 12:55:02 PM",
-            "end_time": "2015-08-10 11:02:16 PM"
+            "name": "Lotstring",
+            "location": "412 Pink Pine, New Rod Alaska",
+            "start_time": "2015-08-04 11:30:37 AM",
+            "end_time": "2015-08-05 03:53:23 AM"
           },
           "judge": {
             "id": 29,
-            "email": "wayne_o_connell@braun.com",
-            "name": "Wayne O'Connell",
+            "email": "steve_ruecker@brekke.name",
+            "name": "Steve Ruecker",
             "admin": false
           }
         },
@@ -734,15 +734,15 @@
           "id": 10,
           "event": {
             "id": 40,
-            "name": "Lotlux",
-            "location": "51061 Vidal Center, Bulahborough South Dakota",
-            "start_time": "2015-08-10 12:55:02 PM",
-            "end_time": "2015-08-10 11:02:16 PM"
+            "name": "Lotstring",
+            "location": "412 Pink Pine, New Rod Alaska",
+            "start_time": "2015-08-04 11:30:37 AM",
+            "end_time": "2015-08-05 03:53:23 AM"
           },
           "judge": {
             "id": 30,
-            "email": "madonna_kuhlman@bashirian.biz",
-            "name": "Madonna Kuhlman",
+            "email": "romaine_larson@kub.com",
+            "name": "Romaine Larson",
             "admin": false
           }
         }
@@ -755,7 +755,7 @@
   "event_judges#index_by_judge": [
     {
       "verb": "GET",
-      "path": "/users/185/judged_events",
+      "path": "/users/186/judged_events",
       "versions": [
         "1.0"
       ],
@@ -766,15 +766,15 @@
           "id": 74,
           "event": {
             "id": 186,
-            "name": "Holdlamis",
-            "location": "79896 Ima Creek, Aniyaberg Montana",
-            "start_time": "2015-07-22 02:40:43 PM",
-            "end_time": "2015-07-22 04:46:47 AM"
+            "name": "Zaam-Dox",
+            "location": "870 Pacocha Landing, Gerlachville Michigan",
+            "start_time": "2015-08-22 10:09:52 AM",
+            "end_time": "2015-08-22 11:29:39 PM"
           },
           "judge": {
-            "id": 185,
-            "email": "elmer_botsford@barrows.com",
-            "name": "Elmer Botsford",
+            "id": 186,
+            "email": "domingo_brekke@lueilwitz.com",
+            "name": "Domingo Brekke",
             "admin": false
           }
         }
@@ -785,7 +785,7 @@
     },
     {
       "verb": "GET",
-      "path": "/users/186/judged_events",
+      "path": "/users/187/judged_events",
       "versions": [
         "1.0"
       ],
@@ -796,15 +796,15 @@
           "id": 75,
           "event": {
             "id": 187,
-            "name": "Voltsillam",
-            "location": "424 Kelsie Stravenue, Wittinghaven Mississippi",
-            "start_time": "2015-08-13 11:09:46 AM",
-            "end_time": "2015-08-13 12:28:04 PM"
+            "name": "Tin",
+            "location": "7555 Grant Valley, Terryburgh Illinois",
+            "start_time": "2015-07-26 02:28:23 PM",
+            "end_time": "2015-07-26 10:58:16 AM"
           },
           "judge": {
-            "id": 186,
-            "email": "judge_volkman@senger.biz",
-            "name": "Judge Volkman",
+            "id": 187,
+            "email": "percy_klocko@senger.info",
+            "name": "Percy Klocko",
             "admin": false
           }
         }
@@ -827,15 +827,15 @@
         "id": 35,
         "event": {
           "id": 51,
-          "name": "Mat Lam Tam",
-          "location": "707 Jaycee Ports, Dejuanfurt Washington",
-          "start_time": "2015-08-25 03:10:21 PM",
-          "end_time": "2015-08-25 07:29:12 AM"
+          "name": "Voltsillam",
+          "location": "4946 Muller Pike, New Ezra West Virginia",
+          "start_time": "2015-08-08 10:37:54 AM",
+          "end_time": "2015-08-08 11:53:08 PM"
         },
         "organizer": {
           "id": 57,
-          "email": "jorge_williamson@macgyver.name",
-          "name": "Jorge Williamson",
+          "email": "kathryn_schiller@jerde.info",
+          "name": "Kathryn Schiller",
           "admin": false
         }
       },
@@ -855,15 +855,15 @@
         "id": 37,
         "event": {
           "id": 52,
-          "name": "Sonsing",
-          "location": "7196 Hills Loop, Ankundingbury Ohio",
-          "start_time": "2015-07-25 03:27:02 PM",
-          "end_time": "2015-07-26 03:36:17 AM"
+          "name": "Stim",
+          "location": "828 Corkery Common, South Janiceview Hawaii",
+          "start_time": "2015-08-03 03:08:49 PM",
+          "end_time": "2015-08-03 07:42:49 AM"
         },
         "organizer": {
           "id": 59,
-          "email": "marcelina_pagac@erdman.biz",
-          "name": "Marcelina Pagac",
+          "email": "catherine_corkery@padberg.org",
+          "name": "Catherine Corkery",
           "admin": false
         }
       },
@@ -914,15 +914,15 @@
           "id": 28,
           "event": {
             "id": 49,
-            "name": "Subin",
-            "location": "56993 Brittany Camp, Chayaton Florida",
-            "start_time": "2015-09-10 11:01:33 AM",
-            "end_time": "2015-09-10 09:17:31 AM"
+            "name": "Duobam",
+            "location": "364 Ariane Inlet, Braedenport Louisiana",
+            "start_time": "2015-09-08 02:12:34 PM",
+            "end_time": "2015-09-08 09:10:18 AM"
           },
           "organizer": {
             "id": 50,
-            "email": "lavina_cole@fritsch.info",
-            "name": "Lavina Cole",
+            "email": "trenton_upton@jenkins.com",
+            "name": "Trenton Upton",
             "admin": false
           }
         },
@@ -930,15 +930,15 @@
           "id": 29,
           "event": {
             "id": 49,
-            "name": "Subin",
-            "location": "56993 Brittany Camp, Chayaton Florida",
-            "start_time": "2015-09-10 11:01:33 AM",
-            "end_time": "2015-09-10 09:17:31 AM"
+            "name": "Duobam",
+            "location": "364 Ariane Inlet, Braedenport Louisiana",
+            "start_time": "2015-09-08 02:12:34 PM",
+            "end_time": "2015-09-08 09:10:18 AM"
           },
           "organizer": {
             "id": 51,
-            "email": "camren_stiedemann@tremblay.info",
-            "name": "Camren Stiedemann",
+            "email": "rosemarie_balistreri@hansen.name",
+            "name": "Rosemarie Balistreri",
             "admin": false
           }
         },
@@ -946,15 +946,15 @@
           "id": 30,
           "event": {
             "id": 49,
-            "name": "Subin",
-            "location": "56993 Brittany Camp, Chayaton Florida",
-            "start_time": "2015-09-10 11:01:33 AM",
-            "end_time": "2015-09-10 09:17:31 AM"
+            "name": "Duobam",
+            "location": "364 Ariane Inlet, Braedenport Louisiana",
+            "start_time": "2015-09-08 02:12:34 PM",
+            "end_time": "2015-09-08 09:10:18 AM"
           },
           "organizer": {
             "id": 52,
-            "email": "dominique_stoltenberg@hoeger.com",
-            "name": "Dominique Stoltenberg",
+            "email": "meta_smitham@gleason.name",
+            "name": "Meta Smitham",
             "admin": false
           }
         }
@@ -976,15 +976,15 @@
           "id": 31,
           "event": {
             "id": 50,
-            "name": "Redhold",
-            "location": "459 Zulauf Unions, Raystad New York",
-            "start_time": "2015-08-09 12:29:30 PM",
-            "end_time": "2015-08-09 02:11:50 PM"
+            "name": "Fintone",
+            "location": "3219 Sawayn Valley, Kirlinton Colorado",
+            "start_time": "2015-07-29 02:05:40 PM",
+            "end_time": "2015-07-29 09:04:20 PM"
           },
           "organizer": {
             "id": 53,
-            "email": "linnea_jenkins@collins.biz",
-            "name": "Linnea Jenkins",
+            "email": "tremaine_hackett@stanton.org",
+            "name": "Tremaine Hackett",
             "admin": false
           }
         },
@@ -992,15 +992,15 @@
           "id": 32,
           "event": {
             "id": 50,
-            "name": "Redhold",
-            "location": "459 Zulauf Unions, Raystad New York",
-            "start_time": "2015-08-09 12:29:30 PM",
-            "end_time": "2015-08-09 02:11:50 PM"
+            "name": "Fintone",
+            "location": "3219 Sawayn Valley, Kirlinton Colorado",
+            "start_time": "2015-07-29 02:05:40 PM",
+            "end_time": "2015-07-29 09:04:20 PM"
           },
           "organizer": {
             "id": 54,
-            "email": "bennie_rogahn@pouros.org",
-            "name": "Bennie Rogahn",
+            "email": "cornell_labadie@franecki.net",
+            "name": "Cornell Labadie",
             "admin": false
           }
         },
@@ -1008,15 +1008,15 @@
           "id": 33,
           "event": {
             "id": 50,
-            "name": "Redhold",
-            "location": "459 Zulauf Unions, Raystad New York",
-            "start_time": "2015-08-09 12:29:30 PM",
-            "end_time": "2015-08-09 02:11:50 PM"
+            "name": "Fintone",
+            "location": "3219 Sawayn Valley, Kirlinton Colorado",
+            "start_time": "2015-07-29 02:05:40 PM",
+            "end_time": "2015-07-29 09:04:20 PM"
           },
           "organizer": {
             "id": 55,
-            "email": "dolly_bartoletti@lockmankoepp.name",
-            "name": "Dolly Bartoletti",
+            "email": "demarco_abernathy@thielpouros.org",
+            "name": "Demarco Abernathy",
             "admin": false
           }
         }
@@ -1029,7 +1029,7 @@
   "event_organizers#index_by_organizer": [
     {
       "verb": "GET",
-      "path": "/users/187/organized_events",
+      "path": "/users/188/organized_events",
       "versions": [
         "1.0"
       ],
@@ -1040,15 +1040,15 @@
           "id": 89,
           "event": {
             "id": 188,
-            "name": "Job",
-            "location": "76284 Yvette Street, New Lilly Texas",
-            "start_time": "2015-08-06 11:44:45 AM",
-            "end_time": "2015-08-06 04:15:59 AM"
+            "name": "Transcof",
+            "location": "45388 Grady Harbor, Lake Clarabelle Ohio",
+            "start_time": "2015-09-03 10:26:15 AM",
+            "end_time": "2015-09-04 01:25:47 AM"
           },
           "organizer": {
-            "id": 187,
-            "email": "roxane_mclaughlin@eichmannconnelly.name",
-            "name": "Roxane McLaughlin",
+            "id": 188,
+            "email": "reilly.ayana_o@kuhlman.net",
+            "name": "Ayana O'Reilly",
             "admin": false
           }
         }
@@ -1059,7 +1059,7 @@
     },
     {
       "verb": "GET",
-      "path": "/users/188/organized_events",
+      "path": "/users/189/organized_events",
       "versions": [
         "1.0"
       ],
@@ -1070,15 +1070,15 @@
           "id": 90,
           "event": {
             "id": 189,
-            "name": "Duobam",
-            "location": "4148 Sanford Fields, Lulumouth Delaware",
-            "start_time": "2015-08-27 11:26:07 AM",
-            "end_time": "2015-08-27 06:46:15 PM"
+            "name": "Tres-Zap",
+            "location": "29537 Trystan Knolls, Morissettechester Minnesota",
+            "start_time": "2015-07-19 12:44:14 PM",
+            "end_time": "2015-07-19 08:00:55 AM"
           },
           "organizer": {
-            "id": 188,
-            "email": "wendell_rath@okeefe.net",
-            "name": "Wendell Rath",
+            "id": 189,
+            "email": "sally_crist@langosh.net",
+            "name": "Sally Crist",
             "admin": false
           }
         }
@@ -1100,12 +1100,13 @@
       "response_data": {
         "id": 24,
         "name": "Test Team",
+        "logo": null,
         "event": {
           "id": 65,
-          "name": "Treeflex",
-          "location": "254 Powlowski Alley, West Dante Rhode Island",
-          "start_time": "2015-08-30 02:10:53 PM",
-          "end_time": "2015-08-30 05:24:31 AM"
+          "name": "Opela",
+          "location": "96313 Scarlett Spring, Ankundington New Mexico",
+          "start_time": "2015-08-03 10:24:33 AM",
+          "end_time": "2015-08-03 02:07:57 PM"
         },
         "categories": [
 
@@ -1129,12 +1130,13 @@
       "response_data": {
         "id": 27,
         "name": "Test Team",
+        "logo": null,
         "event": {
           "id": 69,
-          "name": "Ventosanzap",
-          "location": "308 Lynch Gardens, Jacksonshire New Hampshire",
-          "start_time": "2015-08-16 01:57:29 PM",
-          "end_time": "2015-08-17 03:38:01 AM"
+          "name": "Span",
+          "location": "45404 Keeling Extension, Reillymouth Minnesota",
+          "start_time": "2015-07-20 11:37:37 AM",
+          "end_time": "2015-07-21 12:20:37 AM"
         },
         "categories": [
 
@@ -1188,13 +1190,14 @@
       "response_data": [
         {
           "id": 18,
-          "name": "Hermiston-Reilly",
+          "name": "Lockman LLC",
+          "logo": null,
           "event": {
             "id": 57,
-            "name": "Holdlamis",
-            "location": "8414 Harrison Corners, East Wilson Nevada",
-            "start_time": "2015-08-01 12:27:47 PM",
-            "end_time": "2015-08-01 11:33:36 AM"
+            "name": "Span",
+            "location": "1097 Nakia Park, Schoenburgh Nebraska",
+            "start_time": "2015-08-17 03:19:51 PM",
+            "end_time": "2015-08-17 05:04:15 PM"
           },
           "categories": [
 
@@ -1205,13 +1208,14 @@
         },
         {
           "id": 19,
-          "name": "Rowe-Koss",
+          "name": "Metz, Larkin and Mohr",
+          "logo": null,
           "event": {
             "id": 57,
-            "name": "Holdlamis",
-            "location": "8414 Harrison Corners, East Wilson Nevada",
-            "start_time": "2015-08-01 12:27:47 PM",
-            "end_time": "2015-08-01 11:33:36 AM"
+            "name": "Span",
+            "location": "1097 Nakia Park, Schoenburgh Nebraska",
+            "start_time": "2015-08-17 03:19:51 PM",
+            "end_time": "2015-08-17 05:04:15 PM"
           },
           "categories": [
 
@@ -1236,13 +1240,14 @@
       "response_data": [
         {
           "id": 20,
-          "name": "Feest, Price and Olson",
+          "name": "Padberg-Heaney",
+          "logo": null,
           "event": {
             "id": 61,
-            "name": "Viva",
-            "location": "356 Rosenbaum Cape, New Alejandra Texas",
-            "start_time": "2015-08-11 10:02:29 AM",
-            "end_time": "2015-08-11 10:40:00 AM"
+            "name": "Biodex",
+            "location": "60515 Heathcote Rapid, Feeneymouth Hawaii",
+            "start_time": "2015-07-28 12:58:19 PM",
+            "end_time": "2015-07-29 02:32:52 AM"
           },
           "categories": [
 
@@ -1253,13 +1258,14 @@
         },
         {
           "id": 21,
-          "name": "Koepp, Balistreri and Sauer",
+          "name": "Reichert-Macejkovic",
+          "logo": null,
           "event": {
             "id": 61,
-            "name": "Viva",
-            "location": "356 Rosenbaum Cape, New Alejandra Texas",
-            "start_time": "2015-08-11 10:02:29 AM",
-            "end_time": "2015-08-11 10:40:00 AM"
+            "name": "Biodex",
+            "location": "60515 Heathcote Rapid, Feeneymouth Hawaii",
+            "start_time": "2015-07-28 12:58:19 PM",
+            "end_time": "2015-07-29 02:32:52 AM"
           },
           "categories": [
 
@@ -1285,13 +1291,14 @@
       "request_data": null,
       "response_data": {
         "id": 28,
-        "name": "Stanton-Wintheiser",
+        "name": "Bins, Blick and Hyatt",
+        "logo": null,
         "event": {
           "id": 73,
-          "name": "Span",
-          "location": "2629 Jacques Lakes, Pourosborough West Virginia",
-          "start_time": "2015-09-03 03:33:47 PM",
-          "end_time": "2015-09-04 12:36:49 AM"
+          "name": "Tampflex",
+          "location": "40274 Savanah Crescent, Bentonview Arkansas",
+          "start_time": "2015-07-25 10:58:44 AM",
+          "end_time": "2015-07-25 09:09:25 AM"
         },
         "categories": [
 
@@ -1314,13 +1321,14 @@
       "request_data": null,
       "response_data": {
         "id": 30,
-        "name": "Zemlak-Murphy",
+        "name": "King-Jenkins",
+        "logo": null,
         "event": {
           "id": 77,
-          "name": "Alphazap",
-          "location": "82404 Russel Rue, Jacobiton Louisiana",
-          "start_time": "2015-07-31 01:55:58 PM",
-          "end_time": "2015-07-31 08:40:21 PM"
+          "name": "It",
+          "location": "15980 Trantow Circles, Jenkinshaven Pennsylvania",
+          "start_time": "2015-08-12 11:07:30 AM",
+          "end_time": "2015-08-12 09:48:38 PM"
         },
         "categories": [
 
@@ -1346,12 +1354,13 @@
       "response_data": {
         "id": 32,
         "name": "updated",
+        "logo": null,
         "event": {
           "id": 81,
-          "name": "Tampflex",
-          "location": "317 Quitzon Summit, Port Meredith Arkansas",
-          "start_time": "2015-07-19 10:01:24 AM",
-          "end_time": "2015-07-19 04:17:40 PM"
+          "name": "Stringtough",
+          "location": "2439 O'Kon Walks, East Lemuel Delaware",
+          "start_time": "2015-09-01 12:09:54 PM",
+          "end_time": "2015-09-01 08:44:13 PM"
         },
         "categories": [
 
@@ -1375,12 +1384,13 @@
       "response_data": {
         "id": 34,
         "name": "updated",
+        "logo": null,
         "event": {
           "id": 85,
-          "name": "Zaam-Dox",
-          "location": "4201 Hilpert Brooks, Noemyport Florida",
-          "start_time": "2015-09-10 03:47:15 PM",
-          "end_time": "2015-09-10 10:05:15 PM"
+          "name": "Stim",
+          "location": "9250 Dell Lane, Port Keira Texas",
+          "start_time": "2015-08-25 11:41:33 AM",
+          "end_time": "2015-08-25 06:54:02 AM"
         },
         "categories": [
 
@@ -1404,12 +1414,13 @@
       "response_data": {
         "id": 36,
         "name": "updated",
+        "logo": null,
         "event": {
           "id": 89,
-          "name": "Duobam",
-          "location": "9377 Enos Walk, East Dellport Missouri",
-          "start_time": "2015-07-29 11:13:35 AM",
-          "end_time": "2015-07-30 02:07:43 AM"
+          "name": "Zamit",
+          "location": "3386 Isidro Way, Steubershire Washington",
+          "start_time": "2015-08-02 01:38:45 PM",
+          "end_time": "2015-08-02 05:47:41 AM"
         },
         "categories": [
 
@@ -1431,13 +1442,13 @@
         "1.0"
       ],
       "query": null,
-      "request_data": "name=Job&location=99789+McKenzie+Centers%2C+Marcelleberg+California&start_time=2015-08-21+06%3A09%3A35+-0400&end_time=2015-08-21+11%3A08%3A59+-0400",
+      "request_data": "name=Rank&location=6632+Schmidt+Wall%2C+Gennarohaven+Oklahoma&start_time=2015-07-22+06%3A14%3A44+-0400&end_time=2015-07-22+09%3A17%3A06+-0400",
       "response_data": {
         "id": 119,
-        "name": "Job",
-        "location": "99789 McKenzie Centers, Marcelleberg California",
-        "start_time": "2015-08-21 10:09:35 AM",
-        "end_time": "2015-08-21 03:08:59 PM",
+        "name": "Rank",
+        "location": "6632 Schmidt Wall, Gennarohaven Oklahoma",
+        "start_time": "2015-07-22 10:14:44 AM",
+        "end_time": "2015-07-22 01:17:06 PM",
         "judges": [
 
         ],
@@ -1465,13 +1476,13 @@
         "1.0"
       ],
       "query": null,
-      "request_data": "name=Lotlux&location=4337+Garrison+Crossing%2C+Callieborough+Indiana&start_time=2015-08-27+11%3A57%3A29+-0400&end_time=2015-08-27+09%3A53%3A52+-0400",
+      "request_data": "name=Stronghold&location=870+Jarrell+Mission%2C+East+Alisha+Oklahoma&start_time=2015-08-27+08%3A15%3A31+-0400&end_time=2015-08-27+13%3A40%3A01+-0400",
       "response_data": {
         "id": 120,
-        "name": "Lotlux",
-        "location": "4337 Garrison Crossing, Callieborough Indiana",
-        "start_time": "2015-08-27 03:57:29 PM",
-        "end_time": "2015-08-27 01:53:52 PM",
+        "name": "Stronghold",
+        "location": "870 Jarrell Mission, East Alisha Oklahoma",
+        "start_time": "2015-08-27 12:15:31 PM",
+        "end_time": "2015-08-27 05:40:01 PM",
         "judges": [
 
         ],
@@ -1499,13 +1510,13 @@
         "1.0"
       ],
       "query": null,
-      "request_data": "name=It&location=227+Reichel+Crossing%2C+Roobton+North+Carolina&start_time=2015-07-30+10%3A08%3A22+-0400&end_time=2015-07-30+07%3A45%3A18+-0400",
+      "request_data": "name=Greenlam&location=72815+Mandy+Flats%2C+East+Tianaview+Vermont&start_time=2015-07-19+08%3A40%3A18+-0400&end_time=2015-07-19+00%3A12%3A50+-0400",
       "response_data": {
         "id": 121,
-        "name": "It",
-        "location": "227 Reichel Crossing, Roobton North Carolina",
-        "start_time": "2015-07-30 02:08:22 PM",
-        "end_time": "2015-07-30 11:45:18 AM",
+        "name": "Greenlam",
+        "location": "72815 Mandy Flats, East Tianaview Vermont",
+        "start_time": "2015-07-19 12:40:18 PM",
+        "end_time": "2015-07-19 04:12:50 AM",
         "judges": [
 
         ],
@@ -1533,13 +1544,13 @@
         "1.0"
       ],
       "query": null,
-      "request_data": "name=Mat+Lam+Tam&location=99801+Rutherford+Vista%2C+South+Elvietown+Mississippi&start_time=2015-08-14+06%3A35%3A17+-0400&end_time=2015-08-14+18%3A07%3A58+-0400",
+      "request_data": "name=Home+Ing&location=32189+Kuhlman+Unions%2C+West+Hiram+New+York&start_time=2015-09-10+07%3A52%3A02+-0400&end_time=2015-09-10+08%3A34%3A49+-0400",
       "response_data": {
         "id": 122,
-        "name": "Mat Lam Tam",
-        "location": "99801 Rutherford Vista, South Elvietown Mississippi",
-        "start_time": "2015-08-14 10:35:17 AM",
-        "end_time": "2015-08-14 10:07:58 PM",
+        "name": "Home Ing",
+        "location": "32189 Kuhlman Unions, West Hiram New York",
+        "start_time": "2015-09-10 11:52:02 AM",
+        "end_time": "2015-09-10 12:34:49 PM",
         "judges": [
 
         ],
@@ -1573,22 +1584,23 @@
       "response_data": [
         {
           "id": 100,
-          "name": "It",
-          "location": "143 Connelly Fort, West Saige Indiana",
-          "start_time": "2015-08-01 10:29:36 AM",
-          "end_time": "2015-08-01 12:18:32 PM",
+          "name": "Opela",
+          "location": "6652 Haylee Loop, Francoview Georgia",
+          "start_time": "2015-08-29 01:56:02 PM",
+          "end_time": "2015-08-30 03:13:22 AM",
           "judges": [
             {
               "id": 98,
-              "email": "elsa_goyette@rolfson.biz",
-              "name": "Elsa Goyette",
+              "email": "reuben_sporer@mclaughlinhuels.net",
+              "name": "Reuben Sporer",
               "admin": false
             }
           ],
           "teams": [
             {
               "id": 42,
-              "name": "Jacobson LLC"
+              "name": "Lind, Koepp and Kutch",
+              "logo": null
             }
           ],
           "categories": [
@@ -1603,22 +1615,23 @@
         },
         {
           "id": 102,
-          "name": "Holdlamis",
-          "location": "852 Bergstrom Grove, Fritschstad Arkansas",
-          "start_time": "2015-09-12 03:55:37 PM",
-          "end_time": "2015-09-12 04:28:42 PM",
+          "name": "Tampflex",
+          "location": "48338 Kiehn Key, Mertzton Maine",
+          "start_time": "2015-08-22 11:11:31 AM",
+          "end_time": "2015-08-22 08:08:44 AM",
           "judges": [
             {
               "id": 99,
-              "email": "jayden_yundt@mann.name",
-              "name": "Jayden Yundt",
+              "email": "thurman_strosin@mosciski.org",
+              "name": "Thurman Strosin",
               "admin": false
             }
           ],
           "teams": [
             {
               "id": 43,
-              "name": "Marquardt LLC"
+              "name": "Eichmann Group",
+              "logo": null
             }
           ],
           "categories": [
@@ -1647,22 +1660,23 @@
       "response_data": [
         {
           "id": 105,
-          "name": "Latlux",
-          "location": "485 Aurore Isle, Jacobshaven Iowa",
-          "start_time": "2015-07-24 10:02:12 AM",
-          "end_time": "2015-07-24 11:35:27 PM",
+          "name": "Fintone",
+          "location": "23344 McLaughlin Divide, North Selenaton Iowa",
+          "start_time": "2015-09-13 12:00:06 PM",
+          "end_time": "2015-09-13 04:27:10 AM",
           "judges": [
             {
               "id": 101,
-              "email": "lillian_oberbrunner@cruickshank.com",
-              "name": "Lillian Oberbrunner",
+              "email": "everette_doyle@stanton.com",
+              "name": "Everette Doyle",
               "admin": false
             }
           ],
           "teams": [
             {
               "id": 44,
-              "name": "Rice Group"
+              "name": "Hills Inc",
+              "logo": null
             }
           ],
           "categories": [
@@ -1677,22 +1691,23 @@
         },
         {
           "id": 107,
-          "name": "Duobam",
-          "location": "7585 Shanahan Curve, Kassulkeview Tennessee",
-          "start_time": "2015-08-04 11:59:44 AM",
-          "end_time": "2015-08-04 07:58:57 PM",
+          "name": "Y-Solowarm",
+          "location": "51101 Gislason Garden, South Carmelstad Arizona",
+          "start_time": "2015-07-21 03:03:01 PM",
+          "end_time": "2015-07-21 05:54:11 PM",
           "judges": [
             {
               "id": 102,
-              "email": "jaclyn_leuschke@luettgen.net",
-              "name": "Jaclyn Leuschke",
+              "email": "oran_gutkowski@murraymohr.info",
+              "name": "Oran Gutkowski",
               "admin": false
             }
           ],
           "teams": [
             {
               "id": 45,
-              "name": "Armstrong-Stroman"
+              "name": "Macejkovic Inc",
+              "logo": null
             }
           ],
           "categories": [
@@ -1722,22 +1737,23 @@
       "request_data": null,
       "response_data": {
         "id": 110,
-        "name": "Kanlam",
-        "location": "974 Ritchie Villages, Schultzmouth Alaska",
-        "start_time": "2015-07-26 01:38:14 PM",
-        "end_time": "2015-07-26 01:59:06 PM",
+        "name": "Treeflex",
+        "location": "1329 Rosella Shoals, Port Davontown Wyoming",
+        "start_time": "2015-08-13 03:00:48 PM",
+        "end_time": "2015-08-13 05:53:17 AM",
         "judges": [
           {
             "id": 104,
-            "email": "augusta_kuphal@mcculloughlebsack.net",
-            "name": "Augusta Kuphal",
+            "email": "devon_beier@stracke.info",
+            "name": "Devon Beier",
             "admin": false
           }
         ],
         "teams": [
           {
             "id": 46,
-            "name": "Ratke, Cormier and Mraz"
+            "name": "Sauer, Gusikowski and Paucek",
+            "logo": null
           }
         ],
         "categories": [
@@ -1764,22 +1780,23 @@
       "request_data": null,
       "response_data": {
         "id": 112,
-        "name": "Alphazap",
-        "location": "40664 Koss Pine, East Brainland Minnesota",
-        "start_time": "2015-07-15 11:40:47 AM",
-        "end_time": "2015-07-16 02:47:49 AM",
+        "name": "Daltfresh",
+        "location": "416 Bruen Center, Morarport Wisconsin",
+        "start_time": "2015-09-08 03:38:31 PM",
+        "end_time": "2015-09-08 10:39:19 PM",
         "judges": [
           {
             "id": 106,
-            "email": "tiara_pfeffer@gottliebwilderman.info",
-            "name": "Tiara Pfeffer",
+            "email": "erick_pouros@zemlakwunsch.net",
+            "name": "Erick Pouros",
             "admin": false
           }
         ],
         "teams": [
           {
             "id": 47,
-            "name": "Littel-Toy"
+            "name": "Ebert, Runolfsdottir and Ernser",
+            "logo": null
           }
         ],
         "categories": [
@@ -1809,21 +1826,22 @@
       "response_data": {
         "id": 114,
         "name": "Updated Name",
-        "location": "92848 Mayer Springs, North Isabel Texas",
-        "start_time": "2015-08-16 10:18:12 AM",
-        "end_time": "2015-08-16 12:20:15 PM",
+        "location": "890 Kraig Mall, West Corrine Alabama",
+        "start_time": "2015-09-08 01:38:31 PM",
+        "end_time": "2015-09-08 05:01:53 PM",
         "judges": [
           {
             "id": 108,
-            "email": "merlin_graham@littel.com",
-            "name": "Merlin Graham",
+            "email": "jaycee_cremin@kutch.info",
+            "name": "Jaycee Cremin",
             "admin": false
           }
         ],
         "teams": [
           {
             "id": 48,
-            "name": "Kuhlman-Ruecker"
+            "name": "Lynch, Block and Gerhold",
+            "logo": null
           }
         ],
         "categories": [
@@ -1851,21 +1869,22 @@
       "response_data": {
         "id": 116,
         "name": "Updated Name",
-        "location": "85234 Beatty Spurs, Kleinland Texas",
-        "start_time": "2015-07-23 12:38:18 PM",
-        "end_time": "2015-07-24 12:47:20 AM",
+        "location": "8745 Bednar Hills, Hilarioside Arizona",
+        "start_time": "2015-09-06 03:54:33 PM",
+        "end_time": "2015-09-06 08:06:36 PM",
         "judges": [
           {
             "id": 110,
-            "email": "constantin_lowe@nikolaus.org",
-            "name": "Constantin Lowe",
+            "email": "liam_johns@cartwright.name",
+            "name": "Liam Johns",
             "admin": false
           }
         ],
         "teams": [
           {
             "id": 49,
-            "name": "Cruickshank, O'Connell and Tillman"
+            "name": "Fay-Crooks",
+            "logo": null
           }
         ],
         "categories": [
@@ -1893,21 +1912,22 @@
       "response_data": {
         "id": 118,
         "name": "Updated Name",
-        "location": "82117 Herzog Greens, East Sarinamouth Ohio",
-        "start_time": "2015-07-16 10:23:45 AM",
-        "end_time": "2015-07-17 02:36:26 AM",
+        "location": "967 Retha Circle, Sophiatown Mississippi",
+        "start_time": "2015-09-09 01:03:17 PM",
+        "end_time": "2015-09-09 04:33:00 PM",
         "judges": [
           {
             "id": 112,
-            "email": "quinton_nitzsche@sanford.org",
-            "name": "Quinton Nitzsche",
+            "email": "stefanie_hudson@yoststrosin.info",
+            "name": "Stefanie Hudson",
             "admin": false
           }
         ],
         "teams": [
           {
             "id": 50,
-            "name": "Wolf-Bashirian"
+            "name": "Crooks, Halvorson and Morar",
+            "logo": null
           }
         ],
         "categories": [
@@ -1938,10 +1958,18 @@
         "id": 5,
         "team": {
           "id": 55,
-          "name": "Ruecker-Pouros"
+          "name": "Morar, Leannon and Russel",
+          "logo": null
         },
         "judge": {
           "id": 58
+        },
+        "event": {
+          "id": 131,
+          "name": "Zontrax",
+          "location": "684 Jimmy Well, Lake Anne Montana",
+          "start_time": "2015-08-11 02:29:02 PM",
+          "end_time": "2015-08-11 06:09:11 PM"
         }
       },
       "code": 201,
@@ -1960,10 +1988,18 @@
         "id": 6,
         "team": {
           "id": 56,
-          "name": "Cartwright Group"
+          "name": "Haley-Heaney",
+          "logo": null
         },
         "judge": {
           "id": 59
+        },
+        "event": {
+          "id": 132,
+          "name": "Konklux",
+          "location": "10673 Santos Dam, Elisafort New York",
+          "start_time": "2015-08-24 10:26:33 AM",
+          "end_time": "2015-08-24 04:14:01 PM"
         }
       },
       "code": 201,
@@ -2013,10 +2049,18 @@
           "id": 1,
           "team": {
             "id": 51,
-            "name": "Hilll, Haag and Wuckert"
+            "name": "Ullrich LLC",
+            "logo": null
           },
           "judge": {
             "id": 54
+          },
+          "event": {
+            "id": 123,
+            "name": "Y-find",
+            "location": "45076 Little Street, D'Amoremouth Colorado",
+            "start_time": "2015-07-22 11:51:11 AM",
+            "end_time": "2015-07-22 02:58:31 PM"
           }
         }
       ],
@@ -2037,10 +2081,18 @@
           "id": 2,
           "team": {
             "id": 52,
-            "name": "Simonis-Beer"
+            "name": "Hettinger Inc",
+            "logo": null
           },
           "judge": {
             "id": 55
+          },
+          "event": {
+            "id": 125,
+            "name": "Fixflex",
+            "location": "74193 Federico Mall, North Kassandraborough Kentucky",
+            "start_time": "2015-07-25 02:51:19 PM",
+            "end_time": "2015-07-25 03:01:47 PM"
           }
         }
       ],
@@ -2057,22 +2109,23 @@
         "1.0"
       ],
       "query": null,
-      "request_data": "judge_id=65&team_id=59&criterion_id=13&value=22",
+      "request_data": "judge_id=65&team_id=59&criterion_id=13&value=99",
       "response_data": {
         "id": 3,
-        "value": 22,
+        "value": 99,
         "judge": {
           "id": 65
         },
         "team": {
           "id": 59,
-          "name": "Purdy-Spencer"
+          "name": "Ullrich, Swift and Funk",
+          "logo": null
         },
         "criterion": {
           "id": 13,
-          "label": "Stehr-Willms",
-          "min_score": 5,
-          "max_score": 22
+          "label": "Kihn Inc",
+          "min_score": 4,
+          "max_score": 99
         }
       },
       "code": 201,
@@ -2086,22 +2139,23 @@
         "1.0"
       ],
       "query": null,
-      "request_data": "judge_id=67&team_id=60&criterion_id=14&value=10",
+      "request_data": "judge_id=67&team_id=60&criterion_id=14&value=50",
       "response_data": {
         "id": 4,
-        "value": 10,
+        "value": 50,
         "judge": {
           "id": 67
         },
         "team": {
           "id": 60,
-          "name": "Powlowski-Collier"
+          "name": "Anderson, Hettinger and Lang",
+          "logo": null
         },
         "criterion": {
           "id": 14,
-          "label": "Toy, Powlowski and Osinski",
-          "min_score": 2,
-          "max_score": 10
+          "label": "Cassin Inc",
+          "min_score": 4,
+          "max_score": 50
         }
       },
       "code": 201,
@@ -2152,19 +2206,20 @@
       "request_data": null,
       "response_data": {
         "id": 1,
-        "value": 54,
+        "value": 32,
         "judge": {
           "id": 61
         },
         "team": {
           "id": 57,
-          "name": "Daugherty-Wintheiser"
+          "name": "Waelchi-Torphy",
+          "logo": null
         },
         "criterion": {
           "id": 11,
-          "label": "Pacocha-Moore",
-          "min_score": 5,
-          "max_score": 60
+          "label": "Ziemann, Fadel and DuBuque",
+          "min_score": 3,
+          "max_score": 59
         }
       },
       "code": 200,
@@ -2181,19 +2236,20 @@
       "request_data": null,
       "response_data": {
         "id": 2,
-        "value": 12,
+        "value": 11,
         "judge": {
           "id": 63
         },
         "team": {
           "id": 58,
-          "name": "Klocko and Sons"
+          "name": "Rolfson, Rice and Lesch",
+          "logo": null
         },
         "criterion": {
           "id": 12,
-          "label": "Wiza-Hermann",
-          "min_score": 5,
-          "max_score": 94
+          "label": "Marquardt-Graham",
+          "min_score": 1,
+          "max_score": 15
         }
       },
       "code": 200,
@@ -2209,22 +2265,23 @@
         "1.0"
       ],
       "query": null,
-      "request_data": "value=13",
+      "request_data": "value=19",
       "response_data": {
         "id": 5,
-        "value": 13,
+        "value": 19,
         "judge": {
           "id": 69
         },
         "team": {
           "id": 61,
-          "name": "Boyle Inc"
+          "name": "Hane-Hintz",
+          "logo": null
         },
         "criterion": {
           "id": 15,
-          "label": "Turcotte Inc",
-          "min_score": 2,
-          "max_score": 14
+          "label": "Ward Group",
+          "min_score": 0,
+          "max_score": 44
         }
       },
       "code": 200,
@@ -2238,22 +2295,23 @@
         "1.0"
       ],
       "query": null,
-      "request_data": "value=24",
+      "request_data": "value=7",
       "response_data": {
         "id": 6,
-        "value": 24,
+        "value": 7,
         "judge": {
           "id": 71
         },
         "team": {
           "id": 62,
-          "name": "Marquardt Inc"
+          "name": "Zemlak-Gorczany",
+          "logo": null
         },
         "criterion": {
           "id": 16,
-          "label": "Gorczany-Pollich",
-          "min_score": 1,
-          "max_score": 40
+          "label": "Schulist Group",
+          "min_score": 5,
+          "max_score": 42
         }
       },
       "code": 200,
@@ -2267,22 +2325,23 @@
         "1.0"
       ],
       "query": null,
-      "request_data": "value=40",
+      "request_data": "value=69",
       "response_data": {
         "id": 7,
-        "value": 40,
+        "value": 69,
         "judge": {
           "id": 73
         },
         "team": {
           "id": 63,
-          "name": "Jacobson, Zboncak and Heidenreich"
+          "name": "Howell, Schulist and Hintz",
+          "logo": null
         },
         "criterion": {
           "id": 17,
-          "label": "Rolfson-Berge",
-          "min_score": 5,
-          "max_score": 85
+          "label": "Tillman, King and Bradtke",
+          "min_score": 2,
+          "max_score": 100
         }
       },
       "code": 200,
@@ -2298,21 +2357,21 @@
         "1.0"
       ],
       "query": null,
-      "request_data": "subject=aperiam&body=Nisi+necessitatibus+illum+fugiat+eligendi.&read=2015-07-13+16%3A00%3A05+-0400&recipient_id=149",
+      "request_data": "subject=aspernatur&body=Saepe+possimus+officiis+consequatur+voluptatem+minus+occaecati.&read=2015-07-16+09%3A19%3A13+-0400&recipient_id=149",
       "response_data": {
         "id": 3,
-        "subject": "aperiam",
-        "body": "Nisi necessitatibus illum fugiat eligendi.",
+        "subject": "aspernatur",
+        "body": "Saepe possimus officiis consequatur voluptatem minus occaecati.",
         "sender": {
           "id": 150,
-          "email": "cali_erdman@paucek.info",
-          "name": "Cali Erdman",
+          "email": "otho_rohan@shields.name",
+          "name": "Otho Rohan",
           "admin": false
         },
         "recipient": {
           "id": 149,
-          "email": "rhianna_tromp@wisoky.biz",
-          "name": "Rhianna Tromp",
+          "email": "immanuel_gibson@roob.com",
+          "name": "Immanuel Gibson",
           "admin": false
         }
       },
@@ -2327,21 +2386,21 @@
         "1.0"
       ],
       "query": null,
-      "request_data": "subject=itaque&body=Est+cum+harum+voluptas+voluptas+qui.&read=2015-07-13+15%3A35%3A59+-0400&recipient_id=151",
+      "request_data": "subject=exercitationem&body=Nesciunt+in+aperiam+ea.&read=2015-07-14+17%3A56%3A29+-0400&recipient_id=151",
       "response_data": {
         "id": 4,
-        "subject": "itaque",
-        "body": "Est cum harum voluptas voluptas qui.",
+        "subject": "exercitationem",
+        "body": "Nesciunt in aperiam ea.",
         "sender": {
           "id": 152,
-          "email": "lily_schiller@cronin.org",
-          "name": "Lily Schiller",
+          "email": "damion_schuppe@schimmelgusikowski.com",
+          "name": "Damion Schuppe",
           "admin": false
         },
         "recipient": {
           "id": 151,
-          "email": "alda_klein@prohaska.name",
-          "name": "Alda Klein",
+          "email": "calista_adams@kulas.name",
+          "name": "Calista Adams",
           "admin": false
         }
       },
@@ -2362,18 +2421,18 @@
       "response_data": [
         {
           "id": 1,
-          "subject": "iste",
-          "body": "Enim voluptates autem debitis quo dolor cum modi in.",
+          "subject": "voluptatibus",
+          "body": "Ut voluptas sit rerum facere culpa provident.",
           "sender": {
             "id": 145,
-            "email": "leslie_balistreri@robertsprosacco.biz",
-            "name": "Leslie Balistreri",
+            "email": "armand_weber@ratke.org",
+            "name": "Armand Weber",
             "admin": false
           },
           "recipient": {
             "id": 146,
-            "email": "drake_dickens@kleinwisoky.net",
-            "name": "Drake Dickens",
+            "email": "anastacio_goldner@bartell.com",
+            "name": "Anastacio Goldner",
             "admin": false
           }
         }
@@ -2393,18 +2452,18 @@
       "response_data": [
         {
           "id": 2,
-          "subject": "dolore",
-          "body": "Perspiciatis officiis exercitationem aut consequatur omnis dolores ut.",
+          "subject": "eaque",
+          "body": "Reprehenderit dolorem incidunt impedit voluptatem cupiditate sint totam.",
           "sender": {
             "id": 147,
-            "email": "mireille_kunze@wuckertrolfson.biz",
-            "name": "Mireille Kunze",
+            "email": "chaz_zieme@parker.org",
+            "name": "Chaz Zieme",
             "admin": false
           },
           "recipient": {
             "id": 148,
-            "email": "elta_medhurst@kihnbernier.name",
-            "name": "Elta Medhurst",
+            "email": "grover_kub@ruecker.biz",
+            "name": "Grover Kub",
             "admin": false
           }
         }
@@ -2571,10 +2630,10 @@
         ],
         "event": {
           "id": 146,
-          "name": "Sonsing",
-          "location": "51395 Kub Port, Padbergtown Nevada",
-          "start_time": "2015-09-08 03:03:27 PM",
-          "end_time": "2015-09-08 11:17:50 AM"
+          "name": "Fintone",
+          "location": "70481 Freeda Springs, North Brenna New Hampshire",
+          "start_time": "2015-07-31 01:58:55 PM",
+          "end_time": "2015-07-31 07:25:47 AM"
         }
       },
       "code": 201,
@@ -2597,10 +2656,10 @@
         ],
         "event": {
           "id": 148,
-          "name": "Hatity",
-          "location": "24559 Gaylord Hill, Wizaview Arkansas",
-          "start_time": "2015-09-12 12:50:14 PM",
-          "end_time": "2015-09-12 07:06:35 AM"
+          "name": "Sonair",
+          "location": "579 Destin Land, Wisokyview Oklahoma",
+          "start_time": "2015-07-23 03:40:02 PM",
+          "end_time": "2015-07-23 04:12:13 AM"
         }
       },
       "code": 201,
@@ -2648,16 +2707,16 @@
       "response_data": [
         {
           "id": 40,
-          "name": "Durgan, Spinka and Torp",
+          "name": "Keebler-White",
           "criteria": [
 
           ],
           "event": {
             "id": 142,
-            "name": "Opela",
-            "location": "630 Ephraim Rest, Willmouth Alaska",
-            "start_time": "2015-08-14 10:27:17 AM",
-            "end_time": "2015-08-15 12:57:01 AM"
+            "name": "Stim",
+            "location": "116 Powlowski Cliffs, Bettiebury Florida",
+            "start_time": "2015-08-22 02:18:38 PM",
+            "end_time": "2015-08-22 11:05:12 AM"
           }
         }
       ],
@@ -2676,16 +2735,16 @@
       "response_data": [
         {
           "id": 41,
-          "name": "Christiansen-McKenzie",
+          "name": "Cole, Considine and Rau",
           "criteria": [
 
           ],
           "event": {
             "id": 144,
-            "name": "Zoolab",
-            "location": "697 Will Dam, South Bret Alaska",
-            "start_time": "2015-07-18 01:50:55 PM",
-            "end_time": "2015-07-18 12:03:10 PM"
+            "name": "Fix San",
+            "location": "792 Rice Ports, Ebonyhaven North Dakota",
+            "start_time": "2015-07-29 10:14:06 AM",
+            "end_time": "2015-07-29 02:22:26 PM"
           }
         }
       ],
@@ -2705,21 +2764,21 @@
       "request_data": null,
       "response_data": {
         "id": 47,
-        "name": "Barton-Towne",
+        "name": "Ziemann, Armstrong and Schmidt",
         "criteria": [
           {
             "id": 18,
-            "label": "Kemmer-Schimmel",
-            "min_score": 1,
-            "max_score": 65
+            "label": "Metz-Rempel",
+            "min_score": 2,
+            "max_score": 42
           }
         ],
         "event": {
           "id": 150,
-          "name": "Sub-Ex",
-          "location": "1899 Dina Isle, Floridahaven Colorado",
-          "start_time": "2015-07-31 12:52:26 PM",
-          "end_time": "2015-07-31 07:49:16 AM"
+          "name": "Viva",
+          "location": "18854 Libbie Isle, Jaydaton Maine",
+          "start_time": "2015-08-22 10:38:54 AM",
+          "end_time": "2015-08-23 12:31:25 AM"
         }
       },
       "code": 200,
@@ -2736,21 +2795,21 @@
       "request_data": null,
       "response_data": {
         "id": 49,
-        "name": "Zieme-Hodkiewicz",
+        "name": "Grady-Nader",
         "criteria": [
           {
             "id": 19,
-            "label": "Davis, Abbott and Wuckert",
-            "min_score": 4,
-            "max_score": 99
+            "label": "Brekke, Dickinson and O'Keefe",
+            "min_score": 1,
+            "max_score": 18
           }
         ],
         "event": {
           "id": 153,
-          "name": "Konklux",
-          "location": "527 Eichmann Crossing, Jerdeport Pennsylvania",
-          "start_time": "2015-08-05 12:21:47 PM",
-          "end_time": "2015-08-05 02:01:18 PM"
+          "name": "Zontrax",
+          "location": "443 Daugherty Estate, DuBuqueberg Alaska",
+          "start_time": "2015-08-08 01:29:19 PM",
+          "end_time": "2015-08-08 10:37:08 PM"
         }
       },
       "code": 200,
@@ -2776,9 +2835,9 @@
         "event": {
           "id": 156,
           "name": "Stronghold",
-          "location": "204 Schulist Ferry, East Gennaro Vermont",
-          "start_time": "2015-09-07 12:22:01 PM",
-          "end_time": "2015-09-07 10:20:07 AM"
+          "location": "9177 Wyatt Squares, West Ismaelfurt Iowa",
+          "start_time": "2015-08-30 01:31:25 PM",
+          "end_time": "2015-08-30 05:16:54 PM"
         }
       },
       "code": 200,
@@ -2801,10 +2860,10 @@
         ],
         "event": {
           "id": 158,
-          "name": "Zamit",
-          "location": "1599 Michale Bridge, McClurehaven Wisconsin",
-          "start_time": "2015-08-14 01:03:29 PM",
-          "end_time": "2015-08-14 07:09:48 AM"
+          "name": "Tresom",
+          "location": "78593 Reilly Junction, North Cathrine Wisconsin",
+          "start_time": "2015-08-28 01:08:30 PM",
+          "end_time": "2015-08-28 04:43:54 AM"
         }
       },
       "code": 200,
@@ -2827,10 +2886,10 @@
         ],
         "event": {
           "id": 160,
-          "name": "Quo Lux",
-          "location": "426 Hayden Shoal, Forrestmouth Alaska",
-          "start_time": "2015-07-26 01:42:59 PM",
-          "end_time": "2015-07-26 05:33:03 PM"
+          "name": "Viva",
+          "location": "27808 Flatley Pine, West Okeyberg Nebraska",
+          "start_time": "2015-08-24 12:46:52 PM",
+          "end_time": "2015-08-24 04:03:05 AM"
         }
       },
       "code": 200,
@@ -2849,11 +2908,15 @@
       "request_data": null,
       "response_data": {
         "id": 164,
-        "email": "viola_runolfsdottir@schillercrona.org",
-        "name": "Viola Runolfsdottir",
+        "email": "bryana_turner@swiftwindler.org",
+        "name": "Bryana Turner",
         "admin": false,
         "token": {
-          "access_token": "8778fa5b311a9fc281c444929256eb30"
+          "access_token": "65655692e8bba119cc066841dec15c99"
+        },
+        "platform": {
+          "id": 1,
+          "label": "iOS"
         }
       },
       "code": 200,
@@ -2870,11 +2933,40 @@
       "request_data": null,
       "response_data": {
         "id": 165,
-        "email": "devin_sipes@orn.name",
-        "name": "Devin Sipes",
+        "email": "veronica_larson@ritchie.name",
+        "name": "Veronica Larson",
         "admin": false,
         "token": {
-          "access_token": "b0531b982a075debc2bf311f085b40d6"
+          "access_token": "c43ab9a0851d97528a51d234e9140375"
+        },
+        "platform": {
+          "id": 1,
+          "label": "iOS"
+        }
+      },
+      "code": 200,
+      "show_in_doc": 0,
+      "recorded": true
+    },
+    {
+      "verb": "GET",
+      "path": "/login",
+      "versions": [
+        "1.0"
+      ],
+      "query": "platform=iOS",
+      "request_data": null,
+      "response_data": {
+        "id": 166,
+        "email": "elva_heidenreich@conroy.name",
+        "name": "Elva Heidenreich",
+        "admin": false,
+        "token": {
+          "access_token": "d26f78bba35be21ad673f0125e887907"
+        },
+        "platform": {
+          "id": 1,
+          "label": "iOS"
         }
       },
       "code": 200,
@@ -2923,14 +3015,15 @@
         "id": 6,
         "team": {
           "id": 68,
-          "name": "Wilkinson and Sons"
+          "name": "Hane, Cummerata and Frami",
+          "logo": null
         },
         "category": {
           "id": 222,
-          "label": "Dietrich, Cremin and Gorczany",
-          "description": "Modi magni quis numquam non.",
-          "color": 463891,
-          "due_at": "2015-07-14T19:25:05.000Z"
+          "label": "Pollich LLC",
+          "description": "Ipsa assumenda explicabo esse nam culpa qui.",
+          "color": 718944,
+          "due_at": "2015-07-17T00:45:53.000Z"
         }
       },
       "code": 201,
@@ -2949,14 +3042,15 @@
         "id": 8,
         "team": {
           "id": 69,
-          "name": "Okuneva Inc"
+          "name": "Goldner and Sons",
+          "logo": null
         },
         "category": {
           "id": 228,
-          "label": "Schowalter, Hettinger and O'Reilly",
-          "description": "Maxime et animi qui quam.",
-          "color": 372286,
-          "due_at": "2015-07-14T11:52:05.000Z"
+          "label": "Kozey LLC",
+          "description": "Aliquam quasi molestiae et tenetur illum et.",
+          "color": 877577,
+          "due_at": "2015-07-16T21:17:19.000Z"
         }
       },
       "code": 201,
@@ -3006,14 +3100,15 @@
           "id": 1,
           "team": {
             "id": 64,
-            "name": "Fahey, Bailey and Beier"
+            "name": "Schulist-Ryan",
+            "logo": null
           },
           "category": {
             "id": 204,
-            "label": "Powlowski-Eichmann",
-            "description": "Nostrum asperiores laudantium est.",
-            "color": 783275,
-            "due_at": "2015-07-15T21:23:19.000Z"
+            "label": "Mills and Sons",
+            "description": "Ea quas quia magni ut unde.",
+            "color": 493604,
+            "due_at": "2015-07-17T03:01:56.000Z"
           }
         }
       ],
@@ -3034,14 +3129,15 @@
           "id": 2,
           "team": {
             "id": 65,
-            "name": "Klocko LLC"
+            "name": "Dibbert-Schaefer",
+            "logo": null
           },
           "category": {
             "id": 208,
-            "label": "Ledner and Sons",
-            "description": "Laudantium in voluptatum consequatur impedit cum alias animi accusamus.",
-            "color": 858101,
-            "due_at": "2015-07-15T15:57:42.000Z"
+            "label": "Kshlerin, Abbott and Wuckert",
+            "description": "Quaerat dolore earum non repudiandae.",
+            "color": 6708,
+            "due_at": "2015-07-16T18:01:22.000Z"
           }
         }
       ],
@@ -3058,15 +3154,16 @@
         "1.0"
       ],
       "query": null,
-      "request_data": "first_name=Leonard&last_name=Fay&email=leonard_fay%40eichmann.com&password=yc04199yf&password_confirmation=yc04199yf",
+      "request_data": "first_name=Berniece&last_name=Murray&email=berniece_murray%40mills.name&password=7ft7lvukj&password_confirmation=7ft7lvukj",
       "response_data": {
-        "id": 174,
-        "email": "leonard_fay@eichmann.com",
-        "name": "Leonard Fay",
+        "id": 175,
+        "email": "berniece_murray@mills.name",
+        "name": "Berniece Murray",
         "admin": false,
         "token": {
-          "access_token": "34ab0bc41f4acf420cd320c019629ba8"
-        }
+          "access_token": "615907689f975ae74de512de73380311"
+        },
+        "platform": null
       },
       "code": 201,
       "show_in_doc": 1,
@@ -3079,15 +3176,16 @@
         "1.0"
       ],
       "query": null,
-      "request_data": "first_name=Janice&last_name=Haley&email=janice_haley%40kertzmann.net&password=1y6eyt02m&password_confirmation=1y6eyt02m",
+      "request_data": "first_name=Keeley&last_name=Wiegand&email=keeley_wiegand%40ondricka.info&password=e5pjeuox6&password_confirmation=e5pjeuox6",
       "response_data": {
-        "id": 175,
-        "email": "janice_haley@kertzmann.net",
-        "name": "Janice Haley",
+        "id": 176,
+        "email": "keeley_wiegand@ondricka.info",
+        "name": "Keeley Wiegand",
         "admin": false,
         "token": {
-          "access_token": "8b7b3ffa86b11e368264f897c35a051b"
-        }
+          "access_token": "eeb74050714ef390f258c7112ef6f084"
+        },
+        "platform": null
       },
       "code": 201,
       "show_in_doc": 0,
@@ -3105,22 +3203,24 @@
       "request_data": null,
       "response_data": [
         {
-          "id": 179,
-          "email": "kim_kuvalis@shanahanhoeger.biz",
-          "name": "Kim Kuvalis",
+          "id": 180,
+          "email": "domingo_leannon@kozey.info",
+          "name": "Domingo Leannon",
           "admin": false,
           "token": {
-            "access_token": "56fae80e5f0337b715ab60e3d5f685e9"
-          }
+            "access_token": "abe413d3866f84849b1630d67d9fe1ff"
+          },
+          "platform": null
         },
         {
-          "id": 180,
-          "email": "laverne_dickens@rosenbaum.com",
-          "name": "Laverne Dickens",
+          "id": 181,
+          "email": "lyric_hirthe@schowalter.net",
+          "name": "Lyric Hirthe",
           "admin": false,
           "token": {
-            "access_token": "6a6cf754bcd8f59358eaba1ce2be0583"
-          }
+            "access_token": "2ca598f6df6ec0cefdf7a00757101fa2"
+          },
+          "platform": null
         }
       ],
       "code": 200,
@@ -3137,22 +3237,24 @@
       "request_data": null,
       "response_data": [
         {
-          "id": 181,
-          "email": "elijah_franecki@goyettewilliamson.name",
-          "name": "Elijah Franecki",
+          "id": 182,
+          "email": "lauriane_smith@effertz.com",
+          "name": "Lauriane Smith",
           "admin": false,
           "token": {
-            "access_token": "da9debdd26939467a52ec6dabe6ae42a"
-          }
+            "access_token": "0431d838b2924cef8b516aacd058a4d3"
+          },
+          "platform": null
         },
         {
-          "id": 182,
-          "email": "ryann_funk@adams.info",
-          "name": "Ryann Funk",
+          "id": 183,
+          "email": "kenya_goyette@murphy.net",
+          "name": "Kenya Goyette",
           "admin": false,
           "token": {
-            "access_token": "3f3026440040c19eec4c60ba58973f9f"
-          }
+            "access_token": "eda9a4a20911b462795c5d885d1ecda8"
+          },
+          "platform": null
         }
       ],
       "code": 200,
@@ -3163,27 +3265,6 @@
   "users#show": [
     {
       "verb": "GET",
-      "path": "/users/183",
-      "versions": [
-        "1.0"
-      ],
-      "query": null,
-      "request_data": null,
-      "response_data": {
-        "id": 183,
-        "email": "jadyn_hauck@grady.org",
-        "name": "Jadyn Hauck",
-        "admin": false,
-        "token": {
-          "access_token": "496b6eb058b431a86bdac77b9c0e98af"
-        }
-      },
-      "code": 200,
-      "show_in_doc": 1,
-      "recorded": true
-    },
-    {
-      "verb": "GET",
       "path": "/users/184",
       "versions": [
         "1.0"
@@ -3192,12 +3273,35 @@
       "request_data": null,
       "response_data": {
         "id": 184,
-        "email": "jimmie_hickle@weimanndubuque.org",
-        "name": "Jimmie Hickle",
+        "email": "eleonore_quigley@watsica.org",
+        "name": "Eleonore Quigley",
         "admin": false,
         "token": {
-          "access_token": "c9d0f050736d9b1fc805ec5728194240"
-        }
+          "access_token": "6aaa99c52fb845670c4cccbdf6b76fd7"
+        },
+        "platform": null
+      },
+      "code": 200,
+      "show_in_doc": 1,
+      "recorded": true
+    },
+    {
+      "verb": "GET",
+      "path": "/users/185",
+      "versions": [
+        "1.0"
+      ],
+      "query": null,
+      "request_data": null,
+      "response_data": {
+        "id": 185,
+        "email": "pat_quitzon@dietrich.net",
+        "name": "Pat Quitzon",
+        "admin": false,
+        "token": {
+          "access_token": "e4e79ae85dd9977e49ed3f40e68b550b"
+        },
+        "platform": null
       },
       "code": 200,
       "show_in_doc": 0,
@@ -3207,44 +3311,24 @@
   "users#update": [
     {
       "verb": "PUT",
-      "path": "/users/176",
-      "versions": [
-        "1.0"
-      ],
-      "query": null,
-      "request_data": "first_name=Updated&last_name=Name&email=updated_name%40cremin.com&password=zzsy8zeps&password_confirmation=zzsy8zeps",
-      "response_data": {
-        "id": 176,
-        "email": "updated_name@cremin.com",
-        "name": "Updated Name",
-        "admin": false,
-        "token": {
-          "access_token": "e15e056412535116ea93c49c27c44e5c"
-        }
-      },
-      "code": 200,
-      "show_in_doc": 1,
-      "recorded": true
-    },
-    {
-      "verb": "PUT",
       "path": "/users/177",
       "versions": [
         "1.0"
       ],
       "query": null,
-      "request_data": "first_name=Updated&last_name=Name&email=updated_name%40hahn.biz&password=btuyz4xp4&password_confirmation=btuyz4xp4",
+      "request_data": "first_name=Updated&last_name=Name&email=updated_name%40connelly.biz&password=mojew64h&password_confirmation=mojew64h",
       "response_data": {
         "id": 177,
-        "email": "updated_name@hahn.biz",
+        "email": "updated_name@connelly.biz",
         "name": "Updated Name",
         "admin": false,
         "token": {
-          "access_token": "7885287a83491a54c7d5bbf708d521ea"
-        }
+          "access_token": "1c7d827800308e41e7152822e55456bf"
+        },
+        "platform": null
       },
       "code": 200,
-      "show_in_doc": 0,
+      "show_in_doc": 1,
       "recorded": true
     },
     {
@@ -3254,15 +3338,38 @@
         "1.0"
       ],
       "query": null,
-      "request_data": "first_name=Updated&last_name=Name&email=updated_name%40zemlak.name&password=ps6xs5r11&password_confirmation=ps6xs5r11",
+      "request_data": "first_name=Updated&last_name=Name&email=updated_name%40beier.name&password=5uaqmrc6k&password_confirmation=5uaqmrc6k",
       "response_data": {
         "id": 178,
-        "email": "updated_name@zemlak.name",
+        "email": "updated_name@beier.name",
         "name": "Updated Name",
         "admin": false,
         "token": {
-          "access_token": "baf3e3927ea8e700da83366b23517bde"
-        }
+          "access_token": "817ba1c8179841c7d0342be53b79ac02"
+        },
+        "platform": null
+      },
+      "code": 200,
+      "show_in_doc": 0,
+      "recorded": true
+    },
+    {
+      "verb": "PUT",
+      "path": "/users/179",
+      "versions": [
+        "1.0"
+      ],
+      "query": null,
+      "request_data": "first_name=Updated&last_name=Name&email=updated_name%40mann.name&password=4gcpnifxq&password_confirmation=4gcpnifxq",
+      "response_data": {
+        "id": 179,
+        "email": "updated_name@mann.name",
+        "name": "Updated Name",
+        "admin": false,
+        "token": {
+          "access_token": "ef3254c14a6a456c9ff7c4b1089915ec"
+        },
+        "platform": null
       },
       "code": 200,
       "show_in_doc": 0,

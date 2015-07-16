@@ -13,8 +13,10 @@ class SessionsController < ApplicationController
       @platform = Platform.find_by( label: params[:platform] )
 
       if @platform
-        @user.platform = @platform
         @user.set_auth_token
+        @user.platform = @platform
+        @user.save
+
         render json: @user, status: :ok
       else
         render json: "Must provide a valid platform", status: :unauthorized
