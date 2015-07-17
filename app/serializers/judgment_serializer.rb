@@ -17,4 +17,5 @@ class JudgmentSerializer < ActiveModel::Serializer
   belongs_to :judge
   belongs_to :team
   belongs_to :criterion
+  has_one :rubric
 end
