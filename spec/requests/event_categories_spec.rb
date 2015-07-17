@@ -9,7 +9,7 @@ describe "Event Categories API" do
 
     describe "with valid token", :show_in_doc do
       before :each do
-        event.categories << create( :event_category, rubric: create( :rubric, event: event ) )
+        event.categories << create( :event_category, rubric_categories: [create( :rubric_category, rubric: create( :rubric, event: event ) )] )
         get "/events/#{event.id}/categories", nil, { "Authorization" => "Token token=" + user.token.access_token }
       end
 
@@ -42,7 +42,7 @@ describe "Event Categories API" do
 
     describe "with valid attributes", :show_in_doc do
       before :each do
-        event.categories << create( :event_category, rubric: create( :rubric, event: event ) )
+        event.categories << create( :event_category, rubric_categories: [create( :rubric_category, rubric: create( :rubric, event: event ) )] )
         post "/events/#{event.id}/categories", attributes_for( :event_category ), { "Authorization" => "Token token=" + user.token.access_token } 
       end
 
@@ -102,7 +102,7 @@ describe "Event Categories API" do
   describe "GET /categories/:id" do
     let( :user ) { create( :user ) }
     let( :event ) { create( :event, organizers: [user], teams: [create( :event_team )] ) }
-    let( :category ) { create( :event_category, event: event, rubric: create( :rubric, event: event ) ) }
+    let( :category ) { create( :event_category, event: event, rubric_categories: [create( :rubric_category, rubric: create( :rubric, event: event ) )] ) }
   
     describe "with valid identifier", :show_in_doc do
       before :each do
@@ -168,7 +168,7 @@ describe "Event Categories API" do
   describe "PUT /categories/:id" do
     let( :user ) { create( :user ) }
     let( :event ) { create( :event, organizers: [user], teams: [create( :event_team )] ) }
-    let( :category ) { create( :event_category, event: event, rubric: create( :rubric, event: event ) ) }
+    let( :category ) { create( :event_category, event: event, rubric_categories: [create( :rubric_category, rubric: create( :rubric, event: event ) )] ) }
   
     describe "with valid identifier", :show_in_doc do
       before :each do
@@ -234,7 +234,7 @@ describe "Event Categories API" do
 
   describe "DELETE /categories/:id" do
     let( :event ) { create( :event, organizers: [user], teams: [create( :event_team )] ) }
-    let( :category ) { create( :event_category, event: event, rubric: create( :rubric, event: event ) ) }
+    let( :category ) { create( :event_category, event: event, rubric_categories: [create( :rubric_category, rubric: create( :rubric, event: event ) )] ) }
     describe "with valid attributes", :show_in_doc do
       before :each do
         event.categories << category

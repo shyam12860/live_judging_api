@@ -9,7 +9,7 @@ describe "Event Teams API" do
 
     describe "with valid token", :show_in_doc do
       before :each do
-        event.categories << create( :event_category, rubric: create( :rubric, event: event ) )
+        event.categories << create( :event_category, rubric_categories: [create( :rubric_category, rubric: create( :rubric, event: event ) )] )
         get "/events/#{event.id}/teams", nil, { "Authorization" => "Token token=" + user.token.access_token }
       end
 
@@ -41,7 +41,7 @@ describe "Event Teams API" do
     let( :event ) { create( :event, teams: [create( :event_team ), create( :event_team )], judges: [create( :user ), create( :user )], organizers: [user] ) }
     describe "with valid attributes", :show_in_doc do
       before :each do
-        event.categories << create( :event_category, rubric: create( :rubric, event: event ) )
+        event.categories << create( :event_category, rubric_categories: [create( :rubric_category, rubric: create( :rubric, event: event ) )] )
         post "/events/#{event.id}/teams", { name: "Test Team" }, { "Authorization" => "Token token=" + user.token.access_token } 
       end
 
@@ -104,7 +104,7 @@ describe "Event Teams API" do
   
     describe "with valid identifier", :show_in_doc do
       before :each do
-        event.categories << create( :event_category, rubric: create( :rubric, event: event ) )
+        event.categories << create( :event_category, rubric_categories: [create( :rubric_category, rubric: create( :rubric, event: event ) )] )
         get "/teams/#{team.id}", nil, { "Authorization" => "Token token=" + user.token.access_token }
       end
 
@@ -169,7 +169,7 @@ describe "Event Teams API" do
   
     describe "with valid identifier", :show_in_doc do
       before :each do
-        event.categories << create( :event_category, rubric: create( :rubric, event: event ) )
+        event.categories << create( :event_category, rubric_categories: [create( :rubric_category, rubric: create( :rubric, event: event ) )] )
         put "/teams/#{team.id}", attributes_for( :event_team, name: "updated", event: event ), { "Authorization" => "Token token=" + user.token.access_token }
       end
 
@@ -234,7 +234,7 @@ describe "Event Teams API" do
     let( :event ) { create( :event, teams: [team, create( :event_team )], judges: [create( :user ), create( :user )], organizers: [user] ) }
     describe "with valid attributes", :show_in_doc do
       before :each do
-        event.categories << create( :event_category, rubric: create( :rubric, event: event ) )
+        event.categories << create( :event_category, rubric_categories: [create( :rubric_category, rubric: create( :rubric, event: event ) )] )
         delete "/teams/#{team.id}", {}, { "Authorization" => "Token token=" + user.token.access_token } 
       end
 

@@ -8,7 +8,6 @@
 #  color       :integer          not null
 #  due_at      :datetime
 #  description :string
-#  rubric_id   :integer
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #
@@ -50,11 +49,5 @@ RSpec.describe EventCategory, type: :model do
     dup_event_category = build( :event_category, color: event_category.color, event: event_category.event )
     dup_event_category.valid?
     expect( dup_event_category.errors[:color] ).to include( "has already been taken" )
-  end
-
-  it "is invalid with a different rubric event" do
-    event_category.rubric.event = create( :event )
-    event_category.valid?
-    expect( event_category.errors[:rubric] ).to include( "event does not match Category event" )
   end
 end

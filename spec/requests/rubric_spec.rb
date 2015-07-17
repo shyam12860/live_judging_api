@@ -8,7 +8,7 @@ describe "Rubrics API" do
     let( :event ) { create( :event, organizers: [user] ) }
 
     before :each do
-        event.categories << create( :event_category, rubric: create( :rubric, event: event ) )
+        event.categories << create( :event_category, rubric_categories: [create( :rubric_category, rubric: create( :rubric, event: event ) )] )
     end
 
     describe "with valid token", :show_in_doc do
@@ -44,7 +44,7 @@ describe "Rubrics API" do
     let( :event ) { create( :event, organizers: [user] ) }
 
     before :each do
-        event.categories << create( :event_category, rubric: create( :rubric, event: event ) )
+        event.categories << create( :event_category, rubric_categories: [create( :rubric_category, rubric: create( :rubric, event: event ) )] )
     end
     
     describe "with valid attributes", :show_in_doc do
@@ -111,7 +111,7 @@ describe "Rubrics API" do
     let( :rubric ) { create( :rubric, event: event, criteria: [create( :criterion )] ) }
 
     before :each do
-        event.categories << create( :event_category, rubric: rubric )
+        event.categories << create( :event_category, rubric_categories: [create( :rubric_category, rubric: rubric )] )
     end
   
     describe "with valid identifier", :show_in_doc do
@@ -178,7 +178,7 @@ describe "Rubrics API" do
     let( :rubric ) { create( :rubric, event: event ) }
 
     before :each do
-        event.categories << create( :event_category, rubric: rubric )
+        event.categories << create( :event_category, rubric_categories: [create( :rubric_category, rubric: rubric )] )
     end
   
     describe "with valid identifier", :show_in_doc do
@@ -247,7 +247,7 @@ describe "Rubrics API" do
     let( :rubric ) { create( :rubric, event: event ) }
 
     before :each do
-        event.categories << create( :event_category, rubric: rubric )
+        event.categories << create( :event_category, rubric_categories: [create( :rubric_category, rubric: rubric )] )
     end
 
     describe "with valid attributes", :show_in_doc do
