@@ -7,8 +7,11 @@ class EventsController < ApplicationController
     param :location,   String, desc: "Event location",   required: true
     param :start_time, String, desc: "Event start time", required: true
     param :end_time,   String, desc: "Event end time",   required: true
+    param :map_base64, String, desc: "Base 64 encoded image string", required: false
     header "Authorization", "Token token=[access_token]", required: true
   def create
+    params[:map] = parse_image_data( params[:map_base64] ) if params[:map_base64]
+
     @event = Event.new( my_params )
     authorize @event
 
@@ -28,10 +31,13 @@ class EventsController < ApplicationController
     param :location,   String, desc: "Event location",   required: true
     param :start_time, String, desc: "Event start time", required: true
     param :end_time,   String, desc: "Event end time",   required: true
+    param :map_base64, String, desc: "Base 64 encoded image string", required: false
     header "Authorization", "Token token=[access_token]", required: true
   def update
     @event = Event.find( params[:id] )
     authorize @event
+
+    params[:map] = parse_image_data( params[:map_base64] ) if params[:map_base64]
 
     if @event.update_attributes( my_params )
       render json: @event, status: :ok
@@ -70,6 +76,6 @@ class EventsController < ApplicationController
 
   private
   def my_params
-    params.permit( :name, :location, :start_time, :end_time )
+    params.permit( :name, :location, :start_time, :end_time, :map )
   end
 end

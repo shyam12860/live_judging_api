@@ -9,6 +9,7 @@
 #  end_time   :datetime         not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  map_id     :string
 #
 
 require 'rails_helper'

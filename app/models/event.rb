@@ -9,6 +9,7 @@
 #  end_time   :datetime         not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  map_id     :string
 #
 
 class Event < ActiveRecord::Base
@@ -22,6 +23,9 @@ class Event < ActiveRecord::Base
   has_many :judges, through: :event_judges
   has_many :categories, class_name: "EventCategory", dependent: :destroy
   has_many :teams, class_name: "EventTeam", dependent: :destroy
+
+  # Refile
+  attachment :map
 
   # Validations
   validates :name,
