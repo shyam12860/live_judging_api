@@ -19,6 +19,7 @@ class User < ActiveRecord::Base
   has_secure_password
 
   after_create :set_auth_token
+  before_create :send_generated_password
 
   has_one :token
   belongs_to :platform
@@ -28,6 +29,8 @@ class User < ActiveRecord::Base
   has_many :organized_events, through: :event_organizers, source: "event"
   has_many :event_judges, foreign_key: "judge_id", dependent: :destroy
   has_many :judged_events, through: :event_judges, source: "event"
+
+  attr_accessor :generated_password
 
   validates :email,
     presence: true,
@@ -55,5 +58,11 @@ class User < ActiveRecord::Base
     return if self.token.present?
 
     Token.create( user: self )
+  end
+
+  def send_generated_password
+    if self.generated_password
+      UserMailer.send_welcome_email( self ).deliver_now
+    end
   end
 end

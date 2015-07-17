@@ -11,7 +11,12 @@ class UsersController < ApplicationController
     param :first_name,            String, desc: "User First Name",            required: true
     param :last_name,             String, desc: "User Last Name",             required: true
   def create
-    @user = User.new( my_params )
+    if params[:password]
+      @user = User.new( my_params )
+    else
+      @user = DefaultPasswordUser.new( my_params )
+    end
+
     authorize @user
 
     if @user.save
