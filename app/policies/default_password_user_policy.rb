@@ -1,0 +1,2 @@
+class DefaultPasswordUserPolicy < UserPolicy
+end
