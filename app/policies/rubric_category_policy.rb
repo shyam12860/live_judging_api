@@ -1,6 +1,6 @@
 class RubricCategoryPolicy < ApplicationPolicy
   def index?
-    user.present?
+    user.present? && ( record.first.rubric.event.organizers.include?( user ) || record.first.rubric.event.judges.include?( user ) )
   end
 
   def create?
