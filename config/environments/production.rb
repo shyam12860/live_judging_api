@@ -81,7 +81,10 @@ Rails.application.configure do
     address: "smtp.mandrillapp.com",
     port: 587,
     user_name: Rails.application.secrets.mandrill_username,
-    password: Rails.application.secrets.mandrill_api_key
+    password: Rails.application.secrets.mandrill_api_key,
+    authentication: "login",
+    domain: "api.stevedolan.me",
+    enable_starttls_auto: true
   }
 
 end
