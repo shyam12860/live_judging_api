@@ -14,8 +14,6 @@ class Rubric < ActiveRecord::Base
   belongs_to :event
   has_many :categories, class_name: "EventCategory", dependent: :nullify
   has_many :criteria, dependent: :destroy
-  has_many :rubric_categories
-  has_many :categories, through: :rubric_categories
 
   # Validations
   validates :name,

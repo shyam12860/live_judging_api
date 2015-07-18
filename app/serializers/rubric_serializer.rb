@@ -14,5 +14,4 @@ class RubricSerializer < ActiveModel::Serializer
 
   has_many :criteria
   belongs_to :event
-  has_many :rubric_categories
 end

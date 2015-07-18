@@ -8,6 +8,7 @@
 #  color       :integer          not null
 #  due_at      :datetime
 #  description :string
+#  rubric_id   :integer
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #
@@ -16,6 +17,6 @@ class EventCategorySerializer < ActiveModel::Serializer
   attributes :id, :label, :description, :color, :due_at
 
   belongs_to :event
-  has_many :rubric_categories
+  belongs_to :rubric
   has_many :teams
 end

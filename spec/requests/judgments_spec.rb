@@ -7,18 +7,18 @@ describe "Judgments API" do
   describe "GET /events/:event_id/judgments" do
     let( :event ) { create( :event, judges: [user] ) }
     let( :judge ) { create( :event_judge, event: event ) }
-    let( :team ) { create( :event_team, event: event ) }
+    let( :team_category ) { create( :team_category, team: create( :event_team, event: event ) ) }
     let( :criterion ) { create( :criterion, rubric: create( :rubric, event: event ) ) }
     let( :judgment_1 ) { 
       create( :judgment,
-        team: team, 
+        team_category: team_category, 
         judge: judge,
         criterion: criterion
       )
     }
     let( :judgment_2 ) { 
       create( :judgment,
-        team: create( :event_team, event: event ), 
+        team_category: create( :team_category, team: create( :event_team, event: event ) ), 
         judge: create( :event_judge, event: event ),
         criterion: create( :criterion, rubric: create( :rubric, event: event ) )
       )
@@ -35,10 +35,10 @@ describe "Judgments API" do
         expect( response.body ).to eq( serialize_array( JudgmentSerializer, Judgment.all, user ) )
       end
 
-      describe "when filtering by team" do
+      describe "when filtering by team category" do
         before :each do
           judgment_1.save
-          get "/events/#{event.id}/judgments?team_id=#{team.id}", nil, { "Authorization" => "Token token=" + user.token.access_token }
+          get "/events/#{event.id}/judgments?team_category_id=#{team_category.id}", nil, { "Authorization" => "Token token=" + user.token.access_token }
         end
 
         it "returns a success status code" do
@@ -100,7 +100,7 @@ describe "Judgments API" do
     let( :event ) { create( :event ) }
     let( :judgment ) { 
       create( :judgment,
-        team: create( :event_team, event: event ), 
+        team_category: create( :team_category, team: create( :event_team, event: event ) ), 
         judge: create( :event_judge, event: event ),
         criterion: create( :criterion, rubric: create( :rubric, event: event ) )
       )
@@ -155,14 +155,14 @@ describe "Judgments API" do
   describe "POST /judgments" do
     let( :event ) { create( :event ) }
     let( :judge ) { create( :event_judge, event: event ) }
-    let( :team ) { create( :event_team, event: event ) }
+    let( :team_category ) { create( :team_category, team: create( :event_team, event: event ) ) }
     let( :rubric ) { create( :rubric, event: event ) }
     let( :criterion ) { create( :criterion, rubric: rubric ) }
 
     describe "with valid attributes", :show_in_doc do
       before :each do
         event.judges << user
-        post "/judgments", { judge_id: judge.id, team_id: team.id, criterion_id: criterion.id, value: criterion.max_score }, { "Authorization" => "Token token=" + user.token.access_token } 
+        post "/judgments", { judge_id: judge.id, team_category_id: team_category.id, criterion_id: criterion.id, value: criterion.max_score }, { "Authorization" => "Token token=" + user.token.access_token } 
       end
 
       it "returns a created status code" do
@@ -178,7 +178,7 @@ describe "Judgments API" do
       let( :other_user ) { create( :user ) }
       before :each do
         event.judges << user
-        post "/judgments", { judge_id: judge.id, team_id: team.id, criterion_id: criterion.id, value: criterion.max_score }, { "Authorization" => "Token token=" + other_user.token.access_token } 
+        post "/judgments", { judge_id: judge.id, team_category_id: team_category.id, criterion_id: criterion.id, value: criterion.max_score }, { "Authorization" => "Token token=" + other_user.token.access_token } 
       end
 
       it "returns a created status code" do
@@ -193,7 +193,7 @@ describe "Judgments API" do
     describe "with invalid attributes" do
       before :each do
         event.judges << user
-        post "/judgments", { judge_id: judge.id, team_id: team.id, criterion_id: criterion.id, value: nil }, { "Authorization" => "Token token=" + user.token.access_token } 
+        post "/judgments", { judge_id: judge.id, team_category_id: team_category.id, criterion_id: criterion.id, value: nil }, { "Authorization" => "Token token=" + user.token.access_token } 
       end
 
       it "returns an unprocessable entity status code" do
@@ -208,7 +208,7 @@ describe "Judgments API" do
     describe "with invalid token" do
       before :each do
         event.judges << user
-        post "/judgments", { judge_id: judge.id, team_id: team.id, criterion_id: criterion.id, value: criterion.max_score }, { "Authorization" => "Token token=" + SecureRandom.hex } 
+        post "/judgments", { judge_id: judge.id, team_category_id: team_category.id, criterion_id: criterion.id, value: criterion.max_score }, { "Authorization" => "Token token=" + SecureRandom.hex } 
       end
 
       it "returns an unauthorized status code" do
@@ -223,7 +223,7 @@ describe "Judgments API" do
 
   describe "PUT /judgments/:id" do
     let( :event ) { create( :event ) }
-    let( :judgment ) { create( :judgment, judge: create( :event_judge, event: event ), team: create( :event_team, event: event ), criterion: create( :criterion, rubric: create( :rubric, event: event ) ) ) }
+    let( :judgment ) { create( :judgment, judge: create( :event_judge, event: event ), team_category: create( :team_category, team: create( :event_team, event: event ) ), criterion: create( :criterion, rubric: create( :rubric, event: event ) ) ) }
   
     describe "with valid identifier", :show_in_doc do
       before :each do

@@ -2,13 +2,13 @@
 #
 # Table name: judgments
 #
-#  id           :integer          not null, primary key
-#  value        :integer          not null
-#  team_id      :integer          not null
-#  judge_id     :integer          not null
-#  criterion_id :integer          not null
-#  created_at   :datetime         not null
-#  updated_at   :datetime         not null
+#  id               :integer          not null, primary key
+#  value            :integer          not null
+#  judge_id         :integer          not null
+#  criterion_id     :integer          not null
+#  team_category_id :integer          not null
+#  created_at       :datetime         not null
+#  updated_at       :datetime         not null
 #
 
 require 'rails_helper'
@@ -52,10 +52,10 @@ RSpec.describe Judgment, type: :model do
     expect( judgment ).to be_valid
   end
 
-  it "is invalid without a team" do
-    judgment.team = nil
+  it "is invalid without a team category" do
+    judgment.team_category = nil
     judgment.valid?
-    expect( judgment.errors[:team] ).to include( "can't be blank" )
+    expect( judgment.errors[:team_category] ).to include( "can't be blank" )
   end
 
   it "is invalid without a judge" do
@@ -70,8 +70,8 @@ RSpec.describe Judgment, type: :model do
     expect( judgment.errors[:criterion] ).to include( "can't be blank" )
   end
 
-  it "is invalid without a unique judge, team, criterion combination" do
-    dup_judgment = build( :judgment, judge: judgment.judge, team: judgment.team, criterion: judgment.criterion )
+  it "is invalid without a unique judge, team_category, criterion combination" do
+    dup_judgment = build( :judgment, judge: judgment.judge, team_category: judgment.team_category, criterion: judgment.criterion )
     dup_judgment.valid?
     expect( dup_judgment.errors[:criterion] ).to include( "has already been taken" )
   end
@@ -79,18 +79,18 @@ RSpec.describe Judgment, type: :model do
   it "is invalid when the judge event does not match the team event" do
     judgment.judge.event = create( :event )
     judgment.valid?
-    expect( judgment.errors[:criterion] ).to include( "event does not match Team or Judge events" )
+    expect( judgment.errors[:criterion] ).to include( "event does not match Team Category or Judge events" )
   end
 
   it "is invalid when the team event does not match the criterion event" do
-    judgment.team.event = create( :event )
+    judgment.team_category.team.event = create( :event )
     judgment.valid?
-    expect( judgment.errors[:criterion] ).to include( "event does not match Team or Judge events" )
+    expect( judgment.errors[:criterion] ).to include( "event does not match Team Category or Judge events" )
   end
 
   it "is invalid when the judge event does not match the criterion event" do
     judgment.criterion.rubric.event = create( :event )
     judgment.valid?
-    expect( judgment.errors[:criterion] ).to include( "event does not match Team or Judge events" )
+    expect( judgment.errors[:criterion] ).to include( "event does not match Team Category or Judge events" )
   end
 end

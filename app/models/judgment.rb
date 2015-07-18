@@ -2,30 +2,31 @@
 #
 # Table name: judgments
 #
-#  id           :integer          not null, primary key
-#  value        :integer          not null
-#  team_id      :integer          not null
-#  judge_id     :integer          not null
-#  criterion_id :integer          not null
-#  created_at   :datetime         not null
-#  updated_at   :datetime         not null
+#  id               :integer          not null, primary key
+#  value            :integer          not null
+#  judge_id         :integer          not null
+#  criterion_id     :integer          not null
+#  team_category_id :integer          not null
+#  created_at       :datetime         not null
+#  updated_at       :datetime         not null
 #
 
 class Judgment < ActiveRecord::Base
   belongs_to :criterion
   belongs_to :judge, class_name: "EventJudge", foreign_key: "judge_id"
-  belongs_to :team, class_name: "EventTeam", foreign_key: "team_id"
+  belongs_to :team_category
   has_one :rubric, through: :criterion
-  has_one :event, through: :team
+  has_one :event, through: :judge
+  has_one :event_team, through: :team_category
 
   validates :criterion,
     presence: true,
-    uniqueness: { scope: [:team, :judge] }
+    uniqueness: { scope: [:team_category, :judge] }
 
   validates :judge,
     presence: true
 
-  validates :team,
+  validates :team_category,
     presence: true
 
   validates :value,
@@ -36,7 +37,7 @@ class Judgment < ActiveRecord::Base
     if: :value_set?
 
   validate :events_must_match,
-    if: "judge_id && team_id && criterion_id" 
+    if: "judge_id && team_category_id && criterion_id" 
 
   private
     def value_set?
@@ -52,8 +53,8 @@ class Judgment < ActiveRecord::Base
     end
 
     def events_must_match
-      if team.event != judge.event || team.event != criterion.rubric.event || judge.event != criterion.rubric.event
-        errors.add( :criterion, "event does not match Team or Judge events" )
+      if team_category.team.event != judge.event || team_category.team.event != criterion.rubric.event || judge.event != criterion.rubric.event
+        errors.add( :criterion, "event does not match Team Category or Judge events" )
       end
     end
 end

@@ -2,15 +2,15 @@ class JudgmentsController < ApplicationController
   api :GET, "/events/:event_id/judgments", "Get a list of judgments"
     description "Get a list of all event judgments."
     error code: :unauthorized, desc: " - Bad Token"
-    param :judge_id,     Integer, desc: "Judge that a judgment relates to",               required: false
-    param :team_id,      Integer, desc: "Team that a judgment relates to",                required: false
-    param :criterion_id, Integer, desc: "Criterion that a judgment relates to",                required: false
+    param :judge_id,         Integer, desc: "Judge that a judgment relates to",     required: false
+    param :team_category_id, Integer, desc: "Team Category that a judgment relates to",      required: false
+    param :criterion_id,     Integer, desc: "Criterion that a judgment relates to", required: false
     header "Authorization", "Token token=[access_token]", required: true
   def index
-    @judgments = Judgment.joins( :team ).joins( :event ).where( events: { id: params[:event_id] } )
+    @judgments = Judgment.joins( :judge ).joins( :event ).where( events: { id: params[:event_id] } )
 
-    if params[:team_id]
-      @judgments = @judgments.where( team: params[:team_id] )
+    if params[:team_category_id]
+      @judgments = @judgments.where( team_category: params[:team_category_id] )
     end
 
     if params[:judge_id]
@@ -45,10 +45,10 @@ class JudgmentsController < ApplicationController
     description "Update a rubric judgment"
     error code: :unprocessable_entity, desc: " - Bad parameters for User"
     error code: :unauthorized, desc: " - Bad Token"
-    param :judge_id,     Integer, desc: "Judge that a judgment relates to",               required: false
-    param :team_id,      Integer, desc: "Team that a judgment relates to",                required: false
-    param :criterion_id, Integer, desc: "Criterion that a judgment relates to",           required: false
-    param :value,        String,  desc: "Value that a judge gives a team in a criterion", required: false
+    param :judge_id,         Integer, desc: "Judge that a judgment relates to",               required: false
+    param :team_category_id, Integer, desc: "Team that a judgment relates to",                required: false
+    param :criterion_id,     Integer, desc: "Criterion that a judgment relates to",           required: false
+    param :value,            String,  desc: "Value that a judge gives a team in a criterion", required: false
     header "Authorization", "Token token=[access_token]", required: true
   def update
     @judgment = Judgment.find( params[:id] )
@@ -65,17 +65,17 @@ class JudgmentsController < ApplicationController
     description "Add a rubric to a judgment"
     error code: :unprocessable_entity, desc: " - Bad parameters for Judgment"
     error code: :unauthorized, desc: " - Bad Token"
-    param :judge_id,     Integer, desc: "Judge that a judgment relates to",               required: true
-    param :team_id,      Integer, desc: "Team that a judgment relates to",                required: true
-    param :criterion_id, Integer, desc: "Criterion that a judgment relates to",           required: true
-    param :value,        String,  desc: "Value that a judge gives a team in a criterion", required: true
+    param :judge_id,         Integer, desc: "Judge that a judgment relates to",               required: true
+    param :team_category_id, Integer, desc: "Team that a judgment relates to",                required: true
+    param :criterion_id,     Integer, desc: "Criterion that a judgment relates to",           required: true
+    param :value,            String,  desc: "Value that a judge gives a team in a criterion", required: true
     header "Authorization", "Token token=[access_token]", required: true
   def create
     @judge = EventJudge.find( params[:judge_id] )
-    @team = EventTeam.find( params[:team_id] )
+    @team_category = TeamCategory.find( params[:team_category_id] )
     @criterion = Criterion.find( params[:criterion_id] )
 
-    @judgment = Judgment.new( value: params[:value], criterion: @criterion, team: @team, judge: @judge )
+    @judgment = Judgment.new( value: params[:value], criterion: @criterion, team_category: @team_category, judge: @judge )
     authorize @judgment
 
     if @judgment.save
@@ -87,6 +87,6 @@ class JudgmentsController < ApplicationController
 
   private
     def my_params
-      params.permit( :value, :judge_id, :team_id, :criterion_id )
+      params.permit( :value, :judge_id, :team_category_id, :criterion_id )
     end
 end
