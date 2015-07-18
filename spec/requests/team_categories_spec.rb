@@ -4,6 +4,53 @@ describe "Team Categories API" do
   let( :user ) { create( :user ) }
   before { host! "api.example.com" }
 
+  describe "GET /team_categories/:id" do
+    let( :team_category ) { create( :team_category ) }
+
+    describe "with valid token", :show_in_doc do
+      before :each do
+        team_category.team.event.organizers << user
+        get "/team_categories/#{team_category.id}", nil, { "Authorization" => "Token token=" + user.token.access_token }
+      end
+
+      it "returns a success status code" do
+        expect( response ).to have_http_status( :ok )
+      end
+
+      it "returns the correct JSON" do
+        expect( response.body ).to eq( serialize( TeamCategorySerializer, team_category, user ) )
+      end
+    end
+
+    describe "with invalid token" do
+      before :each do
+        get "/team_categories/#{team_category.id}", nil, { "Authorization" => "Token token=" + SecureRandom.hex }
+      end
+
+      it "returns an unauthorized status code" do
+        expect( response ).to have_http_status( :unauthorized )
+      end
+
+      it "returns the correct JSON" do
+        expect( response.body ).to eq( "Bad credentials. Token required." )
+      end
+    end
+
+    describe "when the team_category does not exist" do
+      before :each do
+        get "/team_categories/aowjef", nil, { "Authorization" => "Token token=" + user.token.access_token }
+      end
+
+      it "returns a not found status code" do
+        expect( response ).to have_http_status( :not_found )
+      end
+
+      it "returns the correct JSON" do
+        expect( response.body ).to be_blank
+      end
+    end
+  end
+
   describe "GET /teams/:team_id/categories" do
     let( :team_category ) { create( :team_category ) }
 

@@ -15,6 +15,18 @@ class TeamCategoriesController < ApplicationController
     render json: @categories, status: :ok
   end
 
+  api :GET, "/team_categories/:id", "Get a specific team category"
+    description "Get a specific team category"
+    error code: :unauthorized, desc: " - Bad Token"
+    header "Authorization", "Token token=[access_token]", required: true
+  def show
+    @team_category = TeamCategory.find( params[:id] )
+    authorize @team_category
+
+    render json: @team_category, status: :ok
+  end
+
+
   api :POST, "/teams/:team_id/categories", "Add a team to a category. Must be an organizer of the event"
     description "Add a team to a category"
     error code: :unprocessable_entity, desc: " - Bad parameters for Category"

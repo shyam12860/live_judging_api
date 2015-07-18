@@ -22,6 +22,8 @@ Rails.application.routes.draw do
 
     resources :criteria, only: [:show, :update, :destroy]
 
+    resources :team_categories, only: [:show]
+
     resources :judgments, only: [:show, :update, :create]
 
     resources :rubrics, only: [:update, :destroy, :show] do
