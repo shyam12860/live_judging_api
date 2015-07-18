@@ -86,15 +86,15 @@ ActiveRecord::Schema.define(version: 20150717021021) do
   add_index "judge_teams", ["judge_id", "team_id"], name: "index_judge_teams_on_judge_id_and_team_id", unique: true, using: :btree
 
   create_table "judgments", force: :cascade do |t|
-    t.integer  "value",        null: false
-    t.integer  "team_id",      null: false
-    t.integer  "judge_id",     null: false
-    t.integer  "criterion_id", null: false
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.integer  "value",            null: false
+    t.integer  "judge_id",         null: false
+    t.integer  "criterion_id",     null: false
+    t.integer  "team_category_id", null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
   end
 
-  add_index "judgments", ["judge_id", "team_id", "criterion_id"], name: "index_judgments_on_judge_id_and_team_id_and_criterion_id", unique: true, using: :btree
+  add_index "judgments", ["judge_id", "team_category_id", "criterion_id"], name: "judgments_unique_index", unique: true, using: :btree
 
   create_table "messages", force: :cascade do |t|
     t.string   "subject",      null: false
@@ -130,7 +130,7 @@ ActiveRecord::Schema.define(version: 20150717021021) do
 
   create_table "tokens", force: :cascade do |t|
     t.string   "access_token",                                 null: false
-    t.datetime "expires_at",   default: '2015-08-01 01:53:17', null: false
+    t.datetime "expires_at",   default: '2015-08-01 02:12:27', null: false
     t.integer  "user_id"
     t.datetime "created_at",                                   null: false
     t.datetime "updated_at",                                   null: false
@@ -166,7 +166,7 @@ ActiveRecord::Schema.define(version: 20150717021021) do
   add_foreign_key "judge_teams", "event_teams", column: "team_id", name: "judge_team_team", on_delete: :cascade
   add_foreign_key "judgments", "criteria", name: "judgment_criterion", on_delete: :cascade
   add_foreign_key "judgments", "event_judges", column: "judge_id", name: "judgment_judge", on_delete: :cascade
-  add_foreign_key "judgments", "event_teams", column: "team_id", name: "judgment_team", on_delete: :cascade
+  add_foreign_key "judgments", "team_categories", name: "judgment_team_category", on_delete: :cascade
   add_foreign_key "messages", "users", column: "recipient_id", name: "message_recipient"
   add_foreign_key "messages", "users", column: "sender_id", name: "message_sender"
   add_foreign_key "rubrics", "events", name: "rubric_event", on_delete: :cascade
