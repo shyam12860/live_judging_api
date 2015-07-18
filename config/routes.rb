@@ -25,7 +25,6 @@ Rails.application.routes.draw do
     resources :judgments, only: [:show, :update, :create]
 
     resources :rubrics, only: [:update, :destroy, :show] do
-      resources :rubric_categories, only: [:create, :index, :destroy], as: "categories", path: "categories"
       resources :criteria,          only: [:create, :index]
     end
 

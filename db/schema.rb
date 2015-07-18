@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20150717021021) do
     t.integer  "color",       null: false
     t.datetime "due_at"
     t.string   "description"
+    t.integer  "rubric_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
@@ -109,13 +110,6 @@ ActiveRecord::Schema.define(version: 20150717021021) do
 
   add_index "platforms", ["label"], name: "index_platforms_on_label", unique: true, using: :btree
 
-  create_table "rubric_categories", force: :cascade do |t|
-    t.integer  "rubric_id",   null: false
-    t.integer  "category_id", null: false
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
-
   create_table "rubrics", force: :cascade do |t|
     t.string   "name",       null: false
     t.integer  "event_id",   null: false
@@ -136,7 +130,7 @@ ActiveRecord::Schema.define(version: 20150717021021) do
 
   create_table "tokens", force: :cascade do |t|
     t.string   "access_token",                                 null: false
-    t.datetime "expires_at",   default: '2015-07-31 01:46:00', null: false
+    t.datetime "expires_at",   default: '2015-08-01 01:53:17', null: false
     t.integer  "user_id"
     t.datetime "created_at",                                   null: false
     t.datetime "updated_at",                                   null: false
@@ -162,6 +156,7 @@ ActiveRecord::Schema.define(version: 20150717021021) do
 
   add_foreign_key "criteria", "rubrics", name: "category_rubric", on_delete: :nullify
   add_foreign_key "event_categories", "events", name: "event_category_event", on_delete: :cascade
+  add_foreign_key "event_categories", "rubrics", name: "event_category_rubric", on_delete: :nullify
   add_foreign_key "event_judges", "events", name: "event_judge_event", on_delete: :cascade
   add_foreign_key "event_judges", "users", column: "judge_id", name: "event_judge_judge", on_delete: :cascade
   add_foreign_key "event_organizers", "events", name: "event_organizer_event", on_delete: :cascade
@@ -174,8 +169,6 @@ ActiveRecord::Schema.define(version: 20150717021021) do
   add_foreign_key "judgments", "event_teams", column: "team_id", name: "judgment_team", on_delete: :cascade
   add_foreign_key "messages", "users", column: "recipient_id", name: "message_recipient"
   add_foreign_key "messages", "users", column: "sender_id", name: "message_sender"
-  add_foreign_key "rubric_categories", "event_categories", column: "category_id", name: "rubric_category_category"
-  add_foreign_key "rubric_categories", "rubrics", name: "rubric_category_rubric"
   add_foreign_key "rubrics", "events", name: "rubric_event", on_delete: :cascade
   add_foreign_key "team_categories", "event_categories", column: "category_id", name: "team_category_category", on_delete: :cascade
   add_foreign_key "team_categories", "event_teams", column: "team_id", name: "team_category_team", on_delete: :cascade

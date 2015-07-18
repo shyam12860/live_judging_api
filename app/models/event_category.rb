@@ -8,6 +8,7 @@
 #  color       :integer          not null
 #  due_at      :datetime
 #  description :string
+#  rubric_id   :integer
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #
@@ -16,8 +17,7 @@ class EventCategory < ActiveRecord::Base
   belongs_to :event
   has_many :team_categories, foreign_key: "category_id", dependent: :destroy
   has_many :teams, through: :team_categories
-  has_many :rubric_categories, foreign_key: "category_id", dependent: :destroy
-  has_many :rubrics, through: :rubric_categories
+  belongs_to :rubric
 
   validates :event,
     presence: true
