@@ -35,7 +35,7 @@ class EventTeamsController < ApplicationController
     param :logo_base64, String, desc: "Base 64 encoded image string", required: false
     header "Authorization", "Token token=[access_token]", required: true
   def create
-    params[:logo] = parse_image_data( params[:logo_base64] ) if params[:logo_base64]
+    params[:logo] = parse_image_data( params[:logo_base64] ) if params[:logo_base64] && params[:logo_base64].length > 0
 
     @team = EventTeam.new( create_params )
     authorize @team
@@ -58,7 +58,7 @@ class EventTeamsController < ApplicationController
     @team = EventTeam.find( params[:id] )
     authorize @team
 
-    params[:logo] = parse_image_data( params[:logo_base64] ) if params[:logo_base64]
+    params[:logo] = parse_image_data( params[:logo_base64] ) if params[:logo_base64] && params[:logo_base64].length > 0
 
     if @team.update_attributes( update_params )
       render json: @team, status: :ok

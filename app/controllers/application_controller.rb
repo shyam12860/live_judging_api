@@ -50,7 +50,7 @@ class ApplicationController < ActionController::API
 
     def parse_image_data( base64_image )
       filename = "upload-image"
-      in_content_type, encoding, string = base64_image.split( /[:;,]/ )[1..3]
+      string = base64_image.split( ',' ).last
       StringIO.new( Base64.decode64( string ) )
     end
 end
