@@ -12,4 +12,6 @@ class EventJudgeSerializer < ActiveModel::Serializer
 
   belongs_to :event
   belongs_to :judge
+  has_many :teams
+  has_many :judgments
 end
