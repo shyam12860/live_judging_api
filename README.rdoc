@@ -1,28 +1,20 @@
-== README
+#Live Judging (name WIP)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+##The Idea
 
-Things you may want to cover:
+An API that can be used to judge events. Events have organizers and judges, who can obviously organizer or judge events. Events can have teams, categories, and rubrics assigned to those categories. Judges can judge entire categories or specific teams by submitting criteria from that category's rubric.
 
-* Ruby version
+##The API Docs
 
-* System dependencies
+You can see the API documentation [here](http://api.stevedolan.me).
 
-* Configuration
+##The Future
 
-* Database creation
+I'd quite like to develop this further as a standalone web application, and don't have a firm direction I want to take it yet. Ideas submitted as issues to this repository are helpful.
 
-* Database initialization
+##Contributing
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+1. Fork it
+2. Create a feature branch
+3. Code up your feature
+4. Submit a pull request
