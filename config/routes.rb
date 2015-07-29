@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  constraints subdomain: 'api' do
+  constraints subdomain: %w{api judging_api} do
     apipie
     root to: 'apipie/apipies#index'
 
