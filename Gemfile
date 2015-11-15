@@ -1,6 +1,7 @@
 source "https://rubygems.org"
 
 gem "rails", "4.2.1"
+gem "ruby"
 gem "rails-api"
 gem "spring", :group => :development
 gem "sqlite3"
