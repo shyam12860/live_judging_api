@@ -225,7 +225,6 @@ GEM
       rspec-mocks (~> 3.2.0)
       rspec-support (~> 3.2.0)
     rspec-support (3.2.2)
-    ruby (0.1.0)
     shellany (0.0.1)
     sinatra (1.4.6)
       rack (~> 1.4)
@@ -281,7 +280,6 @@ DEPENDENCIES
   refile-mini_magick
   refile-s3
   rspec-rails (~> 3.2.3)
-  ruby
   spring
   sqlite3
 

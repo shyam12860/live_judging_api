@@ -1,7 +1,6 @@
 source "https://rubygems.org"
 
 gem "rails", "4.2.1"
-gem "ruby"
 gem "rails-api"
 gem "spring", :group => :development
 gem "sqlite3"
@@ -38,3 +37,5 @@ group :development, :test do
   gem "guard-livereload"               # Reload browser window automatically
   gem "guard-rails"                    # Restart server when necessary
 end
+
+ruby "2.2.2"
