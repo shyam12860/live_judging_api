@@ -6,14 +6,8 @@
 
 # Ignore bundler config.
 /.bundle
-/config/secrets.yml
-/config/database.yml
 /config/gemlock.yml
 .capistrano
-
-# Ignore the default SQLite database.
-/db/*.sqlite3
-/db/*.sqlite3-journal
 
 # Ignore all logfiles and tempfiles.
 /log/*

@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  constraints subdomain: %w{api judging_api} do
+  # constraints subdomain: %w{api judging_api} do
     apipie
     root to: 'apipie/apipies#index'
 
@@ -42,5 +42,5 @@ Rails.application.routes.draw do
       resources :event_judges,     only: [:create, :index], as: "judges",     path: "judges"
       resources :rubrics,          only: [:create, :index]
     end
-  end
+  # end
 end

@@ -13,9 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20150717021021) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
   create_table "criteria", force: :cascade do |t|
     t.string   "label",                  null: false
     t.integer  "min_score",  default: 0, null: false
@@ -36,15 +33,15 @@ ActiveRecord::Schema.define(version: 20150717021021) do
     t.datetime "updated_at",  null: false
   end
 
-  add_index "event_categories", ["event_id", "label"], name: "index_event_categories_on_event_id_and_label", unique: true, using: :btree
-  add_index "event_categories", ["event_id"], name: "index_event_categories_on_event_id", using: :btree
+  add_index "event_categories", ["event_id", "label"], name: "index_event_categories_on_event_id_and_label", unique: true
+  add_index "event_categories", ["event_id"], name: "index_event_categories_on_event_id"
 
   create_table "event_judges", force: :cascade do |t|
     t.integer "event_id", null: false
     t.integer "judge_id", null: false
   end
 
-  add_index "event_judges", ["event_id", "judge_id"], name: "index_event_judges_on_event_id_and_judge_id", unique: true, using: :btree
+  add_index "event_judges", ["event_id", "judge_id"], name: "index_event_judges_on_event_id_and_judge_id", unique: true
 
   create_table "event_organizers", force: :cascade do |t|
     t.integer  "event_id",     null: false
@@ -53,7 +50,7 @@ ActiveRecord::Schema.define(version: 20150717021021) do
     t.datetime "updated_at",   null: false
   end
 
-  add_index "event_organizers", ["event_id", "organizer_id"], name: "index_event_organizers_on_event_id_and_organizer_id", unique: true, using: :btree
+  add_index "event_organizers", ["event_id", "organizer_id"], name: "index_event_organizers_on_event_id_and_organizer_id", unique: true
 
   create_table "event_teams", force: :cascade do |t|
     t.string   "logo_id"
@@ -63,8 +60,8 @@ ActiveRecord::Schema.define(version: 20150717021021) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "event_teams", ["event_id", "name"], name: "index_event_teams_on_event_id_and_name", unique: true, using: :btree
-  add_index "event_teams", ["event_id"], name: "index_event_teams_on_event_id", using: :btree
+  add_index "event_teams", ["event_id", "name"], name: "index_event_teams_on_event_id_and_name", unique: true
+  add_index "event_teams", ["event_id"], name: "index_event_teams_on_event_id"
 
   create_table "events", force: :cascade do |t|
     t.string   "name",       null: false
@@ -83,7 +80,7 @@ ActiveRecord::Schema.define(version: 20150717021021) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "judge_teams", ["judge_id", "team_id"], name: "index_judge_teams_on_judge_id_and_team_id", unique: true, using: :btree
+  add_index "judge_teams", ["judge_id", "team_id"], name: "index_judge_teams_on_judge_id_and_team_id", unique: true
 
   create_table "judgments", force: :cascade do |t|
     t.integer  "value",            null: false
@@ -94,7 +91,7 @@ ActiveRecord::Schema.define(version: 20150717021021) do
     t.datetime "updated_at",       null: false
   end
 
-  add_index "judgments", ["judge_id", "team_category_id", "criterion_id"], name: "judgments_unique_index", unique: true, using: :btree
+  add_index "judgments", ["judge_id", "team_category_id", "criterion_id"], name: "judgments_unique_index", unique: true
 
   create_table "messages", force: :cascade do |t|
     t.string   "subject",      null: false
@@ -108,7 +105,7 @@ ActiveRecord::Schema.define(version: 20150717021021) do
     t.string "label", null: false
   end
 
-  add_index "platforms", ["label"], name: "index_platforms_on_label", unique: true, using: :btree
+  add_index "platforms", ["label"], name: "index_platforms_on_label", unique: true
 
   create_table "rubrics", force: :cascade do |t|
     t.string   "name",       null: false
@@ -117,7 +114,7 @@ ActiveRecord::Schema.define(version: 20150717021021) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "rubrics", ["name"], name: "index_rubrics_on_name", using: :btree
+  add_index "rubrics", ["name"], name: "index_rubrics_on_name"
 
   create_table "team_categories", force: :cascade do |t|
     t.integer  "team_id",     null: false
@@ -126,17 +123,17 @@ ActiveRecord::Schema.define(version: 20150717021021) do
     t.datetime "updated_at",  null: false
   end
 
-  add_index "team_categories", ["team_id", "category_id"], name: "index_team_categories_on_team_id_and_category_id", unique: true, using: :btree
+  add_index "team_categories", ["team_id", "category_id"], name: "index_team_categories_on_team_id_and_category_id", unique: true
 
   create_table "tokens", force: :cascade do |t|
     t.string   "access_token",                                 null: false
-    t.datetime "expires_at",   default: '2015-08-01 02:12:27', null: false
+    t.datetime "expires_at",   default: '2015-11-29 16:55:08', null: false
     t.integer  "user_id"
     t.datetime "created_at",                                   null: false
     t.datetime "updated_at",                                   null: false
   end
 
-  add_index "tokens", ["access_token"], name: "index_tokens_on_access_token", unique: true, using: :btree
+  add_index "tokens", ["access_token"], name: "index_tokens_on_access_token", unique: true
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                           null: false
@@ -151,26 +148,7 @@ ActiveRecord::Schema.define(version: 20150717021021) do
     t.string   "apn_token"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
-  add_index "users", ["platform_id"], name: "index_users_on_platform_id", using: :btree
+  add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["platform_id"], name: "index_users_on_platform_id"
 
-  add_foreign_key "criteria", "rubrics", name: "category_rubric", on_delete: :nullify
-  add_foreign_key "event_categories", "events", name: "event_category_event", on_delete: :cascade
-  add_foreign_key "event_categories", "rubrics", name: "event_category_rubric", on_delete: :nullify
-  add_foreign_key "event_judges", "events", name: "event_judge_event", on_delete: :cascade
-  add_foreign_key "event_judges", "users", column: "judge_id", name: "event_judge_judge", on_delete: :cascade
-  add_foreign_key "event_organizers", "events", name: "event_organizer_event", on_delete: :cascade
-  add_foreign_key "event_organizers", "users", column: "organizer_id", name: "event_organizer_organizer", on_delete: :cascade
-  add_foreign_key "event_teams", "events", name: "event_team_event", on_delete: :cascade
-  add_foreign_key "judge_teams", "event_judges", column: "judge_id", name: "judge_team_judge", on_delete: :cascade
-  add_foreign_key "judge_teams", "event_teams", column: "team_id", name: "judge_team_team", on_delete: :cascade
-  add_foreign_key "judgments", "criteria", name: "judgment_criterion", on_delete: :cascade
-  add_foreign_key "judgments", "event_judges", column: "judge_id", name: "judgment_judge", on_delete: :cascade
-  add_foreign_key "judgments", "team_categories", name: "judgment_team_category", on_delete: :cascade
-  add_foreign_key "messages", "users", column: "recipient_id", name: "message_recipient"
-  add_foreign_key "messages", "users", column: "sender_id", name: "message_sender"
-  add_foreign_key "rubrics", "events", name: "rubric_event", on_delete: :cascade
-  add_foreign_key "team_categories", "event_categories", column: "category_id", name: "team_category_category", on_delete: :cascade
-  add_foreign_key "team_categories", "event_teams", column: "team_id", name: "team_category_team", on_delete: :cascade
-  add_foreign_key "users", "platforms", name: "user_platform"
 end
