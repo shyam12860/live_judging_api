@@ -11,8 +11,8 @@ class SessionsController < ApplicationController
     error code: :unauthorized, desc: " - Bad Base64 email:password"
     header "Authorization", "Basic [Base64 email:password]", required: true
   def create
-    if params[:platform]
-      @platform = Platform.find_by( label: params[:platform] )
+    # if params[:platform]
+      @platform = Platform.find_by( label: params[:platform] ) || Platform.find_by( label: 'Web')
 
       if @platform
         @user.set_auth_token
@@ -32,9 +32,9 @@ class SessionsController < ApplicationController
       else
         render json: "Must provide a valid platform", status: :unauthorized
       end
-    else
-      render json: "Must provide a platform", status: :unauthorized
-    end
+    # else
+      # render json: "Must provide a platform", status: :unauthorized
+    # end
   end
 
   api :GET, "/logout", "Uses HTTP Token Authentication"
